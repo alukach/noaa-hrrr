@@ -1,19 +1,19 @@
-# stactools-ephemeral
+# stactools-noaa-hrrr
 
-[![PyPI](https://img.shields.io/pypi/v/stactools-ephemeral?style=for-the-badge)](https://pypi.org/project/stactools-ephemeral/)
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/stactools-packages/ephemeral/continuous-integration.yml?style=for-the-badge)
+[![PyPI](https://img.shields.io/pypi/v/stactools-noaa-hrrr?style=for-the-badge)](https://pypi.org/project/stactools-noaa-hrrr/)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/stactools-packages/noaa-hrrr/continuous-integration.yml?style=for-the-badge)
 
-- Name: ephemeral
-- Package: `stactools.ephemeral`
-- [stactools-ephemeral on PyPI](https://pypi.org/project/stactools-ephemeral/)
+- Name: noaa-hrrr
+- Package: `stactools.noaa_hrrr`
+- [stactools-noaa-hrrr on PyPI](https://pypi.org/project/stactools-noaa-hrrr/)
 - Owner: @githubusername
 - [Dataset homepage](http://example.com)
 - STAC extensions used:
   - [proj](https://github.com/stac-extensions/projection/)
 - Extra fields:
-  - `ephemeral:custom`: A custom attribute
-- [Browse the example in human-readable form](https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/ephemeral/main/examples/collection.json)
-- [Browse a notebook demonstrating the example item and collection](https://github.com/stactools-packages/ephemeral/tree/main/docs/example.ipynb)
+  - `noaa-hrrr:custom`: A custom attribute
+- [Browse the example in human-readable form](https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/noaa-hrrr/main/examples/collection.json)
+- [Browse a notebook demonstrating the example item and collection](https://github.com/stactools-packages/noaa-hrrr/tree/main/docs/example.ipynb)
 
 A short description of the package and its usage.
 
@@ -25,7 +25,7 @@ A short description of the package and its usage.
 ## Installation
 
 ```shell
-pip install stactools-ephemeral
+pip install stactools-noaa-hrrr
 ```
 
 ## Command-line usage
@@ -33,10 +33,10 @@ pip install stactools-ephemeral
 Description of the command line functions
 
 ```shell
-stac ephemeral create-item source destination
+stac noaa-hrrr create-item source destination
 ```
 
-Use `stac ephemeral --help` to see all subcommands and options.
+Use `stac noaa-hrrr --help` to see all subcommands and options.
 
 ## Contributing
 
