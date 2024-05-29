@@ -18,9 +18,8 @@ RUN apt-get -y -q update \
     && rm -rf /var/lib/apt/lists/
 RUN python -m venv /opt/venv
 RUN pip install . \
-    && ls /opt/venv \
-    && rm -r /opt/venv/lib/python3.11/site-packages/stactools/noaa_hrrr
-
+    && ls /opt/venv/lib/ \
+    && rm -r /opt/venv/lib/python3.12/site-packages/stactools/noaa_hrrr
 
 FROM dependencies as builder
 
@@ -45,7 +44,6 @@ COPY --from=dependencies /opt/venv /opt/venv
 COPY pyproject.toml .
 RUN pip install -e '.[dev]' \
     && git init
-
 
 FROM dev-dependencies as dev-builder
 

@@ -24,7 +24,11 @@ dependencies = ["stactools>=0.4.0"]
 [project.optional-dependencies]
 dev = [
     "black~=23.9",
+    "cfgrib~=0.9",
     "codespell~=2.2",
+    "herbie-data",
+    "ipython~=8.24",
+    "jupyterlab",
     "mypy~=1.5",
     "pre-commit~=3.4",
     "pytest-cov~=4.1",
