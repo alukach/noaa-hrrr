@@ -1,42 +1,69 @@
 {
   "type": "Collection",
-  "id": "example-collection",
+  "id": "noaa-hrrr",
   "stac_version": "1.0.0",
-  "description": "An example collection",
+  "description": "The NOAA HRRR is a real-time 3km resolution, hourly updated, cloud-resolving, convection-allowing atmospheric model, initialized by 3km grids with 3km radar assimilation. Radar data is assimilated in the HRRR every 15 min over a 1-hour period adding further detail to that provided by the hourly data assimilation from the 13km radar-enhanced Rapid Refresh (RAP) system.",
   "links": [
     {
       "rel": "root",
       "href": "./collection.json",
       "type": "application/json",
-      "title": "Example collection"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/",
+      "type": "text/html",
+      "title": "CC-BY-4.0 license"
+    },
+    {
+      "rel": "documentation",
+      "href": "https://rapidrefresh.noaa.gov/hrrr/",
+      "type": "text/html",
+      "title": "NOAA HRRR documentation"
     },
     {
       "rel": "item",
-      "href": "./example-item/example-item.json",
+      "href": "./hrrr-conus-2024-05-10T12-FH0/hrrr-conus-2024-05-10T12-FH0.json",
       "type": "application/json"
     }
   ],
-  "custom_attribute": "foo",
-  "title": "Example collection",
+  "title": "NOAA High Resolution Rapid Refresh (HRRR) collection",
   "extent": {
     "spatial": {
       "bbox": [
         [
-          -61.287624,
-          72.229798,
-          -52.301599,
-          74.622043
+          -134.12142793280145,
+          21.122192719272277,
+          -60.891244531606546,
+          52.62870335266728
         ]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2023-09-12T11:48:03.199913Z",
-          "2023-09-12T11:48:03.199913Z"
+          "2024-05-10T12:00:00Z",
+          "2024-05-10T12:00:00Z"
         ]
       ]
     }
   },
-  "license": "proprietary"
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "NOAA",
+    "HRRR",
+    "forecast",
+    "atmospheric",
+    "weather"
+  ],
+  "providers": [
+    {
+      "name": "NOAA",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://www.noaa.gov/"
+    }
+  ]
 }

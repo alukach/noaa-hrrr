@@ -1,16 +1,25 @@
 #!/usr/bin/env python
 
 import shutil
+from datetime import datetime
 from pathlib import Path
 
 import stactools.noaa_hrrr.stac
 from pystac import CatalogType
+from stactools.noaa_hrrr.constants import CloudProvider, Region
 
 root = Path(__file__).parents[1]
 examples = root / "examples"
 
-collection = stactools.noaa_hrrr.stac.create_collection()
-item = stactools.noaa_hrrr.stac.create_item(str(root / "tests" / "data" / "asset.tif"))
+collection = stactools.noaa_hrrr.stac.create_collection(
+    cloud_provider=CloudProvider.azure
+)
+item = stactools.noaa_hrrr.stac.create_item(
+    reference_datetime=datetime(year=2024, month=5, day=10, hour=12),
+    forecast_hour=0,
+    region=Region.conus,
+    cloud_provider=CloudProvider.azure,
+)
 collection.add_item(item)
 collection.update_extent_from_items()
 collection.normalize_hrefs(str(examples))

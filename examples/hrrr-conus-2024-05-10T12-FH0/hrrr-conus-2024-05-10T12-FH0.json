@@ -1,0 +1,105 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "hrrr-conus-2024-05-10T12-FH0",
+  "properties": {
+    "forecast:reference_time": "2024-05-10T12:00:00",
+    "forecast:horizon": "PT0H",
+    "noaa-hrrr:forecast_cycle_type": "extended",
+    "noaa-hrrr:region": "conus",
+    "datetime": "2024-05-10T12:00:00Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -60.891244531606546,
+          21.122192719272277
+        ],
+        [
+          -60.891244531606546,
+          52.62870335266728
+        ],
+        [
+          -134.12142793280145,
+          52.62870335266728
+        ],
+        [
+          -134.12142793280145,
+          21.122192719272277
+        ],
+        [
+          -60.891244531606546,
+          21.122192719272277
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+    }
+  ],
+  "assets": {
+    "prs": {
+      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfprsf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "3D Pressure Levels",
+      "description": "3D Pressure Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
+      "roles": [
+        "data"
+      ]
+    },
+    "nat": {
+      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfnatf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "Native Levels",
+      "description": "Native Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
+      "roles": [
+        "data"
+      ]
+    },
+    "sfc": {
+      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "2D Surface Levels",
+      "description": "2D Surface Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
+      "roles": [
+        "data"
+      ]
+    },
+    "subh": {
+      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsubhf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "2D Surface Levels - Sub Hourly",
+      "description": "2D Surface Level forecast data (sub-hourly, 15 minute intervals) as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "bbox": [
+    -134.12142793280145,
+    21.122192719272277,
+    -60.891244531606546,
+    52.62870335266728
+  ],
+  "stac_extensions": [],
+  "collection": "noaa-hrrr"
+}
