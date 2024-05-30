@@ -9,8 +9,9 @@
 - Owner: @hrodmn
 - [Dataset homepage](https://rapidrefresh.noaa.gov/hrrr/)
 - STAC extensions used:
-  - [datacube](https://github.com/stac-extensions/datacube) (coming soon)
   - [forecast](https://github.com/stac-extensions/forecast)
+  - [item-assets](https://github.com/stac-extensions/item-assets)
+  - [datacube](https://github.com/stac-extensions/datacube) (coming soon)
 - Extra fields:
   - `noaa-hrrr:forecast_cycle_type`: either standard (18-hour) or extended (48-hour)
   - `noaa-hrrr:region`: either `conus` or `alaska`

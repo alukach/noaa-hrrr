@@ -11,7 +11,7 @@ from pystac import (
     TemporalExtent,
 )
 from pystac.catalog import CatalogType
-from pystac.extensions.item_assets import AssetDefinition
+from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
     CLOUD_PROVIDER_START_DATES,
@@ -140,6 +140,11 @@ def create_collection(cloud_provider: CloudProvider) -> Collection:
     )
 
     collection.add_links(links)
+
+    item_assets_attrs = ItemAssetsExtension.ext(collection, add_if_missing=True)
+    item_assets_attrs.item_assets = {
+        variable.value: item_asset for variable, item_asset in ITEM_ASSETS.items()
+    }
 
     return collection
 

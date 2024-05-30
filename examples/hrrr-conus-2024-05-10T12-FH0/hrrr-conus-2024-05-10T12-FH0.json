@@ -83,15 +83,6 @@
       "roles": [
         "data"
       ]
-    },
-    "subh": {
-      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsubhf00.grib2",
-      "type": "application/wmo-GRIB2",
-      "title": "2D Surface Levels - Sub Hourly",
-      "description": "2D Surface Level forecast data (sub-hourly, 15 minute intervals) as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
-      "roles": [
-        "data"
-      ]
     }
   },
   "bbox": [

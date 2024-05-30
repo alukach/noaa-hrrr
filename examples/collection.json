@@ -28,6 +28,43 @@
       "type": "application/json"
     }
   ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
+  ],
+  "item_assets": {
+    "sfc": {
+      "type": "application/wmo-GRIB2",
+      "roles": [
+        "data"
+      ],
+      "title": "2D Surface Levels",
+      "description": "2D Surface Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range."
+    },
+    "subh": {
+      "type": "application/wmo-GRIB2",
+      "roles": [
+        "data"
+      ],
+      "title": "2D Surface Levels - Sub Hourly",
+      "description": "2D Surface Level forecast data (sub-hourly, 15 minute intervals) as a grib2 file. Subsets of the data can be loaded using the provided byte range."
+    },
+    "prs": {
+      "type": "application/wmo-GRIB2",
+      "roles": [
+        "data"
+      ],
+      "title": "3D Pressure Levels",
+      "description": "3D Pressure Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range."
+    },
+    "nat": {
+      "type": "application/wmo-GRIB2",
+      "roles": [
+        "data"
+      ],
+      "title": "Native Levels",
+      "description": "Native Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range."
+    }
+  },
   "title": "NOAA High Resolution Rapid Refresh (HRRR) collection",
   "extent": {
     "spatial": {
