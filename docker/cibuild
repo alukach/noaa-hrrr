@@ -20,6 +20,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         --target dev-builder \
         .
     docker run --rm \
+        -e DOCKER=true \
         --entrypoint scripts/cibuild \
         stactools-packages/noaa-hrrr:dev
 fi
