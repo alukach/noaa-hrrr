@@ -28,7 +28,6 @@ dependencies = [
 dev = [
     "black~=23.9",
     "codespell~=2.2",
-    "ipython~=8.24",
     "jupyterlab~=4.2.1",
     "mypy~=1.5",
     "pre-commit~=3.4",
