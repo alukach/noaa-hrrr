@@ -17,7 +17,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
-        conda activate stactools-noaa-hrrr
+        conda init && conda activate stactools-noaa-hrrr
         ./scripts/update
         ./scripts/test
     fi
