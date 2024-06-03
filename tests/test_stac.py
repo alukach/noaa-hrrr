@@ -39,9 +39,8 @@ def test_create_item(cloud_provider: CloudProvider, region: Region) -> None:
     )
     item.validate()
 
-    forecast_type = "extended" if region == Region.conus else "standard"
     assert (
-        item.properties["noaa-hrrr:forecast_cycle_type"] == forecast_type
+        item.properties["noaa-hrrr:forecast_cycle_type"] == "extended"
     )  # because hour=6
 
 
@@ -68,7 +67,7 @@ def test_create_item_forecast_cycle_type() -> None:
 
 
 def test_create_item_alaska() -> None:
-    # Alaska only makes standard (18 hour) forecasts and only every three hours
+    # Alaska only runs forecasts every three hours (no forecast for hour=2)
     with pytest.raises(ValueError):
         _ = stac.create_item(
             reference_datetime=datetime(year=2024, month=5, day=1, hour=2),
@@ -77,14 +76,19 @@ def test_create_item_alaska() -> None:
             cloud_provider=CloudProvider.azure,
         )
 
-    with pytest.raises(ValueError):
-        _ = stac.create_item(
-            reference_datetime=datetime(year=2024, month=5, day=1, hour=0),
-            forecast_hour=19,
-            region=Region.alaska,
-            cloud_provider=CloudProvider.azure,
-        )
+    # extended forecasts are generated on hours 0, 6, 12, 18
+    item = stac.create_item(
+        reference_datetime=datetime(year=2024, month=5, day=1, hour=0),
+        forecast_hour=19,
+        region=Region.alaska,
+        cloud_provider=CloudProvider.azure,
+    )
 
+    assert (
+        item.properties["noaa-hrrr:forecast_cycle_type"] == "extended"
+    )  # because hour=6
+
+    # standard forecasts are generated on hours 0, 3, 6, 9, 12, 15, 18, 21
     item = stac.create_item(
         reference_datetime=datetime(year=2024, month=5, day=1, hour=3),
         forecast_hour=12,
@@ -94,4 +98,4 @@ def test_create_item_alaska() -> None:
 
     assert (
         item.properties["noaa-hrrr:forecast_cycle_type"] == "standard"
-    )  # because alaska
+    )  # because hour=3 (not divisible by 6)

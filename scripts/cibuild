@@ -18,7 +18,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         usage
     else
         if [ "${DOCKER}" = "true" ]; then
-            conda activate base
+            conda init && conda activate base
         fi
         ./scripts/update
         ./scripts/test

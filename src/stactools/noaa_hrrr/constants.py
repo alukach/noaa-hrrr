@@ -42,7 +42,6 @@ class Region(StrEnum):
     """Values for the 'region' parameter in the HRRR hrefs"""
 
     conus = "conus"
-    # Herbie can't find Alaska data as of 2024-05-30
     alaska = "alaska"
 
 
@@ -90,9 +89,6 @@ class ForecastCycleType:
 
         Extended forecasts are generated every six hours starting at hour 00
         """
-        # no extended forecasts for alaska
-        if region == Region.alaska:
-            return cls("standard")
 
         extended = reference_datetime.hour % 6 == 0
         return cls("extended" if extended else "standard")
