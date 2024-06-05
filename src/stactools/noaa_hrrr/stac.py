@@ -19,14 +19,14 @@ from stactools.noaa_hrrr.constants import (
     REGION_CONFIGS,
     CloudProvider,
     ForecastCycleType,
+    Product,
     Region,
-    Variable,
 )
 
 GRIB2_MEDIA_TYPE = "application/wmo-GRIB2"
 
 ITEM_ASSETS = {
-    Variable.surface: AssetDefinition(
+    Product.surface: AssetDefinition(
         {
             "type": GRIB2_MEDIA_TYPE,
             "roles": ["data"],
@@ -37,7 +37,7 @@ ITEM_ASSETS = {
             ),
         }
     ),
-    Variable.sub_hourly: AssetDefinition(
+    Product.sub_hourly: AssetDefinition(
         {
             "type": GRIB2_MEDIA_TYPE,
             "roles": ["data"],
@@ -49,7 +49,7 @@ ITEM_ASSETS = {
             ),
         }
     ),
-    Variable.pressure: AssetDefinition(
+    Product.pressure: AssetDefinition(
         {
             "type": GRIB2_MEDIA_TYPE,
             "roles": ["data"],
@@ -60,7 +60,7 @@ ITEM_ASSETS = {
             ),
         }
     ),
-    Variable.native: AssetDefinition(
+    Product.native: AssetDefinition(
         {
             "type": GRIB2_MEDIA_TYPE,
             "roles": ["data"],
@@ -143,7 +143,7 @@ def create_collection(cloud_provider: CloudProvider) -> Collection:
 
     item_assets_attrs = ItemAssetsExtension.ext(collection, add_if_missing=True)
     item_assets_attrs.item_assets = {
-        variable.value: item_asset for variable, item_asset in ITEM_ASSETS.items()
+        product.value: item_asset for product, item_asset in ITEM_ASSETS.items()
     }
 
     return collection
@@ -191,7 +191,7 @@ def create_item(
     # set up item
     forecast_datetime = reference_datetime + timedelta(hours=forecast_hour)
 
-    # the forecast_cycle_type defines the available forecast hours and variables
+    # the forecast_cycle_type defines the available forecast hours and products
     forecast_cycle_type = ForecastCycleType.from_timestamp_and_region(
         reference_datetime=reference_datetime, region=region
     )
@@ -215,22 +215,22 @@ def create_item(
         },
     )
 
-    # loop through variables and add assets
-    for variable in forecast_cycle_type.variables:
+    # loop through products and add assets
+    for product in forecast_cycle_type.products:
         herbie_metadata = Herbie(
             reference_datetime,
             model=config.herbie_model_id,
             fxx=forecast_hour,
             priority=[cloud_provider.value],
-            product=variable.value,
+            product=product.value,
             verbose=False,
         )
         assert isinstance(herbie_metadata.grib, str)
-        item.assets[variable.value] = ITEM_ASSETS[variable].create_asset(
+        item.assets[product.value] = ITEM_ASSETS[product].create_asset(
             herbie_metadata.grib
         )
         # datacube = DatacubeExtension.ext(
-        #     item.assets[variable.value],  # add_if_missing=True
+        #     item.assets[product.value],  # add_if_missing=True
         # )
 
     return item

@@ -9,7 +9,7 @@ from rasterio.warp import transform_bounds
 T = TypeVar("T", bound="StrEnum")
 
 ITEM_ID_FORMAT = "hrrr-{region}-{reference_datetime}-FH{forecast_hour}"
-COLLECTION_ID = "noaa-hrrr"
+COLLECTION_ID_FORMAT = "noaa-hrrr"
 
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18
@@ -45,8 +45,8 @@ class Region(StrEnum):
     alaska = "alaska"
 
 
-class Variable(StrEnum):
-    """Values for the 'variable' parameter in the HRRR hrefs"""
+class Product(StrEnum):
+    """Values for the 'product' parameter in the HRRR hrefs"""
 
     pressure = "prs"
     native = "nat"
@@ -70,15 +70,15 @@ class ForecastCycleType:
             else EXTENDED_FORECAST_MAX_HOUR
         )
 
-        # the available variables vary by forecast cycle type
-        self.variables = [
-            Variable.pressure,
-            Variable.native,
-            Variable.surface,
+        # the available products vary by forecast cycle type
+        self.products = [
+            Product.pressure,
+            Product.native,
+            Product.surface,
         ]
 
         if self.type == "standard":
-            self.variables.append(Variable.sub_hourly)
+            self.products.append(Product.sub_hourly)
 
     @classmethod
     def from_timestamp_and_region(
