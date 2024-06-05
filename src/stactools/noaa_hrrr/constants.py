@@ -1,15 +1,21 @@
+import json
+import re
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
+from pathlib import Path
 from typing import Any, List, Type, TypeVar
 
 from rasterio.crs import CRS
 from rasterio.warp import transform_bounds
 
+DATA_DIR = Path(__file__).parent / "data"
+INVENTORY_JSON_FORMAT = "inventory__{product}__{forecast_hours}.json"
+
 T = TypeVar("T", bound="StrEnum")
 
 ITEM_ID_FORMAT = "hrrr-{region}-{reference_datetime}-FH{forecast_hour}"
-COLLECTION_ID_FORMAT = "noaa-hrrr"
+COLLECTION_ID = "noaa-hrrr"
 
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18
@@ -52,6 +58,42 @@ class Product(StrEnum):
     native = "nat"
     surface = "sfc"
     sub_hourly = "subh"
+
+
+class ForecastHourSet(StrEnum):
+    """Forecast hour sets
+
+    Either FH00-01 or FH02-48. The inventory of layers within a GRIB file depends on
+    which set it is in
+    """
+
+    # subhourly
+    FH00 = "fh00"
+    FH01_18 = "fh01-18"
+
+    # everything else
+    FH00_01 = "fh00-01"
+    FH02_48 = "fh02-48"
+
+    @classmethod
+    def from_forecast_hour_and_product(
+        cls, forecast_hour: int, product: Product
+    ) -> "ForecastHourSet":
+        """Pick the enum value given a forecast hour as an integer"""
+        if not 0 <= forecast_hour <= 48:
+            raise ValueError("integer must within 0-48")
+        if product == Product.sub_hourly:
+            return cls.FH00 if forecast_hour == 0 else cls.FH01_18
+        else:
+            return cls.FH00_01 if forecast_hour < 2 else cls.FH02_48
+
+
+PRODUCT_FORECAST_HOUR_SETS = {
+    Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.pressure: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.native: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.sub_hourly: [ForecastHourSet.FH00, ForecastHourSet.FH01_18],
+}
 
 
 @dataclass
@@ -121,6 +163,62 @@ class ItemType(StrEnum):
 
     grib = "grib"
     # datacube = "datacube"
+
+
+@dataclass
+class Variable:
+    row_number: int
+    level_layer: str
+    parameter: str
+    forecast_valid_pattern: str
+    description: str
+
+    def format_forecast_valid_string(self, forecast_hour: int) -> str:
+        if self.forecast_valid_pattern == "analysis":
+            return "analysis"
+
+        elif match := re.search(r"(\d+) (.*) fcst", self.forecast_valid_pattern):
+            forecast_time, time_unit = match.groups()
+
+            if time_unit == "min":
+                # the reference data represents FH02
+                forecast_time = int(forecast_time) + (forecast_hour - 1) * 60
+
+            return f"{forecast_hour} hour fcst"
+
+        elif match := re.search(r"(\d+)-(\d)+ (.*) (.*)", self.forecast_valid_pattern):
+            start_time, _, time_unit, stat = match.groups()
+            end_time = forecast_hour
+            if start_time == "1":
+                start_time = forecast_hour - 1
+            else:
+                start_time = 0
+                if not forecast_hour % 24:
+                    # convert hours to days...
+                    end_time = int(forecast_hour / 24)
+                    time_unit = "day"
+
+            return f"{start_time}-{end_time} {time_unit} {stat}"
+
+        else:
+            raise ValueError(
+                (
+                    f"{self.forecast_valid_pattern} could not be parsed into a "
+                    "forecast_valid string"
+                )
+            )
+
+
+INVENTORY = {}
+for product in Product:
+    for forecast_hour_set in PRODUCT_FORECAST_HOUR_SETS[product]:
+        json_file = DATA_DIR / INVENTORY_JSON_FORMAT.format(
+            product=product.value, forecast_hours=forecast_hour_set.value
+        )
+        with open(json_file) as f:
+            variable_list = json.load(f)
+
+        INVENTORY[product, forecast_hour_set] = [Variable(**v) for v in variable_list]
 
 
 @dataclass

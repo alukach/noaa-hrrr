@@ -15,6 +15,7 @@ from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
     CLOUD_PROVIDER_START_DATES,
+    COLLECTION_ID,
     ITEM_ID_FORMAT,
     REGION_CONFIGS,
     CloudProvider,
@@ -122,7 +123,7 @@ def create_collection(cloud_provider: CloudProvider) -> Collection:
     ]
 
     collection = Collection(
-        id="noaa-hrrr",
+        id=COLLECTION_ID,
         title="NOAA High Resolution Rapid Refresh (HRRR) collection",
         description=(
             "The NOAA HRRR is a real-time 3km resolution, hourly updated, "
