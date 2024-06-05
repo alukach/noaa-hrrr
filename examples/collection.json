@@ -1,6 +1,6 @@
 {
   "type": "Collection",
-  "id": "noaa-hrrr",
+  "id": "noaa-hrrr-conus-sfc-fh00-01",
   "stac_version": "1.0.0",
   "description": "The NOAA HRRR is a real-time 3km resolution, hourly updated, cloud-resolving, convection-allowing atmospheric model, initialized by 3km grids with 3km radar assimilation. Radar data is assimilated in the HRRR every 15 min over a 1-hour period adding further detail to that provided by the hourly data assimilation from the 13km radar-enhanced Rapid Refresh (RAP) system.",
   "links": [
@@ -24,7 +24,7 @@
     },
     {
       "rel": "item",
-      "href": "./hrrr-conus-2024-05-10T12-FH0/hrrr-conus-2024-05-10T12-FH0.json",
+      "href": "./hrrr-conus-sfc-2024-05-10T12-FH0/hrrr-conus-sfc-2024-05-10T12-FH0.json",
       "type": "application/json"
     }
   ],
@@ -32,7 +32,7 @@
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json"
   ],
   "item_assets": {
-    "sfc": {
+    "grib": {
       "type": "application/wmo-GRIB2",
       "roles": [
         "data"
@@ -40,29 +40,13 @@
       "title": "2D Surface Levels",
       "description": "2D Surface Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range."
     },
-    "subh": {
-      "type": "application/wmo-GRIB2",
+    "index": {
+      "type": "application/x-ndjson",
       "roles": [
-        "data"
+        "index"
       ],
-      "title": "2D Surface Levels - Sub Hourly",
-      "description": "2D Surface Level forecast data (sub-hourly, 15 minute intervals) as a grib2 file. Subsets of the data can be loaded using the provided byte range."
-    },
-    "prs": {
-      "type": "application/wmo-GRIB2",
-      "roles": [
-        "data"
-      ],
-      "title": "3D Pressure Levels",
-      "description": "3D Pressure Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range."
-    },
-    "nat": {
-      "type": "application/wmo-GRIB2",
-      "roles": [
-        "data"
-      ],
-      "title": "Native Levels",
-      "description": "Native Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range."
+      "title": "Index file",
+      "description": "The index file contains information on each message within the GRIB2 file."
     }
   },
   "title": "NOAA High Resolution Rapid Refresh (HRRR) collection",
