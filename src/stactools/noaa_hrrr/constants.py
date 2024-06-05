@@ -4,18 +4,19 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, List, Type, TypeVar
+from typing import Any, Generator, List, Type, TypeVar
 
 from rasterio.crs import CRS
 from rasterio.warp import transform_bounds
 
 DATA_DIR = Path(__file__).parent / "data"
-INVENTORY_JSON_FORMAT = "inventory__{product}__{forecast_hours}.json"
+INVENTORY_JSON_FORMAT = "inventory__{region}__{product}__{forecast_hours}.json"
 
 T = TypeVar("T", bound="StrEnum")
 
-ITEM_ID_FORMAT = "hrrr-{region}-{reference_datetime}-FH{forecast_hour}"
-COLLECTION_ID = "noaa-hrrr"
+ITEM_ID_FORMAT = "hrrr-{region}-{product}-{reference_datetime}-FH{forecast_hour}"
+COLLECTION_ID_BASE = "noaa-hrrr"
+COLLECTION_ID_FORMAT = COLLECTION_ID_BASE + "-{region}-{product}-{forecast_hour_set}"
 
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18
@@ -87,13 +88,15 @@ class ForecastHourSet(StrEnum):
         else:
             return cls.FH00_01 if forecast_hour < 2 else cls.FH02_48
 
+    def generate_forecast_hours(self) -> Generator[int, None, None]:
+        forecast_hour_range = [int(i) for i in self.value.replace("fh", "").split("-")]
 
-PRODUCT_FORECAST_HOUR_SETS = {
-    Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
-    Product.pressure: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
-    Product.native: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
-    Product.sub_hourly: [ForecastHourSet.FH00, ForecastHourSet.FH01_18],
-}
+        if len(forecast_hour_range) == 1:
+            yield forecast_hour_range[0]
+        else:
+            assert len(forecast_hour_range) == 2
+            for i in range(forecast_hour_range[0], forecast_hour_range[1] + 1):
+                yield i
 
 
 @dataclass
@@ -112,20 +115,8 @@ class ForecastCycleType:
             else EXTENDED_FORECAST_MAX_HOUR
         )
 
-        # the available products vary by forecast cycle type
-        self.products = [
-            Product.pressure,
-            Product.native,
-            Product.surface,
-        ]
-
-        if self.type == "standard":
-            self.products.append(Product.sub_hourly)
-
     @classmethod
-    def from_timestamp_and_region(
-        cls, reference_datetime: datetime, region: Region
-    ) -> "ForecastCycleType":
+    def from_timestamp(cls, reference_datetime: datetime) -> "ForecastCycleType":
         """Determine the forecast cycle type based on the timestamp of the cycle run
         hour
 
@@ -135,9 +126,11 @@ class ForecastCycleType:
         extended = reference_datetime.hour % 6 == 0
         return cls("extended" if extended else "standard")
 
-    def generate_forecast_hours(self) -> List[int]:
+    def generate_forecast_hours(self) -> Generator[int, None, None]:
         """Generate a list of forecast hours for the given forecast cycle type"""
-        return list(range(1, self.max_forecast_hour + 1))
+
+        for i in range(1, self.max_forecast_hour + 1):
+            yield i
 
     def validate_forecast_hour(self, forecast_hour: int) -> None:
         """Check if forecast hour is valid for the forecast type.
@@ -161,7 +154,8 @@ class ForecastCycleType:
 class ItemType(StrEnum):
     """STAC item types"""
 
-    grib = "grib"
+    GRIB = "grib"
+    INDEX = "index"
     # datacube = "datacube"
 
 
@@ -170,55 +164,117 @@ class Variable:
     row_number: int
     level_layer: str
     parameter: str
-    forecast_valid_pattern: str
+    forecast_valid: str
     description: str
 
-    def format_forecast_valid_string(self, forecast_hour: int) -> str:
-        if self.forecast_valid_pattern == "analysis":
-            return "analysis"
+    @classmethod
+    def from_template(
+        cls,
+        forecast_hour: int,
+        forecast_valid_template: str,
+        row_number: int,
+        level_layer: str,
+        parameter: str,
+        description: str,
+    ) -> "Variable":
+        if forecast_valid_template == "analysis":
+            forecast_valid = (
+                "analysis" if forecast_hour == 0 else f"{forecast_hour} hour fcst"
+            )
 
-        elif match := re.search(r"(\d+) (.*) fcst", self.forecast_valid_pattern):
-            forecast_time, time_unit = match.groups()
+        elif match := re.search(r"(\d+) (.*) fcst", forecast_valid_template):
+            forecast_template_time, time_unit = match.groups()
 
             if time_unit == "min":
                 # the reference data represents FH02
-                forecast_time = int(forecast_time) + (forecast_hour - 1) * 60
-
-            return f"{forecast_hour} hour fcst"
-
-        elif match := re.search(r"(\d+)-(\d)+ (.*) (.*)", self.forecast_valid_pattern):
-            start_time, _, time_unit, stat = match.groups()
-            end_time = forecast_hour
-            if start_time == "1":
-                start_time = forecast_hour - 1
+                forecast_time = int(forecast_template_time) + (forecast_hour - 1) * 60
             else:
-                start_time = 0
+                forecast_time = forecast_hour
+
+            forecast_valid = f"{forecast_time} {time_unit} fcst"
+
+        elif match := re.search(r"(\d+)-(\d+) (\w+) (.*)", forecast_valid_template):
+            template_start_time, template_end_time, time_unit, stat = match.groups()
+            if time_unit == "min":
+                start_time = int(template_start_time) + (forecast_hour - 2) * 60
+                end_time = int(template_end_time) + (forecast_hour - 2) * 60
+            else:
+                time_unit = "hour"
+                end_time = forecast_hour
+                if template_start_time == "1":
+                    start_time = forecast_hour - 1
+                else:
+                    start_time = 0
+
                 if not forecast_hour % 24:
                     # convert hours to days...
+                    start_time = 0
                     end_time = int(forecast_hour / 24)
                     time_unit = "day"
 
-            return f"{start_time}-{end_time} {time_unit} {stat}"
+            forecast_valid = f"{start_time}-{end_time} {time_unit} {stat}"
 
         else:
             raise ValueError(
                 (
-                    f"{self.forecast_valid_pattern} could not be parsed into a "
+                    f"{forecast_valid_template} could not be parsed into a "
                     "forecast_valid string"
                 )
             )
 
-
-INVENTORY = {}
-for product in Product:
-    for forecast_hour_set in PRODUCT_FORECAST_HOUR_SETS[product]:
-        json_file = DATA_DIR / INVENTORY_JSON_FORMAT.format(
-            product=product.value, forecast_hours=forecast_hour_set.value
+        return cls(
+            row_number=row_number,
+            level_layer=level_layer,
+            parameter=parameter,
+            forecast_valid=forecast_valid,
+            description=description,
         )
-        with open(json_file) as f:
-            variable_list = json.load(f)
 
-        INVENTORY[product, forecast_hour_set] = [Variable(**v) for v in variable_list]
+
+PRODUCT_FORECAST_HOUR_SETS = {
+    Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.pressure: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.native: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.sub_hourly: [ForecastHourSet.FH00, ForecastHourSet.FH01_18],
+}
+
+TEMPLATE_INVENTORY = {}
+for region in Region:
+    for product in Product:
+        for forecast_hour_set in PRODUCT_FORECAST_HOUR_SETS[product]:
+            json_file = DATA_DIR / INVENTORY_JSON_FORMAT.format(
+                region=region.value,
+                product=product.value,
+                forecast_hours=forecast_hour_set.value,
+            )
+            with open(json_file) as f:
+                variable_list = json.load(f)
+
+            TEMPLATE_INVENTORY[region, product, forecast_hour_set] = [
+                v for v in variable_list
+            ]
+
+
+@dataclass
+class CycleRunConfig:
+    region: Region
+    product: Product
+    forecast_hour_set: ForecastHourSet
+
+    def __post_init__(self) -> None:
+        # populate the inventory for each forecast hour
+        self.inventory = {
+            forecast_hour: [
+                Variable.from_template(
+                    forecast_hour=forecast_hour,
+                    **template,
+                )
+                for template in TEMPLATE_INVENTORY[
+                    self.region, self.product, self.forecast_hour_set
+                ]
+            ]
+            for forecast_hour in self.forecast_hour_set.generate_forecast_hours()
+        }
 
 
 @dataclass

@@ -3,1211 +3,1204 @@
     "row_number": 1,
     "level_layer": "entire atmosphere",
     "parameter": "REFC",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Composite reflectivity [dB]"
   },
   {
     "row_number": 2,
     "level_layer": "cloud top",
     "parameter": "RETOP",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Echo Top [m]"
   },
   {
     "row_number": 2,
     "level_layer": "cloud top",
     "parameter": "RETOP",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Echo Top [m]"
   },
   {
     "row_number": 4,
     "level_layer": "entire atmosphere",
     "parameter": "VIL",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Vertically-Integrated Liquid  Water [kg/m^2]"
   },
   {
     "row_number": 5,
     "level_layer": "surface",
     "parameter": "VIS",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Visibility [m]"
   },
   {
     "row_number": 6,
     "level_layer": "1000 m above  ground",
     "parameter": "REFD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Reflectivity [dB]"
   },
   {
     "row_number": 7,
     "level_layer": "4000 m above  ground",
     "parameter": "REFD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Reflectivity [dB]"
   },
   {
     "row_number": 8,
     "level_layer": "263 K level",
     "parameter": "REFD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Reflectivity [dB]"
   },
   {
     "row_number": 9,
     "level_layer": "surface",
     "parameter": "GUST",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Wind Speed (Gust) [m/s]"
   },
   {
     "row_number": 10,
     "level_layer": "250 mb",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 11,
     "level_layer": "250 mb",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 12,
     "level_layer": "300 mb",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 13,
     "level_layer": "300 mb",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 14,
-    "level_layer": "500 mb",
+    "level_layer": "400 mb",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 15,
-    "level_layer": "500 mb",
+    "level_layer": "400 mb",
     "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Temperature [K]"
   },
   {
     "row_number": 16,
-    "level_layer": "500 mb",
+    "level_layer": "400 mb",
     "parameter": "DPT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Dew Point Temperature [K]"
   },
   {
     "row_number": 17,
-    "level_layer": "500 mb",
+    "level_layer": "400 mb",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 18,
-    "level_layer": "500 mb",
+    "level_layer": "400 mb",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 19,
-    "level_layer": "700 mb",
+    "level_layer": "500 mb",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 20,
-    "level_layer": "700 mb",
+    "level_layer": "500 mb",
     "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Temperature [K]"
   },
   {
     "row_number": 21,
-    "level_layer": "700 mb",
+    "level_layer": "500 mb",
     "parameter": "DPT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Dew Point Temperature [K]"
   },
   {
     "row_number": 22,
-    "level_layer": "700 mb",
-    "parameter": "DZDT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vertical Velocity (Geometric)  [m/s]"
+    "level_layer": "500 mb",
+    "parameter": "UGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 23,
-    "level_layer": "700 mb",
-    "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "U-Component of Wind [m/s]"
+    "level_layer": "500 mb",
+    "parameter": "VGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 24,
     "level_layer": "700 mb",
-    "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "V-Component of Wind [m/s]"
-  },
-  {
-    "row_number": 25,
-    "level_layer": "850 mb",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
-    "row_number": 26,
-    "level_layer": "850 mb",
+    "row_number": 25,
+    "level_layer": "700 mb",
     "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Temperature [K]"
   },
   {
-    "row_number": 27,
-    "level_layer": "850 mb",
+    "row_number": 26,
+    "level_layer": "700 mb",
     "parameter": "DPT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Dew Point Temperature [K]"
   },
   {
+    "row_number": 27,
+    "level_layer": "700 mb",
+    "parameter": "DZDT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vertical Velocity (Geometric)  [m/s]"
+  },
+  {
     "row_number": 28,
-    "level_layer": "850 mb",
+    "level_layer": "700 mb",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 29,
-    "level_layer": "850 mb",
+    "level_layer": "700 mb",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 30,
-    "level_layer": "925 mb",
-    "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Temperature [K]"
+    "level_layer": "850 mb",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 31,
-    "level_layer": "925 mb",
-    "parameter": "DPT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Dew Point Temperature [K]"
-  },
-  {
-    "row_number": 32,
-    "level_layer": "925 mb",
-    "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "U-Component of Wind [m/s]"
-  },
-  {
-    "row_number": 33,
-    "level_layer": "925 mb",
-    "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "V-Component of Wind [m/s]"
-  },
-  {
-    "row_number": 34,
-    "level_layer": "1000 mb",
+    "level_layer": "850 mb",
     "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Temperature [K]"
   },
   {
-    "row_number": 35,
-    "level_layer": "1000 mb",
+    "row_number": 32,
+    "level_layer": "850 mb",
     "parameter": "DPT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Dew Point Temperature [K]"
   },
   {
-    "row_number": 36,
-    "level_layer": "1000 mb",
+    "row_number": 33,
+    "level_layer": "850 mb",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "U-Component of Wind [m/s]"
   },
   {
-    "row_number": 37,
-    "level_layer": "1000 mb",
+    "row_number": 34,
+    "level_layer": "850 mb",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "V-Component of Wind [m/s]"
   },
   {
+    "row_number": 35,
+    "level_layer": "925 mb",
+    "parameter": "TMP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Temperature [K]"
+  },
+  {
+    "row_number": 36,
+    "level_layer": "925 mb",
+    "parameter": "DPT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Dew Point Temperature [K]"
+  },
+  {
+    "row_number": 37,
+    "level_layer": "925 mb",
+    "parameter": "UGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "U-Component of Wind [m/s]"
+  },
+  {
     "row_number": 38,
-    "level_layer": "100-1000 mb above  ground",
-    "parameter": "MAXUVV",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hourly Maximum of Upward  Vertical Velocity in the  lowest 400hPa [m/s]"
+    "level_layer": "925 mb",
+    "parameter": "VGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 39,
-    "level_layer": "100-1000 mb above  ground",
-    "parameter": "MAXDVV",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hourly Maximum of Downward  Vertical Velocity in the  lowest 400hPa [m/s]"
+    "level_layer": "1000 mb",
+    "parameter": "TMP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Temperature [K]"
   },
   {
     "row_number": 40,
-    "level_layer": "0.5-0.8 sigma  layer",
-    "parameter": "DZDT",
-    "forecast_valid_pattern": "1-2 hour ave",
-    "description": "Vertical Velocity (Geometric)  [m/s]"
+    "level_layer": "1000 mb",
+    "parameter": "DPT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Dew Point Temperature [K]"
   },
   {
     "row_number": 41,
-    "level_layer": "mean sea level",
-    "parameter": "MSLMA M",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "(MAPS System Reduction) [Pa]"
+    "level_layer": "1000 mb",
+    "parameter": "UGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 42,
     "level_layer": "1000 mb",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
-  },
-  {
-    "row_number": 43,
-    "level_layer": "1000 m above  ground",
-    "parameter": "MAXREF",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hourly Maximum of Simulated  Reflectivity at 1 km AGL [dB]"
-  },
-  {
-    "row_number": 44,
-    "level_layer": "263 K level",
-    "parameter": "REFD",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Reflectivity [dB]"
-  },
-  {
-    "row_number": 45,
-    "level_layer": "5000-2000 m above  ground",
-    "parameter": "MXUPHL",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL [m^2/s^2]"
-  },
-  {
-    "row_number": 46,
-    "level_layer": "5000-2000 m above  ground",
-    "parameter": "MNUPHL",
-    "forecast_valid_pattern": "1-2 hour min",
-    "description": "Hourly Minimum of Updraft  Helicity [m^2/s^2]"
-  },
-  {
-    "row_number": 47,
-    "level_layer": "2000-0 m above  ground",
-    "parameter": "MXUPHL",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL [m^2/s^2]"
-  },
-  {
-    "row_number": 48,
-    "level_layer": "2000-0 m above  ground",
-    "parameter": "MNUPHL",
-    "forecast_valid_pattern": "1-2 hour min",
-    "description": "Hourly Minimum of Updraft  Helicity [m^2/s^2]"
-  },
-  {
-    "row_number": 49,
-    "level_layer": "3000-0 m above  ground",
-    "parameter": "MXUPHL",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL [m^2/s^2]"
-  },
-  {
-    "row_number": 50,
-    "level_layer": "3000-0 m above  ground",
-    "parameter": "MNUPHL",
-    "forecast_valid_pattern": "1-2 hour min",
-    "description": "Hourly Minimum of Updraft  Helicity [m^2/s^2]"
-  },
-  {
-    "row_number": 51,
-    "level_layer": "2000-0 m above  ground",
-    "parameter": "RELV",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Relative Vorticity [1/s]"
-  },
-  {
-    "row_number": 52,
-    "level_layer": "1000-0 m above  ground",
-    "parameter": "RELV",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Relative Vorticity [1/s]"
-  },
-  {
-    "row_number": 53,
-    "level_layer": "entire atmosphere",
-    "parameter": "HAIL",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hail [m]"
-  },
-  {
-    "row_number": 54,
-    "level_layer": "0.1 sigma level",
-    "parameter": "HAIL",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hail [m]"
-  },
-  {
-    "row_number": 55,
-    "level_layer": "surface",
-    "parameter": "HAIL",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Hail [m]"
-  },
-  {
-    "row_number": 56,
-    "level_layer": "entire atmosphere  (considered as a  single layer)",
-    "parameter": "TCOLG",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Total Column Integrate  Graupel [kg/m^2]"
-  },
-  {
-    "row_number": 57,
-    "level_layer": "1 m above ground",
-    "parameter": "LTPINX",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Lightning Potential Index  (LPI) (see Note) [J/kg]"
-  },
-  {
-    "row_number": 58,
-    "level_layer": "2 m above ground",
-    "parameter": "LTPINX",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Lightning Potential Index  (LPI) (see Note) [J/kg]"
-  },
-  {
-    "row_number": 59,
-    "level_layer": "entire atmosphere",
-    "parameter": "LTNG",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Lightning [non-dim]"
-  },
-  {
-    "row_number": 60,
-    "level_layer": "80 m above ground",
-    "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "U-Component of Wind [m/s]"
-  },
-  {
-    "row_number": 61,
-    "level_layer": "80 m above ground",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "V-Component of Wind [m/s]"
   },
   {
-    "row_number": 62,
-    "level_layer": "surface",
-    "parameter": "PRES",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Pressure [Pa]"
+    "row_number": 43,
+    "level_layer": "100-1000 mb above  ground",
+    "parameter": "MAXUVV",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hourly Maximum of Upward  Vertical Velocity in the  lowest 400hPa [m/s]"
   },
   {
-    "row_number": 63,
-    "level_layer": "surface",
+    "row_number": 44,
+    "level_layer": "100-1000 mb above  ground",
+    "parameter": "MAXDVV",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hourly Maximum of Downward  Vertical Velocity in the  lowest 400hPa [m/s]"
+  },
+  {
+    "row_number": 45,
+    "level_layer": "0.5-0.8 sigma  layer",
+    "parameter": "DZDT",
+    "forecast_valid_template": "1-2 hour ave",
+    "description": "Vertical Velocity (Geometric)  [m/s]"
+  },
+  {
+    "row_number": 46,
+    "level_layer": "mean sea level",
+    "parameter": "MSLMA M",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "(MAPS System Reduction) [Pa]"
+  },
+  {
+    "row_number": 47,
+    "level_layer": "1000 mb",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
-    "row_number": 64,
+    "row_number": 48,
+    "level_layer": "1000 m above  ground",
+    "parameter": "MAXREF",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hourly Maximum of Simulated  Reflectivity at 1 km AGL [dB]"
+  },
+  {
+    "row_number": 49,
+    "level_layer": "263 K level",
+    "parameter": "REFD",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Reflectivity [dB]"
+  },
+  {
+    "row_number": 50,
+    "level_layer": "5000-2000 m above  ground",
+    "parameter": "MXUPHL",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL [m^2/s^2]"
+  },
+  {
+    "row_number": 51,
+    "level_layer": "5000-2000 m above  ground",
+    "parameter": "MNUPHL",
+    "forecast_valid_template": "1-2 hour min",
+    "description": "Hourly Minimum of Updraft  Helicity [m^2/s^2]"
+  },
+  {
+    "row_number": 52,
+    "level_layer": "2000-0 m above  ground",
+    "parameter": "MXUPHL",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL [m^2/s^2]"
+  },
+  {
+    "row_number": 53,
+    "level_layer": "2000-0 m above  ground",
+    "parameter": "MNUPHL",
+    "forecast_valid_template": "1-2 hour min",
+    "description": "Hourly Minimum of Updraft  Helicity [m^2/s^2]"
+  },
+  {
+    "row_number": 54,
+    "level_layer": "3000-0 m above  ground",
+    "parameter": "MXUPHL",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL [m^2/s^2]"
+  },
+  {
+    "row_number": 55,
+    "level_layer": "3000-0 m above  ground",
+    "parameter": "MNUPHL",
+    "forecast_valid_template": "1-2 hour min",
+    "description": "Hourly Minimum of Updraft  Helicity [m^2/s^2]"
+  },
+  {
+    "row_number": 56,
+    "level_layer": "2000-0 m above  ground",
+    "parameter": "RELV",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Relative Vorticity [1/s]"
+  },
+  {
+    "row_number": 57,
+    "level_layer": "1000-0 m above  ground",
+    "parameter": "RELV",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Relative Vorticity [1/s]"
+  },
+  {
+    "row_number": 58,
+    "level_layer": "entire atmosphere",
+    "parameter": "HAIL",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hail [m]"
+  },
+  {
+    "row_number": 59,
+    "level_layer": "0.1 sigma level",
+    "parameter": "HAIL",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hail [m]"
+  },
+  {
+    "row_number": 60,
     "level_layer": "surface",
-    "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Temperature [K]"
+    "parameter": "HAIL",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Hail [m]"
+  },
+  {
+    "row_number": 61,
+    "level_layer": "entire atmosphere  (considered as a  single layer)",
+    "parameter": "TCOLG",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Total Column Integrate  Graupel [kg/m^2]"
+  },
+  {
+    "row_number": 62,
+    "level_layer": "1 m above ground",
+    "parameter": "LTPINX",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Lightning Potential Index  (LPI) (see Note) [J/kg]"
+  },
+  {
+    "row_number": 63,
+    "level_layer": "2 m above ground",
+    "parameter": "LTPINX",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Lightning Potential Index  (LPI) (see Note) [J/kg]"
+  },
+  {
+    "row_number": 64,
+    "level_layer": "entire atmosphere",
+    "parameter": "LTNG",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Lightning [non-dim]"
   },
   {
     "row_number": 65,
-    "level_layer": "surface",
-    "parameter": "ASNOW",
-    "forecast_valid_pattern": "0-2 hour acc",
-    "description": "Total Snowfall [m]"
+    "level_layer": "80 m above ground",
+    "parameter": "UGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 66,
-    "level_layer": "0 m underground",
-    "parameter": "MSTAV",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Moisture Availability [%]"
+    "level_layer": "80 m above ground",
+    "parameter": "VGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 67,
     "level_layer": "surface",
-    "parameter": "CNWAT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Plant Canopy Surface Water  [kg/m^2]"
+    "parameter": "PRES",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Pressure [Pa]"
   },
   {
     "row_number": 68,
     "level_layer": "surface",
-    "parameter": "WEASD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Water Equivalent of  Accumulated Snow Depth  [kg/m^2]"
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 69,
     "level_layer": "surface",
-    "parameter": "SNOWC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Snow Cover [%]"
+    "parameter": "TMP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Temperature [K]"
   },
   {
     "row_number": 70,
     "level_layer": "surface",
-    "parameter": "SNOD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Snow Depth [m]"
+    "parameter": "ASNOW",
+    "forecast_valid_template": "0-2 hour acc",
+    "description": "Total Snowfall [m]"
   },
   {
     "row_number": 71,
-    "level_layer": "2 m above ground",
-    "parameter": "TMP",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Temperature [K]"
+    "level_layer": "0 m underground",
+    "parameter": "MSTAV",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Moisture Availability [%]"
   },
   {
     "row_number": 72,
-    "level_layer": "2 m above ground",
-    "parameter": "POT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Potential Temperature [K]"
+    "level_layer": "surface",
+    "parameter": "CNWAT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Plant Canopy Surface Water  [kg/m^2]"
   },
   {
     "row_number": 73,
-    "level_layer": "2 m above ground",
-    "parameter": "SPFH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Specific Humidity [kg/kg]"
-  },
-  {
-    "row_number": 74,
-    "level_layer": "2 m above ground",
-    "parameter": "DPT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Dew Point Temperature [K]"
-  },
-  {
-    "row_number": 75,
-    "level_layer": "2 m above ground",
-    "parameter": "RH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Relative Humidity [%]"
-  },
-  {
-    "row_number": 76,
-    "level_layer": "8 m above ground",
-    "parameter": "MASSDEN",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Mass Density (Concentration)  [kg/m^3]"
-  },
-  {
-    "row_number": 77,
-    "level_layer": "10 m above ground",
-    "parameter": "UGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "U-Component of Wind [m/s]"
-  },
-  {
-    "row_number": 78,
-    "level_layer": "10 m above ground",
-    "parameter": "VGRD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "V-Component of Wind [m/s]"
-  },
-  {
-    "row_number": 79,
-    "level_layer": "10 m above ground",
-    "parameter": "WIND",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Wind Speed [m/s]"
-  },
-  {
-    "row_number": 80,
-    "level_layer": "10 m above ground",
-    "parameter": "MAXUW U",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Component of Hourly Maximum  10m Wind Speed [m/s]"
-  },
-  {
-    "row_number": 81,
-    "level_layer": "10 m above ground",
-    "parameter": "MAXVW V",
-    "forecast_valid_pattern": "1-2 hour max",
-    "description": "Component of Hourly Maximum  10m Wind Speed [m/s]"
-  },
-  {
-    "row_number": 82,
-    "level_layer": "surface",
-    "parameter": "CPOFP",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Percent frozen precipitation  [%]"
-  },
-  {
-    "row_number": 83,
-    "level_layer": "surface",
-    "parameter": "PRATE",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Precipitation Rate [kg/m^2/s]"
-  },
-  {
-    "row_number": 84,
-    "level_layer": "surface",
-    "parameter": "APCP",
-    "forecast_valid_pattern": "0-2 hour acc",
-    "description": "Total Precipitation [kg/m^2]"
-  },
-  {
-    "row_number": 85,
     "level_layer": "surface",
     "parameter": "WEASD",
-    "forecast_valid_pattern": "0-2 hour acc",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Water Equivalent of  Accumulated Snow Depth  [kg/m^2]"
   },
   {
-    "row_number": 86,
+    "row_number": 74,
     "level_layer": "surface",
-    "parameter": "FROZR",
-    "forecast_valid_pattern": "0-2 hour acc",
-    "description": "Frozen Rain [kg/m^2]"
+    "parameter": "SNOWC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Snow Cover [%]"
+  },
+  {
+    "row_number": 75,
+    "level_layer": "surface",
+    "parameter": "SNOD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Snow Depth [m]"
+  },
+  {
+    "row_number": 76,
+    "level_layer": "2 m above ground",
+    "parameter": "TMP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Temperature [K]"
+  },
+  {
+    "row_number": 77,
+    "level_layer": "2 m above ground",
+    "parameter": "POT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Potential Temperature [K]"
+  },
+  {
+    "row_number": 78,
+    "level_layer": "2 m above ground",
+    "parameter": "SPFH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Specific Humidity [kg/kg]"
+  },
+  {
+    "row_number": 79,
+    "level_layer": "2 m above ground",
+    "parameter": "DPT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Dew Point Temperature [K]"
+  },
+  {
+    "row_number": 80,
+    "level_layer": "2 m above ground",
+    "parameter": "RH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Relative Humidity [%]"
+  },
+  {
+    "row_number": 81,
+    "level_layer": "8 m above ground",
+    "parameter": "MASSDEN",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Mass Density (Concentration)  [kg/m^3]"
+  },
+  {
+    "row_number": 82,
+    "level_layer": "10 m above ground",
+    "parameter": "UGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "U-Component of Wind [m/s]"
+  },
+  {
+    "row_number": 83,
+    "level_layer": "10 m above ground",
+    "parameter": "VGRD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "V-Component of Wind [m/s]"
+  },
+  {
+    "row_number": 84,
+    "level_layer": "10 m above ground",
+    "parameter": "WIND",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Wind Speed [m/s]"
+  },
+  {
+    "row_number": 85,
+    "level_layer": "10 m above ground",
+    "parameter": "MAXUW U",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Component of Hourly Maximum  10m Wind Speed [m/s]"
+  },
+  {
+    "row_number": 86,
+    "level_layer": "10 m above ground",
+    "parameter": "MAXVW V",
+    "forecast_valid_template": "1-2 hour max",
+    "description": "Component of Hourly Maximum  10m Wind Speed [m/s]"
   },
   {
     "row_number": 87,
     "level_layer": "surface",
-    "parameter": "FRZR",
-    "forecast_valid_pattern": "0-2 hour acc",
-    "description": "Freezing Rain [kg/m^2]"
+    "parameter": "CPOFP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Percent frozen precipitation  [%]"
   },
   {
     "row_number": 88,
     "level_layer": "surface",
-    "parameter": "SSRUN",
-    "forecast_valid_pattern": "1-2 hour acc",
-    "description": "Storm Surface Runoff [kg/m^2]"
+    "parameter": "PRATE",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Precipitation Rate [kg/m^2/s]"
   },
   {
     "row_number": 89,
     "level_layer": "surface",
-    "parameter": "BGRUN",
-    "forecast_valid_pattern": "1-2 hour acc",
-    "description": "Baseflow-Groundwater Runoff  [kg/m^2]"
+    "parameter": "APCP",
+    "forecast_valid_template": "0-2 hour acc",
+    "description": "Total Precipitation [kg/m^2]"
   },
   {
     "row_number": 90,
     "level_layer": "surface",
-    "parameter": "APCP",
-    "forecast_valid_pattern": "1-2 hour acc",
-    "description": "Total Precipitation [kg/m^2]"
+    "parameter": "WEASD",
+    "forecast_valid_template": "0-2 hour acc",
+    "description": "Water Equivalent of  Accumulated Snow Depth  [kg/m^2]"
   },
   {
     "row_number": 91,
     "level_layer": "surface",
-    "parameter": "WEASD",
-    "forecast_valid_pattern": "1-2 hour acc",
-    "description": "Water Equivalent of  Accumulated Snow Depth  [kg/m^2]"
+    "parameter": "FROZR",
+    "forecast_valid_template": "0-2 hour acc",
+    "description": "Frozen Rain [kg/m^2]"
   },
   {
     "row_number": 92,
     "level_layer": "surface",
-    "parameter": "FROZR",
-    "forecast_valid_pattern": "1-2 hour acc",
-    "description": "Frozen Rain [kg/m^2]"
+    "parameter": "FRZR",
+    "forecast_valid_template": "0-2 hour acc",
+    "description": "Freezing Rain [kg/m^2]"
   },
   {
     "row_number": 93,
     "level_layer": "surface",
-    "parameter": "CSNOW",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Categorical Snow [-]"
+    "parameter": "SSRUN",
+    "forecast_valid_template": "1-2 hour acc",
+    "description": "Storm Surface Runoff [kg/m^2]"
   },
   {
     "row_number": 94,
     "level_layer": "surface",
-    "parameter": "CICEP",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Categorical Ice Pellets [-]"
+    "parameter": "BGRUN",
+    "forecast_valid_template": "1-2 hour acc",
+    "description": "Baseflow-Groundwater Runoff  [kg/m^2]"
   },
   {
     "row_number": 95,
     "level_layer": "surface",
-    "parameter": "CFRZR",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Categorical Freezing Rain [-]"
+    "parameter": "APCP",
+    "forecast_valid_template": "1-2 hour acc",
+    "description": "Total Precipitation [kg/m^2]"
   },
   {
     "row_number": 96,
     "level_layer": "surface",
-    "parameter": "CRAIN",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Categorical Rain [-]"
+    "parameter": "WEASD",
+    "forecast_valid_template": "1-2 hour acc",
+    "description": "Water Equivalent of  Accumulated Snow Depth  [kg/m^2]"
   },
   {
     "row_number": 97,
     "level_layer": "surface",
-    "parameter": "SFCR",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Surface Roughness [m]"
+    "parameter": "FROZR",
+    "forecast_valid_template": "1-2 hour acc",
+    "description": "Frozen Rain [kg/m^2]"
   },
   {
     "row_number": 98,
     "level_layer": "surface",
-    "parameter": "FRICV",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Frictional Velocity [m/s]"
+    "parameter": "CSNOW",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Categorical Snow [-]"
   },
   {
     "row_number": 99,
     "level_layer": "surface",
-    "parameter": "SHTFL",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Sensible Heat Net Flux  [W/m^2]"
+    "parameter": "CICEP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Categorical Ice Pellets [-]"
   },
   {
     "row_number": 100,
     "level_layer": "surface",
-    "parameter": "LHTFL",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Latent Heat Net Flux [W/m^2]"
+    "parameter": "CFRZR",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Categorical Freezing Rain [-]"
   },
   {
     "row_number": 101,
     "level_layer": "surface",
-    "parameter": "VEG",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vegetation [%]"
+    "parameter": "CRAIN",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Categorical Rain [-]"
   },
   {
-    "row_number": 101,
+    "row_number": 102,
     "level_layer": "surface",
-    "parameter": "VEG",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vegetation [%]"
+    "parameter": "SFCR",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Surface Roughness [m]"
   },
   {
-    "row_number": 101,
+    "row_number": 103,
     "level_layer": "surface",
-    "parameter": "VEG",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vegetation [%]"
+    "parameter": "FRICV",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Frictional Velocity [m/s]"
   },
   {
     "row_number": 104,
     "level_layer": "surface",
-    "parameter": "LAI",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Leaf Area Index [Numeric]"
+    "parameter": "SHTFL",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Sensible Heat Net Flux  [W/m^2]"
   },
   {
     "row_number": 105,
     "level_layer": "surface",
-    "parameter": "GFLUX",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Ground Heat Flux [W/m^2]"
+    "parameter": "LHTFL",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Latent Heat Net Flux [W/m^2]"
   },
   {
     "row_number": 106,
     "level_layer": "surface",
-    "parameter": "VGTYP",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vegetation Type [Integer(0-  13)]"
+    "parameter": "VEG",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vegetation [%]"
   },
   {
-    "row_number": 107,
-    "level_layer": "500-1000 mb",
-    "parameter": "LFTX",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Surface Lifted Index [K]"
-  },
-  {
-    "row_number": 108,
+    "row_number": 106,
     "level_layer": "surface",
-    "parameter": "CAPE",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Convective Available  Potential Energy [J/kg]"
+    "parameter": "VEG",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vegetation [%]"
+  },
+  {
+    "row_number": 106,
+    "level_layer": "surface",
+    "parameter": "VEG",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vegetation [%]"
   },
   {
     "row_number": 109,
     "level_layer": "surface",
-    "parameter": "CIN",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Convective Inhibition [J/kg]"
+    "parameter": "LAI",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Leaf Area Index [Numeric]"
   },
   {
     "row_number": 110,
-    "level_layer": "entire atmosphere  (considered as a  single layer)",
-    "parameter": "PWAT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Precipitable Water [kg/m^2]"
+    "level_layer": "surface",
+    "parameter": "GFLUX",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Ground Heat Flux [W/m^2]"
   },
   {
     "row_number": 111,
-    "level_layer": "entire atmosphere  (considered as a  single layer)",
-    "parameter": "AOTK",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Aerosol Optical Thickness  [Numeric]"
+    "level_layer": "surface",
+    "parameter": "VGTYP",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vegetation Type [Integer(0-  13)]"
   },
   {
     "row_number": 112,
-    "level_layer": "entire atmosphere  (considered as a  single layer)",
-    "parameter": "COLMD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Column-Integrated Mass  Density [kg/m^2]"
+    "level_layer": "500-1000 mb",
+    "parameter": "LFTX",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Surface Lifted Index [K]"
   },
   {
-    "row_number": 112,
-    "level_layer": "entire atmosphere  (considered as a  single layer)",
-    "parameter": "COLMD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Column-Integrated Mass  Density [kg/m^2]"
+    "row_number": 113,
+    "level_layer": "surface",
+    "parameter": "CAPE",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Convective Available  Potential Energy [J/kg]"
   },
   {
-    "row_number": 112,
-    "level_layer": "entire atmosphere  (considered as a  single layer)",
-    "parameter": "COLMD",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Column-Integrated Mass  Density [kg/m^2]"
+    "row_number": 114,
+    "level_layer": "surface",
+    "parameter": "CIN",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Convective Inhibition [J/kg]"
   },
   {
     "row_number": 115,
-    "level_layer": "boundary layer  cloud layer",
-    "parameter": "TCDC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Total Cloud Cover [%]"
+    "level_layer": "entire atmosphere  (considered as a  single layer)",
+    "parameter": "PWAT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Precipitable Water [kg/m^2]"
   },
   {
     "row_number": 116,
-    "level_layer": "low cloud layer",
-    "parameter": "LCDC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Low Cloud Cover [%]"
+    "level_layer": "entire atmosphere  (considered as a  single layer)",
+    "parameter": "AOTK",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Aerosol Optical Thickness  [Numeric]"
   },
   {
     "row_number": 117,
-    "level_layer": "middle cloud layer",
-    "parameter": "MCDC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Medium Cloud Cover [%]"
+    "level_layer": "entire atmosphere  (considered as a  single layer)",
+    "parameter": "COLMD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Column-Integrated Mass  Density [kg/m^2]"
   },
   {
-    "row_number": 118,
-    "level_layer": "high cloud layer",
-    "parameter": "HCDC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "High Cloud Cover [%]"
+    "row_number": 117,
+    "level_layer": "entire atmosphere  (considered as a  single layer)",
+    "parameter": "COLMD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Column-Integrated Mass  Density [kg/m^2]"
   },
   {
-    "row_number": 119,
-    "level_layer": "entire atmosphere",
-    "parameter": "TCDC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Total Cloud Cover [%]"
+    "row_number": 117,
+    "level_layer": "entire atmosphere  (considered as a  single layer)",
+    "parameter": "COLMD",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Column-Integrated Mass  Density [kg/m^2]"
   },
   {
     "row_number": 120,
-    "level_layer": "cloud ceiling",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "boundary layer  cloud layer",
+    "parameter": "TCDC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Total Cloud Cover [%]"
   },
   {
     "row_number": 121,
-    "level_layer": "cloud base",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "low cloud layer",
+    "parameter": "LCDC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Low Cloud Cover [%]"
   },
   {
     "row_number": 122,
-    "level_layer": "cloud base",
-    "parameter": "PRES",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Pressure [Pa]"
+    "level_layer": "middle cloud layer",
+    "parameter": "MCDC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Medium Cloud Cover [%]"
   },
   {
     "row_number": 123,
-    "level_layer": "cloud top",
-    "parameter": "PRES",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Pressure [Pa]"
+    "level_layer": "high cloud layer",
+    "parameter": "HCDC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "High Cloud Cover [%]"
   },
   {
     "row_number": 124,
-    "level_layer": "cloud top",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "entire atmosphere",
+    "parameter": "TCDC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Total Cloud Cover [%]"
   },
   {
     "row_number": 125,
-    "level_layer": "top of atmosphere",
-    "parameter": "ULWRF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Upward Long-Wave Rad. Flux  [W/m^2]"
+    "level_layer": "cloud ceiling",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 126,
-    "level_layer": "surface",
-    "parameter": "DSWRF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Downward Short-Wave Radiation  Flux [W/m^2]"
+    "level_layer": "cloud base",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 127,
-    "level_layer": "surface",
-    "parameter": "DLWRF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Downward Long-Wave Rad. Flux  [W/m^2]"
+    "level_layer": "cloud base",
+    "parameter": "PRES",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Pressure [Pa]"
   },
   {
     "row_number": 128,
-    "level_layer": "surface",
-    "parameter": "USWRF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Upward Short-Wave Radiation  Flux [W/m^2]"
+    "level_layer": "cloud top",
+    "parameter": "PRES",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Pressure [Pa]"
   },
   {
     "row_number": 129,
-    "level_layer": "surface",
-    "parameter": "ULWRF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Upward Long-Wave Rad. Flux  [W/m^2]"
+    "level_layer": "cloud top",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 130,
-    "level_layer": "surface",
-    "parameter": "CFNSF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Cloud Forcing Net Solar Flux  [W/m^2]"
+    "level_layer": "top of atmosphere",
+    "parameter": "ULWRF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Upward Long-Wave Rad. Flux  [W/m^2]"
   },
   {
     "row_number": 131,
     "level_layer": "surface",
-    "parameter": "VBDSF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Visible Beam Downward Solar  Flux [W/m^2]"
+    "parameter": "DSWRF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Downward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 132,
     "level_layer": "surface",
-    "parameter": "VDDSF",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Visible Diffuse Downward  Solar Flux [W/m^2]"
+    "parameter": "DLWRF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Downward Long-Wave Rad. Flux  [W/m^2]"
   },
   {
     "row_number": 133,
-    "level_layer": "top of atmosphere",
+    "level_layer": "surface",
     "parameter": "USWRF",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Upward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 134,
-    "level_layer": "3000-0 m above  ground",
-    "parameter": "HLCY",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Storm Relative Helicity  [m^2/s^2]"
+    "level_layer": "surface",
+    "parameter": "ULWRF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Upward Long-Wave Rad. Flux  [W/m^2]"
   },
   {
     "row_number": 135,
-    "level_layer": "1000-0 m above  ground",
-    "parameter": "HLCY",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Storm Relative Helicity  [m^2/s^2]"
+    "level_layer": "surface",
+    "parameter": "CFNSF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Cloud Forcing Net Solar Flux  [W/m^2]"
   },
   {
     "row_number": 136,
-    "level_layer": "0-6000 m above  ground",
-    "parameter": "USTM",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "U-Component Storm Motion  [m/s]"
+    "level_layer": "surface",
+    "parameter": "VBDSF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Visible Beam Downward Solar  Flux [W/m^2]"
   },
   {
     "row_number": 137,
-    "level_layer": "0-6000 m above  ground",
-    "parameter": "VSTM",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "V-Component Storm Motion  [m/s]"
+    "level_layer": "surface",
+    "parameter": "VDDSF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Visible Diffuse Downward  Solar Flux [W/m^2]"
   },
   {
     "row_number": 138,
-    "level_layer": "0-1000 m above  ground",
-    "parameter": "VUCSH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vertical U-Component Shear  [1/s]"
+    "level_layer": "top of atmosphere",
+    "parameter": "USWRF",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Upward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 139,
-    "level_layer": "0-1000 m above  ground",
-    "parameter": "VVCSH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vertical V-Component Shear  [1/s]"
+    "level_layer": "3000-0 m above  ground",
+    "parameter": "HLCY",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Storm Relative Helicity  [m^2/s^2]"
   },
   {
     "row_number": 140,
-    "level_layer": "0-6000 m above  ground",
-    "parameter": "VUCSH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vertical U-Component Shear  [1/s]"
+    "level_layer": "1000-0 m above  ground",
+    "parameter": "HLCY",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Storm Relative Helicity  [m^2/s^2]"
   },
   {
     "row_number": 141,
     "level_layer": "0-6000 m above  ground",
-    "parameter": "VVCSH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Vertical V-Component Shear  [1/s]"
+    "parameter": "USTM",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "U-Component Storm Motion  [m/s]"
   },
   {
     "row_number": 142,
-    "level_layer": "0C isotherm",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "0-6000 m above  ground",
+    "parameter": "VSTM",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "V-Component Storm Motion  [m/s]"
   },
   {
     "row_number": 143,
-    "level_layer": "0C isotherm",
-    "parameter": "RH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Relative Humidity [%]"
+    "level_layer": "0-1000 m above  ground",
+    "parameter": "VUCSH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vertical U-Component Shear  [1/s]"
   },
   {
     "row_number": 144,
-    "level_layer": "0C isotherm",
-    "parameter": "PRES",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Pressure [Pa]"
+    "level_layer": "0-1000 m above  ground",
+    "parameter": "VVCSH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vertical V-Component Shear  [1/s]"
   },
   {
     "row_number": 145,
-    "level_layer": "highest  tropospheric  freezing level",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "0-6000 m above  ground",
+    "parameter": "VUCSH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vertical U-Component Shear  [1/s]"
   },
   {
     "row_number": 146,
-    "level_layer": "highest  tropospheric  freezing level",
-    "parameter": "RH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Relative Humidity [%]"
+    "level_layer": "0-6000 m above  ground",
+    "parameter": "VVCSH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Vertical V-Component Shear  [1/s]"
   },
   {
     "row_number": 147,
-    "level_layer": "highest  tropospheric  freezing level",
-    "parameter": "PRES",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Pressure [Pa]"
+    "level_layer": "0C isotherm",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 148,
-    "level_layer": "263 K level",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "0C isotherm",
+    "parameter": "RH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Relative Humidity [%]"
   },
   {
     "row_number": 149,
-    "level_layer": "253 K level",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "0C isotherm",
+    "parameter": "PRES",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Pressure [Pa]"
   },
   {
     "row_number": 150,
-    "level_layer": "180-0 mb above  ground",
-    "parameter": "4LFTX",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Best (4 layer) Lifted Index  [K]"
+    "level_layer": "highest  tropospheric  freezing level",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 151,
-    "level_layer": "180-0 mb above  ground",
-    "parameter": "CAPE",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Convective Available  Potential Energy [J/kg]"
+    "level_layer": "highest  tropospheric  freezing level",
+    "parameter": "RH",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Relative Humidity [%]"
   },
   {
     "row_number": 152,
-    "level_layer": "180-0 mb above  ground",
-    "parameter": "CIN",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Convective Inhibition [J/kg]"
+    "level_layer": "highest  tropospheric  freezing level",
+    "parameter": "PRES",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Pressure [Pa]"
   },
   {
     "row_number": 153,
-    "level_layer": "surface",
-    "parameter": "HPBL",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Planetary Boundary Layer  Height [m]"
+    "level_layer": "263 K level",
+    "parameter": "HGT",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 154,
-    "level_layer": "level of adiabatic  condensation from  sfc",
+    "level_layer": "253 K level",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 155,
-    "level_layer": "90-0 mb above  ground",
-    "parameter": "CAPE",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Convective Available  Potential Energy [J/kg]"
+    "level_layer": "180-0 mb above  ground",
+    "parameter": "4LFTX",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Best (4 layer) Lifted Index  [K]"
   },
   {
     "row_number": 156,
-    "level_layer": "90-0 mb above  ground",
-    "parameter": "CIN",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Convective Inhibition [J/kg]"
-  },
-  {
-    "row_number": 157,
-    "level_layer": "255-0 mb above  ground",
+    "level_layer": "180-0 mb above  ground",
     "parameter": "CAPE",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Convective Available  Potential Energy [J/kg]"
   },
   {
-    "row_number": 158,
-    "level_layer": "255-0 mb above  ground",
+    "row_number": 157,
+    "level_layer": "180-0 mb above  ground",
     "parameter": "CIN",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Convective Inhibition [J/kg]"
   },
   {
+    "row_number": 158,
+    "level_layer": "surface",
+    "parameter": "HPBL",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Planetary Boundary Layer  Height [m]"
+  },
+  {
     "row_number": 159,
-    "level_layer": "equilibrium level",
+    "level_layer": "level of adiabatic  condensation from  sfc",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 160,
-    "level_layer": "255-0 mb above  ground",
-    "parameter": "PLPL",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Pressure of level from which  parcel was lifted [Pa]"
-  },
-  {
-    "row_number": 161,
-    "level_layer": "0-3000 m above  ground",
+    "level_layer": "90-0 mb above  ground",
     "parameter": "CAPE",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Convective Available  Potential Energy [J/kg]"
   },
   {
-    "row_number": 162,
-    "level_layer": "no_level",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "row_number": 161,
+    "level_layer": "90-0 mb above  ground",
+    "parameter": "CIN",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Convective Inhibition [J/kg]"
   },
   {
     "row_number": 162,
-    "level_layer": "no_level",
-    "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Geopotential Height [gpm]"
+    "level_layer": "255-0 mb above  ground",
+    "parameter": "CAPE",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Convective Available  Potential Energy [J/kg]"
   },
   {
-    "row_number": 162,
-    "level_layer": "no_level",
+    "row_number": 163,
+    "level_layer": "255-0 mb above  ground",
+    "parameter": "CIN",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Convective Inhibition [J/kg]"
+  },
+  {
+    "row_number": 164,
+    "level_layer": "equilibrium level",
     "parameter": "HGT",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 165,
-    "level_layer": "261 K level - 256  K level",
-    "parameter": "LAYTH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Layer Thickness [m]"
+    "level_layer": "255-0 mb above  ground",
+    "parameter": "PLPL",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Pressure of level from which  parcel was lifted [Pa]"
   },
   {
-    "row_number": 165,
-    "level_layer": "261 K level - 256  K level",
-    "parameter": "LAYTH",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Layer Thickness [m]"
+    "row_number": 166,
+    "level_layer": "entire atmosphere",
+    "parameter": "RHPW",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Relative Humidity with  Respect to Precipitable Water  [%]"
   },
   {
     "row_number": 167,
-    "level_layer": "entire atmosphere",
-    "parameter": "RHPW",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Relative Humidity with  Respect to Precipitable Water  [%]"
+    "level_layer": "surface",
+    "parameter": "LAND",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Land Cover (0=sea, 1=land)  [Proportion]"
   },
   {
     "row_number": 168,
     "level_layer": "surface",
-    "parameter": "LAND",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Land Cover (0=sea, 1=land)  [Proportion]"
+    "parameter": "ICEC",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Ice Cover [Proportion]"
   },
   {
     "row_number": 169,
-    "level_layer": "surface",
-    "parameter": "ICEC",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Ice Cover [Proportion]"
+    "level_layer": "top of atmosphere",
+    "parameter": "SBT123",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Simulated Brightness  Temperature for GOES 12,  Channel 3 [K]"
   },
   {
     "row_number": 170,
     "level_layer": "top of atmosphere",
-    "parameter": "SBT123",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Simulated Brightness  Temperature for GOES 12,  Channel 3 [K]"
+    "parameter": "SBT124",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Simulated Brightness  Temperature for GOES 12,  Channel 4 [K]"
   },
   {
     "row_number": 171,
     "level_layer": "top of atmosphere",
-    "parameter": "SBT124",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Simulated Brightness  Temperature for GOES 12,  Channel 4 [K]"
+    "parameter": "SBT113",
+    "forecast_valid_template": "2 hour fcst",
+    "description": "Simulated Brightness  Temperature for GOES 11,  Channel 3 [K]"
   },
   {
     "row_number": 172,
     "level_layer": "top of atmosphere",
-    "parameter": "SBT113",
-    "forecast_valid_pattern": "2 hour fcst",
-    "description": "Simulated Brightness  Temperature for GOES 11,  Channel 3 [K]"
-  },
-  {
-    "row_number": 173,
-    "level_layer": "top of atmosphere",
     "parameter": "SBT114",
-    "forecast_valid_pattern": "2 hour fcst",
+    "forecast_valid_template": "2 hour fcst",
     "description": "Simulated Brightness  Temperature for GOES 11,  Channel 4 [K]"
   }
 ]

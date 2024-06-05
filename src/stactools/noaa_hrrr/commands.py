@@ -7,6 +7,8 @@ from stactools.noaa_hrrr import stac
 from stactools.noaa_hrrr.constants import (
     EXTENDED_FORECAST_MAX_HOUR,
     CloudProvider,
+    ForecastHourSet,
+    Product,
     Region,
 )
 
@@ -27,27 +29,41 @@ def create_noaahrrr_command(cli: Group) -> Command:
         "create-collection",
         short_help="Creates a STAC collection",
     )
+    @click.argument("region", type=click.STRING)
+    @click.argument("product", type=click.STRING)
+    @click.argument("forecast_hour_set", type=click.STRING)
     @click.argument("cloud_provider", type=click.STRING)
     @click.argument("destination", type=click.STRING)
-    def create_collection_command(cloud_provider: str, destination: str) -> None:
+    def create_collection_command(
+        region: str,
+        product: str,
+        forecast_hour_set: str,
+        cloud_provider: str,
+        destination: str,
+    ) -> None:
         """Creates a STAC Collection
 
         Args:
             destination: An HREF for the Collection JSON
         """
         collection = stac.create_collection(
-            cloud_provider=CloudProvider.from_str(cloud_provider)
+            region=Region.from_str(region),
+            product=Product.from_str(product),
+            forecast_hour_set=ForecastHourSet.from_str(forecast_hour_set),
+            cloud_provider=CloudProvider.from_str(cloud_provider),
         )
         collection.set_self_href(destination)
         collection.save_object()
 
     @noaahrrr.command("create-item", short_help="Create a STAC item")
+    @click.argument("product", type=click.STRING)
     @click.argument("reference_datetime", type=click.DateTime(formats=["%Y-%m-%dT%H"]))
     @click.argument("forecast_hour", type=click.IntRange(0, EXTENDED_FORECAST_MAX_HOUR))
     @click.argument("region", type=click.STRING)
     @click.argument("cloud_provider", type=click.STRING)
     @click.argument("destination", type=click.STRING)
     def create_item_command(
+        product: str,
         reference_datetime: datetime,
         forecast_hour: int,
         region: str,
@@ -65,6 +81,7 @@ def create_noaahrrr_command(cli: Group) -> Command:
             cloud_provider (str): one of 'azure', 'aws', or 'google'
         """
         item = stac.create_item(
+            product=Product.from_str(product),
             reference_datetime=reference_datetime,
             forecast_hour=forecast_hour,
             region=Region.from_str(region),

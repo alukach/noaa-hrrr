@@ -15,67 +15,98 @@ from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
     CLOUD_PROVIDER_START_DATES,
-    COLLECTION_ID,
+    COLLECTION_ID_FORMAT,
     ITEM_ID_FORMAT,
     REGION_CONFIGS,
     CloudProvider,
     ForecastCycleType,
+    ForecastHourSet,
+    ItemType,
     Product,
     Region,
 )
 
 GRIB2_MEDIA_TYPE = "application/wmo-GRIB2"
+NDJSON_MEDIA_TYPE = "application/x-ndjson"
+INDEX_ASSET_DEFINITION = AssetDefinition(
+    {
+        "type": NDJSON_MEDIA_TYPE,
+        "roles": ["index"],
+        "title": "Index file",
+        "description": (
+            "The index file contains information on each message within "
+            "the GRIB2 file."
+        ),
+    }
+)
 
 ITEM_ASSETS = {
-    Product.surface: AssetDefinition(
-        {
-            "type": GRIB2_MEDIA_TYPE,
-            "roles": ["data"],
-            "title": "2D Surface Levels",
-            "description": (
-                "2D Surface Level forecast data as a grib2 file. Subsets of the data "
-                "can be loaded using the provided byte range."
-            ),
-        }
-    ),
-    Product.sub_hourly: AssetDefinition(
-        {
-            "type": GRIB2_MEDIA_TYPE,
-            "roles": ["data"],
-            "title": "2D Surface Levels - Sub Hourly",
-            "description": (
-                "2D Surface Level forecast data (sub-hourly, 15 minute intervals) as a "
-                "grib2 file. Subsets of the data can be loaded using the provided byte "
-                "range."
-            ),
-        }
-    ),
-    Product.pressure: AssetDefinition(
-        {
-            "type": GRIB2_MEDIA_TYPE,
-            "roles": ["data"],
-            "title": "3D Pressure Levels",
-            "description": (
-                "3D Pressure Level forecast data as a grib2 file. Subsets of the data "
-                "can be loaded using the provided byte range."
-            ),
-        }
-    ),
-    Product.native: AssetDefinition(
-        {
-            "type": GRIB2_MEDIA_TYPE,
-            "roles": ["data"],
-            "title": "Native Levels",
-            "description": (
-                "Native Level forecast data as a grib2 file. Subsets of the data "
-                "can be loaded using the provided byte range."
-            ),
-        }
-    ),
+    Product.surface: {
+        ItemType.GRIB: AssetDefinition(
+            {
+                "type": GRIB2_MEDIA_TYPE,
+                "roles": ["data"],
+                "title": "2D Surface Levels",
+                "description": (
+                    "2D Surface Level forecast data as a grib2 file. Subsets of the "
+                    "data can be loaded using the provided byte range."
+                ),
+            }
+        ),
+        ItemType.INDEX: INDEX_ASSET_DEFINITION,
+    },
+    Product.sub_hourly: {
+        ItemType.GRIB: AssetDefinition(
+            {
+                "type": GRIB2_MEDIA_TYPE,
+                "roles": ["data"],
+                "title": "2D Surface Levels - Sub Hourly",
+                "description": (
+                    "2D Surface Level forecast data (sub-hourly, 15 minute intervals) "
+                    "as a grib2 file. Subsets of the data can be loaded using the "
+                    "provided byte range."
+                ),
+            }
+        ),
+        ItemType.INDEX: INDEX_ASSET_DEFINITION,
+    },
+    Product.pressure: {
+        ItemType.GRIB: AssetDefinition(
+            {
+                "type": GRIB2_MEDIA_TYPE,
+                "roles": ["data"],
+                "title": "3D Pressure Levels",
+                "description": (
+                    "3D Pressure Level forecast data as a grib2 file. Subsets of the "
+                    "data can be loaded using the provided byte range."
+                ),
+            }
+        ),
+        ItemType.INDEX: INDEX_ASSET_DEFINITION,
+    },
+    Product.native: {
+        ItemType.GRIB: AssetDefinition(
+            {
+                "type": GRIB2_MEDIA_TYPE,
+                "roles": ["data"],
+                "title": "Native Levels",
+                "description": (
+                    "Native Level forecast data as a grib2 file. Subsets of the data "
+                    "can be loaded using the provided byte range."
+                ),
+            }
+        ),
+        ItemType.INDEX: INDEX_ASSET_DEFINITION,
+    },
 }
 
 
-def create_collection(cloud_provider: CloudProvider) -> Collection:
+def create_collection(
+    region: Region,
+    product: Product,
+    forecast_hour_set: ForecastHourSet,
+    cloud_provider: CloudProvider,
+) -> Collection:
     """Creates a STAC Collection.
 
     Args:
@@ -123,7 +154,11 @@ def create_collection(cloud_provider: CloudProvider) -> Collection:
     ]
 
     collection = Collection(
-        id=COLLECTION_ID,
+        id=COLLECTION_ID_FORMAT.format(
+            region=region.value,
+            product=product.value,
+            forecast_hour_set=forecast_hour_set.value,
+        ),
         title="NOAA High Resolution Rapid Refresh (HRRR) collection",
         description=(
             "The NOAA HRRR is a real-time 3km resolution, hourly updated, "
@@ -144,13 +179,23 @@ def create_collection(cloud_provider: CloudProvider) -> Collection:
 
     item_assets_attrs = ItemAssetsExtension.ext(collection, add_if_missing=True)
     item_assets_attrs.item_assets = {
-        product.value: item_asset for product, item_asset in ITEM_ASSETS.items()
+        item_type.value: item_asset
+        for item_type, item_asset in ITEM_ASSETS[product].items()
     }
+
+    # cycle_run_config = CycleRunConfig(
+    #     region=region,
+    #     product=product,
+    #     forecast_hour_set=forecast_hour_set,
+    # )
+
+    # TODO: build datacube out of cycle_run_config
 
     return collection
 
 
 def create_item(
+    product: Product,
     reference_datetime: datetime,
     forecast_hour: int,
     region: Region,
@@ -178,12 +223,12 @@ def create_item(
     Returns:
         Item: STAC Item object
     """
-    config = REGION_CONFIGS[region]
+    region_config = REGION_CONFIGS[region]
 
     # make sure there is data for the reference_datetime
     # (Alaska only runs the model every three hours)
-    if cycle_run_hour := reference_datetime.hour not in config.cycle_run_hours:
-        cycle_run_hours = [str(hour) for hour in config.cycle_run_hours]
+    if cycle_run_hour := reference_datetime.hour not in region_config.cycle_run_hours:
+        cycle_run_hours = [str(hour) for hour in region_config.cycle_run_hours]
         raise ValueError(
             f"{cycle_run_hour} is not a valid cycle run hour for {region.value}\n"
             f"Please select one of {' ,'.join(cycle_run_hours)}"
@@ -193,20 +238,21 @@ def create_item(
     forecast_datetime = reference_datetime + timedelta(hours=forecast_hour)
 
     # the forecast_cycle_type defines the available forecast hours and products
-    forecast_cycle_type = ForecastCycleType.from_timestamp_and_region(
-        reference_datetime=reference_datetime, region=region
+    forecast_cycle_type = ForecastCycleType.from_timestamp(
+        reference_datetime=reference_datetime
     )
 
     forecast_cycle_type.validate_forecast_hour(forecast_hour)
 
     item = Item(
         ITEM_ID_FORMAT.format(
+            product=product.value,
             reference_datetime=reference_datetime.strftime("%Y-%m-%dT%H"),
             forecast_hour=forecast_hour,
             region=region.value,
         ),
-        geometry=config.geometry_4326,
-        bbox=config.bbox_4326,
+        geometry=region_config.geometry_4326,
+        bbox=region_config.bbox_4326,
         datetime=forecast_datetime,
         properties={
             "forecast:reference_time": reference_datetime.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -216,22 +262,27 @@ def create_item(
         },
     )
 
-    # loop through products and add assets
-    for product in forecast_cycle_type.products:
-        herbie_metadata = Herbie(
-            reference_datetime,
-            model=config.herbie_model_id,
-            fxx=forecast_hour,
-            priority=[cloud_provider.value],
-            product=product.value,
-            verbose=False,
-        )
-        assert isinstance(herbie_metadata.grib, str)
-        item.assets[product.value] = ITEM_ASSETS[product].create_asset(
-            herbie_metadata.grib
-        )
-        # datacube = DatacubeExtension.ext(
-        #     item.assets[product.value],  # add_if_missing=True
-        # )
+    herbie_metadata = Herbie(
+        reference_datetime,
+        model=region_config.herbie_model_id,
+        fxx=forecast_hour,
+        priority=[cloud_provider.value],
+        product=product.value,
+        verbose=False,
+    )
+
+    assert isinstance(herbie_metadata.grib, str)
+    item.assets[ItemType.GRIB.value] = ITEM_ASSETS[product][ItemType.GRIB].create_asset(
+        herbie_metadata.grib
+    )
+
+    assert isinstance(herbie_metadata.idx, str)
+    item.assets[ItemType.INDEX.value] = ITEM_ASSETS[product][
+        ItemType.INDEX
+    ].create_asset(herbie_metadata.idx)
+
+    # datacube = DatacubeExtension.ext(
+    #     item.assets[product.value],  # add_if_missing=True
+    # )
 
     return item

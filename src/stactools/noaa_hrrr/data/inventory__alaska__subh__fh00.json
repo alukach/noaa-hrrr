@@ -3,343 +3,343 @@
     "row_number": 1,
     "level_layer": "entire atmosphere",
     "parameter": "REFC",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Composite reflectivity [dB]"
   },
   {
     "row_number": 2,
     "level_layer": "cloud top",
     "parameter": "RETOP",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Echo Top [m]"
   },
   {
     "row_number": 2,
     "level_layer": "cloud top",
     "parameter": "RETOP",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Echo Top [m]"
   },
   {
     "row_number": 4,
     "level_layer": "entire atmosphere",
     "parameter": "VIL",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Vertically-Integrated Liquid  Water [kg/m^2]"
   },
   {
     "row_number": 5,
     "level_layer": "surface",
     "parameter": "VIS",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Visibility [m]"
   },
   {
     "row_number": 6,
     "level_layer": "1000 m above  ground",
     "parameter": "REFD",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Reflectivity [dB]"
   },
   {
     "row_number": 7,
     "level_layer": "4000 m above  ground",
     "parameter": "REFD",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Reflectivity [dB]"
   },
   {
     "row_number": 8,
     "level_layer": "surface",
     "parameter": "GUST",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Wind Speed (Gust) [m/s]"
   },
   {
     "row_number": 9,
     "level_layer": "5000-2000 m above  ground",
     "parameter": "UPHL",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Updraft Helicity [m^2/s^2]"
   },
   {
     "row_number": 10,
     "level_layer": "80 m above ground",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 11,
     "level_layer": "80 m above ground",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 12,
     "level_layer": "surface",
     "parameter": "PRES",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Pressure [Pa]"
   },
   {
     "row_number": 13,
     "level_layer": "surface",
     "parameter": "HGT",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 14,
     "level_layer": "2 m above ground",
     "parameter": "TMP",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Temperature [K]"
   },
   {
     "row_number": 15,
     "level_layer": "2 m above ground",
     "parameter": "SPFH",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Specific Humidity [kg/kg]"
   },
   {
     "row_number": 16,
     "level_layer": "2 m above ground",
     "parameter": "DPT",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Dew Point Temperature [K]"
   },
   {
     "row_number": 17,
     "level_layer": "10 m above ground",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 18,
     "level_layer": "10 m above ground",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 19,
     "level_layer": "10 m above ground",
     "parameter": "WIND",
-    "forecast_valid_pattern": "0-0 day ave f",
+    "forecast_valid_template": "0-0 day ave f",
     "description": "Wind Speed [m/s]"
   },
   {
     "row_number": 20,
     "level_layer": "10 m above ground",
     "parameter": "UGRD",
-    "forecast_valid_pattern": "0-0 day ave f",
+    "forecast_valid_template": "0-0 day ave f",
     "description": "U-Component of Wind [m/s]"
   },
   {
     "row_number": 21,
     "level_layer": "10 m above ground",
     "parameter": "VGRD",
-    "forecast_valid_pattern": "0-0 day ave f",
+    "forecast_valid_template": "0-0 day ave f",
     "description": "V-Component of Wind [m/s]"
   },
   {
     "row_number": 22,
     "level_layer": "surface",
     "parameter": "DSWRF",
-    "forecast_valid_pattern": "0-0 day ave f",
+    "forecast_valid_template": "0-0 day ave f",
     "description": "Downward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 23,
     "level_layer": "surface",
     "parameter": "VBDSF",
-    "forecast_valid_pattern": "0-0 day ave f",
+    "forecast_valid_template": "0-0 day ave f",
     "description": "Visible Beam Downward Solar  Flux [W/m^2]"
   },
   {
     "row_number": 24,
     "level_layer": "surface",
     "parameter": "CPOFP",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Percent frozen precipitation  [%]"
   },
   {
     "row_number": 25,
     "level_layer": "surface",
     "parameter": "PRATE",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Precipitation Rate [kg/m^2/s]"
   },
   {
     "row_number": 26,
     "level_layer": "surface",
     "parameter": "APCP",
-    "forecast_valid_pattern": "0-0 day acc f",
+    "forecast_valid_template": "0-0 day acc f",
     "description": "Total Precipitation [kg/m^2]"
   },
   {
     "row_number": 27,
     "level_layer": "surface",
     "parameter": "WEASD",
-    "forecast_valid_pattern": "0-0 day acc f",
+    "forecast_valid_template": "0-0 day acc f",
     "description": "Water Equivalent of  Accumulated Snow Depth  [kg/m^2]"
   },
   {
     "row_number": 28,
     "level_layer": "surface",
     "parameter": "FROZR",
-    "forecast_valid_pattern": "0-0 day acc f",
+    "forecast_valid_template": "0-0 day acc f",
     "description": "Frozen Rain [kg/m^2]"
   },
   {
     "row_number": 29,
     "level_layer": "surface",
     "parameter": "CSNOW",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Categorical Snow [-]"
   },
   {
     "row_number": 30,
     "level_layer": "surface",
     "parameter": "CICEP",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Categorical Ice Pellets [-]"
   },
   {
     "row_number": 31,
     "level_layer": "surface",
     "parameter": "CFRZR",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Categorical Freezing Rain [-]"
   },
   {
     "row_number": 32,
     "level_layer": "surface",
     "parameter": "CRAIN",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Categorical Rain [-]"
   },
   {
     "row_number": 32,
     "level_layer": "surface",
     "parameter": "CRAIN",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Categorical Rain [-]"
   },
   {
     "row_number": 32,
     "level_layer": "surface",
     "parameter": "CRAIN",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Categorical Rain [-]"
   },
   {
     "row_number": 35,
     "level_layer": "cloud ceiling",
     "parameter": "HGT",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 36,
     "level_layer": "cloud base",
     "parameter": "HGT",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 37,
     "level_layer": "cloud top",
     "parameter": "HGT",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Geopotential Height [gpm]"
   },
   {
     "row_number": 38,
     "level_layer": "top of atmosphere",
     "parameter": "ULWRF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Upward Long-Wave Rad. Flux  [W/m^2]"
   },
   {
     "row_number": 39,
     "level_layer": "surface",
     "parameter": "DSWRF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Downward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 40,
     "level_layer": "surface",
     "parameter": "DLWRF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Downward Long-Wave Rad. Flux  [W/m^2]"
   },
   {
     "row_number": 41,
     "level_layer": "surface",
     "parameter": "USWRF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Upward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 42,
     "level_layer": "surface",
     "parameter": "ULWRF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Upward Long-Wave Rad. Flux  [W/m^2]"
   },
   {
     "row_number": 43,
     "level_layer": "surface",
     "parameter": "VBDSF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Visible Beam Downward Solar  Flux [W/m^2]"
   },
   {
     "row_number": 44,
     "level_layer": "surface",
     "parameter": "VDDSF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Visible Diffuse Downward  Solar Flux [W/m^2]"
   },
   {
     "row_number": 45,
     "level_layer": "top of atmosphere",
     "parameter": "USWRF",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Upward Short-Wave Radiation  Flux [W/m^2]"
   },
   {
     "row_number": 46,
     "level_layer": "top of atmosphere",
     "parameter": "SBT123",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Simulated Brightness  Temperature for GOES 12,  Channel 3 [K]"
   },
   {
     "row_number": 47,
     "level_layer": "top of atmosphere",
     "parameter": "SBT124",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Simulated Brightness  Temperature for GOES 12,  Channel 4 [K]"
   },
   {
     "row_number": 48,
     "level_layer": "top of atmosphere",
     "parameter": "SBT113",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Simulated Brightness  Temperature for GOES 11,  Channel 3 [K]"
   },
   {
     "row_number": 49,
     "level_layer": "top of atmosphere",
     "parameter": "SBT114",
-    "forecast_valid_pattern": "analysis",
+    "forecast_valid_template": "analysis",
     "description": "Simulated Brightness  Temperature for GOES 11,  Channel 4 [K]"
   }
 ]
