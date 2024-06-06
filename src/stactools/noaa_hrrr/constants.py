@@ -1,5 +1,3 @@
-import json
-import re
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
@@ -10,7 +8,6 @@ from rasterio.crs import CRS
 from rasterio.warp import transform_bounds
 
 DATA_DIR = Path(__file__).parent / "data"
-INVENTORY_JSON_FORMAT = "inventory__{region}__{product}__{forecast_hours}.json"
 
 T = TypeVar("T", bound="StrEnum")
 
@@ -64,8 +61,8 @@ class Product(StrEnum):
 class ForecastHourSet(StrEnum):
     """Forecast hour sets
 
-    Either FH00-01 or FH02-48. The inventory of layers within a GRIB file depends on
-    which set it is in
+    Either FH00-01 or FH02-48, or FH00 or FH01-18 for sub-hourly.
+    The inventory of layers within a GRIB file depends on which set it is in
     """
 
     # subhourly
@@ -101,7 +98,11 @@ class ForecastHourSet(StrEnum):
 
 @dataclass
 class ForecastCycleType:
-    """Forecast cycle types"""
+    """Forecast cycle types
+
+    Standard forecasts are generated every hour in CONUS and every three hours in
+    Alaska, extended (48 hour) forecasts are generated every six hours.
+    """
 
     type: str
 
@@ -129,7 +130,7 @@ class ForecastCycleType:
     def generate_forecast_hours(self) -> Generator[int, None, None]:
         """Generate a list of forecast hours for the given forecast cycle type"""
 
-        for i in range(1, self.max_forecast_hour + 1):
+        for i in range(0, self.max_forecast_hour + 1):
             yield i
 
     def validate_forecast_hour(self, forecast_hour: int) -> None:
@@ -167,69 +168,6 @@ class Variable:
     forecast_valid: str
     description: str
 
-    @classmethod
-    def from_template(
-        cls,
-        forecast_hour: int,
-        forecast_valid_template: str,
-        row_number: int,
-        level_layer: str,
-        parameter: str,
-        description: str,
-    ) -> "Variable":
-        if forecast_valid_template == "analysis":
-            forecast_valid = (
-                "analysis" if forecast_hour == 0 else f"{forecast_hour} hour fcst"
-            )
-
-        elif match := re.search(r"(\d+) (.*) fcst", forecast_valid_template):
-            forecast_template_time, time_unit = match.groups()
-
-            if time_unit == "min":
-                # the reference data represents FH02
-                forecast_time = int(forecast_template_time) + (forecast_hour - 1) * 60
-            else:
-                forecast_time = forecast_hour
-
-            forecast_valid = f"{forecast_time} {time_unit} fcst"
-
-        elif match := re.search(r"(\d+)-(\d+) (\w+) (.*)", forecast_valid_template):
-            template_start_time, template_end_time, time_unit, stat = match.groups()
-            if time_unit == "min":
-                start_time = int(template_start_time) + (forecast_hour - 2) * 60
-                end_time = int(template_end_time) + (forecast_hour - 2) * 60
-            else:
-                time_unit = "hour"
-                end_time = forecast_hour
-                if template_start_time == "1":
-                    start_time = forecast_hour - 1
-                else:
-                    start_time = 0
-
-                if not forecast_hour % 24:
-                    # convert hours to days...
-                    start_time = 0
-                    end_time = int(forecast_hour / 24)
-                    time_unit = "day"
-
-            forecast_valid = f"{start_time}-{end_time} {time_unit} {stat}"
-
-        else:
-            raise ValueError(
-                (
-                    f"{forecast_valid_template} could not be parsed into a "
-                    "forecast_valid string"
-                )
-            )
-
-        return cls(
-            row_number=row_number,
-            level_layer=level_layer,
-            parameter=parameter,
-            forecast_valid=forecast_valid,
-            description=description,
-        )
-
 
 PRODUCT_FORECAST_HOUR_SETS = {
     Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
@@ -237,22 +175,6 @@ PRODUCT_FORECAST_HOUR_SETS = {
     Product.native: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
     Product.sub_hourly: [ForecastHourSet.FH00, ForecastHourSet.FH01_18],
 }
-
-TEMPLATE_INVENTORY = {}
-for region in Region:
-    for product in Product:
-        for forecast_hour_set in PRODUCT_FORECAST_HOUR_SETS[product]:
-            json_file = DATA_DIR / INVENTORY_JSON_FORMAT.format(
-                region=region.value,
-                product=product.value,
-                forecast_hours=forecast_hour_set.value,
-            )
-            with open(json_file) as f:
-                variable_list = json.load(f)
-
-            TEMPLATE_INVENTORY[region, product, forecast_hour_set] = [
-                v for v in variable_list
-            ]
 
 
 @dataclass
@@ -263,18 +185,19 @@ class CycleRunConfig:
 
     def __post_init__(self) -> None:
         # populate the inventory for each forecast hour
-        self.inventory = {
-            forecast_hour: [
-                Variable.from_template(
-                    forecast_hour=forecast_hour,
-                    **template,
-                )
-                for template in TEMPLATE_INVENTORY[
-                    self.region, self.product, self.forecast_hour_set
-                ]
-            ]
-            for forecast_hour in self.forecast_hour_set.generate_forecast_hours()
-        }
+        # self.inventory = {
+        #     forecast_hour: [
+        #         Variable.from_template(
+        #             forecast_hour=forecast_hour,
+        #             **template,
+        #         )
+        #         for template in TEMPLATE_INVENTORY[
+        #             self.region, self.product, self.forecast_hour_set
+        #         ]
+        #     ]
+        #     for forecast_hour in self.forecast_hour_set.generate_forecast_hours()
+        # }
+        pass
 
 
 @dataclass
