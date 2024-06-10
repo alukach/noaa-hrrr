@@ -18,6 +18,8 @@ COLLECTION_ID_FORMAT = COLLECTION_ID_BASE + "-{region}-{product}-{forecast_hour_
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18
 
+RESOLUTION_METERS = 3000
+
 
 class StrEnum(str, Enum):
     """A string-based enum, that can lookup an enum value from a string.

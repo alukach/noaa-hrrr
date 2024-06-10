@@ -30,6 +30,90 @@ INVENTORY_CSV_GZ_FORMAT = "__".join(
 INDEX_COL = "forecast_hour"
 DATA_COLS = ["grib_message", "variable", "level", "forecast_time", "search_this"]
 
+NOAA_INVENTORY_URLS = {
+    (
+        Region.conus,
+        Product.pressure,
+        ForecastHourSet.FH00_01,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfprsf00.grib2.shtml",
+    (
+        Region.conus,
+        Product.pressure,
+        ForecastHourSet.FH02_48,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfprsf02.grib2.shtml",
+    (
+        Region.conus,
+        Product.native,
+        ForecastHourSet.FH00_01,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfnatf00.grib2.shtml",
+    (
+        Region.conus,
+        Product.native,
+        ForecastHourSet.FH02_48,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfnatf02.grib2.shtml",
+    (
+        Region.conus,
+        Product.surface,
+        ForecastHourSet.FH00_01,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsfcf00.grib2.shtml",
+    (
+        Region.conus,
+        Product.surface,
+        ForecastHourSet.FH02_48,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsfcf02.grib2.shtml",
+    (
+        Region.conus,
+        Product.sub_hourly,
+        ForecastHourSet.FH00,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsubhf00.grib2.shtml",
+    (
+        Region.conus,
+        Product.sub_hourly,
+        ForecastHourSet.FH01_18,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsubbhf02.grib2.shtml",
+    (
+        Region.alaska,
+        Product.pressure,
+        ForecastHourSet.FH00_01,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfprsf00.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.pressure,
+        ForecastHourSet.FH02_48,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfprsf02.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.native,
+        ForecastHourSet.FH00_01,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfnatf00.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.native,
+        ForecastHourSet.FH02_48,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfnatf02.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.surface,
+        ForecastHourSet.FH00_01,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsfcf00.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.surface,
+        ForecastHourSet.FH02_48,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsfcf02.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.sub_hourly,
+        ForecastHourSet.FH00,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsubhf00.ak.grib2.shtml",
+    (
+        Region.alaska,
+        Product.sub_hourly,
+        ForecastHourSet.FH01_18,
+    ): "https://www.nco.ncep.noaa.gov/pmb/products/hrrr/hrrr.t00z.wrfsubbhf02.ak.grib2.shtml",
+}
+
+
 dummy_datetime = datetime(year=2024, month=5, day=1)
 
 
@@ -50,7 +134,28 @@ def load_inventory_df(
         ),
         index_col=INDEX_COL,
     )
+    n_rows = inventory_df.shape[0]
 
+    # get the variable descriptions from the NOAA inventory tables
+    noaa_inventory = pd.read_html(
+        NOAA_INVENTORY_URLS[region, product, forecast_hour_set],
+    )[1]
+
+    noaa_inventory[["description", "unit"]] = noaa_inventory["Description"].str.extract(
+        r"(.+?) \[(.+?)\]"
+    )
+
+    variable_descriptions = (
+        noaa_inventory[["Parameter", "description", "unit"]]
+        .drop_duplicates()
+        .rename(columns={"Parameter": "variable"})
+    )
+
+    # add the variable descriptions
+    inventory_df = inventory_df.merge(variable_descriptions, on="variable", how="left")
+    assert inventory_df.shape[0] == n_rows
+
+    # optionally subset down to a specific forecast hour
     if forecast_hour is not None:
         inventory_df = inventory_df.loc[forecast_hour]
 

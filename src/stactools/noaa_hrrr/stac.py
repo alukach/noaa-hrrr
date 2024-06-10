@@ -11,6 +11,13 @@ from pystac import (
     TemporalExtent,
 )
 from pystac.catalog import CatalogType
+from pystac.extensions.datacube import (
+    DatacubeExtension,
+    Dimension,
+    DimensionType,
+    Variable,
+    VariableType,
+)
 from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
@@ -18,6 +25,7 @@ from stactools.noaa_hrrr.constants import (
     COLLECTION_ID_FORMAT,
     ITEM_ID_FORMAT,
     REGION_CONFIGS,
+    RESOLUTION_METERS,
     CloudProvider,
     ForecastCycleType,
     ForecastHourSet,
@@ -25,6 +33,7 @@ from stactools.noaa_hrrr.constants import (
     Product,
     Region,
 )
+from stactools.noaa_hrrr.inventory import load_inventory_df
 
 GRIB2_MEDIA_TYPE = "application/wmo-GRIB2"
 NDJSON_MEDIA_TYPE = "application/x-ndjson"
@@ -115,10 +124,9 @@ def create_collection(
     Returns:
         Collection: STAC Collection object
     """
+    region_config = REGION_CONFIGS[region]
     extent = Extent(
-        SpatialExtent(
-            [region_config.bbox_4326 for region_config in REGION_CONFIGS.values()]
-        ),
+        SpatialExtent([region_config.bbox_4326]),
         TemporalExtent([[CLOUD_PROVIDER_START_DATES[cloud_provider], None]]),
     )
 
@@ -177,19 +185,88 @@ def create_collection(
 
     collection.add_links(links)
 
-    item_assets_attrs = ItemAssetsExtension.ext(collection, add_if_missing=True)
-    item_assets_attrs.item_assets = {
+    item_assets_ext = ItemAssetsExtension.ext(collection, add_if_missing=True)
+    item_assets_ext.item_assets = {
         item_type.value: item_asset
         for item_type, item_asset in ITEM_ASSETS[product].items()
     }
+    inventory_df = load_inventory_df(
+        region=region,
+        product=product,
+        forecast_hour_set=forecast_hour_set,
+        forecast_cycle_type=ForecastCycleType("extended"),
+    )
 
-    # cycle_run_config = CycleRunConfig(
-    #     region=region,
-    #     product=product,
-    #     forecast_hour_set=forecast_hour_set,
-    # )
+    variable_df = inventory_df.set_index(
+        keys=["variable", "description", "unit"]
+    ).sort_index(level="variable")
 
-    # TODO: build datacube out of cycle_run_config
+    datacube_ext = DatacubeExtension.ext(collection, add_if_missing=True)
+    datacube_ext.apply(
+        dimensions={
+            "x": Dimension(
+                properties={
+                    "type": DimensionType.SPATIAL,
+                    "reference_system": region_config.item_crs.to_wkt(),
+                    "extent": [
+                        region_config.item_bbox_proj[0] + RESOLUTION_METERS / 2,
+                        region_config.item_bbox_proj[2] - RESOLUTION_METERS / 2,
+                    ],
+                    "axis": "x",
+                }
+            ),
+            "y": Dimension(
+                properties={
+                    "type": DimensionType.SPATIAL,
+                    "reference_system": region_config.item_crs.to_wkt(),
+                    "extent": [
+                        region_config.item_bbox_proj[1] + RESOLUTION_METERS / 2,
+                        region_config.item_bbox_proj[3] - RESOLUTION_METERS / 2,
+                    ],
+                    "axis": "y",
+                }
+            ),
+            # these match the information in the inventory files
+            "level": Dimension(
+                properties={
+                    "type": "atmospheric level",
+                    "description": (
+                        "The atmospheric level for which the forecast is applicable, "
+                        "e.g. surface, top of atmosphere, 100 m above ground, etc."
+                    ),
+                    "values": list(sorted(set(inventory_df["level"].unique()))),
+                }
+            ),
+            "forecast_time": Dimension(
+                properties={
+                    "type": DimensionType.TEMPORAL,
+                    "description": (
+                        "The time horizon for which the forecast is applicable."
+                    ),
+                    "values": list(sorted(set(inventory_df["forecast_time"].unique()))),
+                }
+            ),
+        },
+        variables={
+            variable: Variable(
+                properties=dict(
+                    dimensions=["x", "y", "level", "forecast_time"],
+                    type=VariableType.DATA,
+                    description=description,
+                    unit=unit,
+                    # experimental new field for defining the specific values of each
+                    # domain where this variable has data
+                    dimension_domains={
+                        "level": list(group["level"].unique()),
+                        "forecast_time": list(group["forecast_time"].unique()),
+                    },
+                )
+            )
+            for (variable, description, unit), group in variable_df.groupby(
+                level=["variable", "description", "unit"]
+            )
+        },
+    )
 
     return collection
 
