@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - conda-forge::sqlite
   - conda-forge::curl
   - conda-forge::gdal>=3.3
   - conda-forge::geos>=3.3
