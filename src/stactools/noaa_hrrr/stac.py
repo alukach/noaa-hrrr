@@ -22,7 +22,9 @@ from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
     CLOUD_PROVIDER_START_DATES,
     COLLECTION_ID_FORMAT,
+    FORECAST_HOUR_SET_DESCRIPTIONS,
     ITEM_ID_FORMAT,
+    PRODUCT_DESCRIPTIONS,
     REGION_CONFIGS,
     RESOLUTION_METERS,
     CloudProvider,
@@ -179,7 +181,10 @@ def create_collection(
             "initialized by 3km grids with 3km radar assimilation. Radar data is "
             "assimilated in the HRRR every 15 min over a 1-hour period adding further "
             "detail to that provided by the hourly data assimilation from the 13km "
-            "radar-enhanced Rapid Refresh (RAP) system."
+            "radar-enhanced Rapid Refresh (RAP) system. "
+            f"This specific collection represents {PRODUCT_DESCRIPTIONS[product]} for "
+            f"{FORECAST_HOUR_SET_DESCRIPTIONS[forecast_hour_set]} in the {region.value}"
+            " region."
         ),
         extent=extent,
         license="CC-BY-4.0",

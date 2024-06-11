@@ -276,3 +276,18 @@ CLOUD_PROVIDER_START_DATES = {
     CloudProvider.aws: datetime(year=2014, month=7, day=30),
     CloudProvider.google: datetime(year=2014, month=7, day=30),
 }
+
+# descriptions for each collection configuration
+PRODUCT_DESCRIPTIONS = {
+    Product.surface: "2D Surface Levels",
+    Product.pressure: "3D Pressure Levels",
+    Product.native: "Native Levels",
+    Product.sub_hourly: "2D Surface Levels - Sub Hourly",
+}
+
+FORECAST_HOUR_SET_DESCRIPTIONS = {
+    ForecastHourSet.FH00_01: "forecast hours 00 and 01",
+    ForecastHourSet.FH02_48: "forecast hours 02 thru 48",
+    ForecastHourSet.FH00: "forecast hour 00",
+    ForecastHourSet.FH01_18: "forecast hours 01 thru 18",
+}
