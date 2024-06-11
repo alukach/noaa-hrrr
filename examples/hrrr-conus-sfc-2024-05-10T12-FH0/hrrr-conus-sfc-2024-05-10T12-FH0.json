@@ -1,7 +1,7 @@
 {
   "type": "Feature",
   "stac_version": "1.0.0",
-  "id": "hrrr-conus-2024-05-10T12-FH0",
+  "id": "hrrr-conus-sfc-2024-05-10T12-FH0",
   "properties": {
     "forecast:reference_time": "2024-05-10T12:00:00",
     "forecast:horizon": "PT0H",
@@ -57,31 +57,22 @@
     }
   ],
   "assets": {
-    "prs": {
-      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfprsf00.grib2",
-      "type": "application/wmo-GRIB2",
-      "title": "3D Pressure Levels",
-      "description": "3D Pressure Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
-      "roles": [
-        "data"
-      ]
-    },
-    "nat": {
-      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfnatf00.grib2",
-      "type": "application/wmo-GRIB2",
-      "title": "Native Levels",
-      "description": "Native Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
-      "roles": [
-        "data"
-      ]
-    },
-    "sfc": {
+    "grib": {
       "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
       "type": "application/wmo-GRIB2",
       "title": "2D Surface Levels",
       "description": "2D Surface Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
       "roles": [
         "data"
+      ]
+    },
+    "index": {
+      "href": "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2.idx",
+      "type": "application/x-ndjson",
+      "title": "Index file",
+      "description": "The index file contains information on each message within the GRIB2 file.",
+      "roles": [
+        "index"
       ]
     }
   },
@@ -92,5 +83,5 @@
     52.62870335266728
   ],
   "stac_extensions": [],
-  "collection": "noaa-hrrr"
+  "collection": "noaa-hrrr-conus-sfc-fh00-01"
 }

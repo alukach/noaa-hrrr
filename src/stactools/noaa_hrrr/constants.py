@@ -1,18 +1,24 @@
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
-from typing import Any, List, Type, TypeVar
+from pathlib import Path
+from typing import Any, Generator, List, Type, TypeVar
 
 from rasterio.crs import CRS
 from rasterio.warp import transform_bounds
 
+DATA_DIR = Path(__file__).parent / "data"
+
 T = TypeVar("T", bound="StrEnum")
 
-ITEM_ID_FORMAT = "hrrr-{region}-{reference_datetime}-FH{forecast_hour}"
-COLLECTION_ID_FORMAT = "noaa-hrrr"
+ITEM_ID_FORMAT = "hrrr-{region}-{product}-{reference_datetime}-FH{forecast_hour}"
+COLLECTION_ID_BASE = "noaa-hrrr"
+COLLECTION_ID_FORMAT = COLLECTION_ID_BASE + "-{region}-{product}-{forecast_hour_set}"
 
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18
+
+RESOLUTION_METERS = 3000
 
 
 class StrEnum(str, Enum):
@@ -54,9 +60,51 @@ class Product(StrEnum):
     sub_hourly = "subh"
 
 
+class ForecastHourSet(StrEnum):
+    """Forecast hour sets
+
+    Either FH00-01 or FH02-48, or FH00 or FH01-18 for sub-hourly.
+    The inventory of layers within a GRIB file depends on which set it is in
+    """
+
+    # subhourly
+    FH00 = "fh00"
+    FH01_18 = "fh01-18"
+
+    # everything else
+    FH00_01 = "fh00-01"
+    FH02_48 = "fh02-48"
+
+    @classmethod
+    def from_forecast_hour_and_product(
+        cls, forecast_hour: int, product: Product
+    ) -> "ForecastHourSet":
+        """Pick the enum value given a forecast hour as an integer"""
+        if not 0 <= forecast_hour <= 48:
+            raise ValueError("integer must within 0-48")
+        if product == Product.sub_hourly:
+            return cls.FH00 if forecast_hour == 0 else cls.FH01_18
+        else:
+            return cls.FH00_01 if forecast_hour < 2 else cls.FH02_48
+
+    def generate_forecast_hours(self) -> Generator[int, None, None]:
+        forecast_hour_range = [int(i) for i in self.value.replace("fh", "").split("-")]
+
+        if len(forecast_hour_range) == 1:
+            yield forecast_hour_range[0]
+        else:
+            assert len(forecast_hour_range) == 2
+            for i in range(forecast_hour_range[0], forecast_hour_range[1] + 1):
+                yield i
+
+
 @dataclass
 class ForecastCycleType:
-    """Forecast cycle types"""
+    """Forecast cycle types
+
+    Standard forecasts are generated every hour in CONUS and every three hours in
+    Alaska, extended (48 hour) forecasts are generated every six hours.
+    """
 
     type: str
 
@@ -70,20 +118,8 @@ class ForecastCycleType:
             else EXTENDED_FORECAST_MAX_HOUR
         )
 
-        # the available products vary by forecast cycle type
-        self.products = [
-            Product.pressure,
-            Product.native,
-            Product.surface,
-        ]
-
-        if self.type == "standard":
-            self.products.append(Product.sub_hourly)
-
     @classmethod
-    def from_timestamp_and_region(
-        cls, reference_datetime: datetime, region: Region
-    ) -> "ForecastCycleType":
+    def from_timestamp(cls, reference_datetime: datetime) -> "ForecastCycleType":
         """Determine the forecast cycle type based on the timestamp of the cycle run
         hour
 
@@ -93,9 +129,11 @@ class ForecastCycleType:
         extended = reference_datetime.hour % 6 == 0
         return cls("extended" if extended else "standard")
 
-    def generate_forecast_hours(self) -> List[int]:
+    def generate_forecast_hours(self) -> Generator[int, None, None]:
         """Generate a list of forecast hours for the given forecast cycle type"""
-        return list(range(1, self.max_forecast_hour + 1))
+
+        for i in range(0, self.max_forecast_hour + 1):
+            yield i
 
     def validate_forecast_hour(self, forecast_hour: int) -> None:
         """Check if forecast hour is valid for the forecast type.
@@ -119,12 +157,35 @@ class ForecastCycleType:
 class ItemType(StrEnum):
     """STAC item types"""
 
-    grib = "grib"
-    # datacube = "datacube"
+    GRIB = "grib"
+    INDEX = "index"
+
+
+@dataclass
+class Variable:
+    row_number: int
+    level_layer: str
+    parameter: str
+    forecast_valid: str
+    description: str
+
+
+# each product has a specific set of forecast hour sets
+PRODUCT_FORECAST_HOUR_SETS = {
+    Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.pressure: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.native: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    Product.sub_hourly: [ForecastHourSet.FH00, ForecastHourSet.FH01_18],
+}
 
 
 @dataclass
 class RegionConfig:
+    """Since all items within a single region share the same exact extent and a few
+    other properties, store that information as a constant that can be used during STAC
+    metadata creation
+    """
+
     item_bbox_proj: tuple[float, float, float, float]
     item_crs: CRS
     herbie_model_id: str

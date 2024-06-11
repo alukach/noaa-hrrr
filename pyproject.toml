@@ -57,3 +57,6 @@ mypy_path = "src"
 
 [tool.ruff]
 select = ["E", "F", "I"]
+
+[tool.setuptools.package-data]
+"stactools.noaa_hrrr.data" = ["stactools/noaa_hrrr/data/*.json"]
