@@ -44,6 +44,10 @@ def create_noaahrrr_command(cli: Group) -> Command:
         """Creates a STAC Collection
 
         Args:
+            region (str): either 'conus' or 'alaska'
+            product (str): one of 'sfc', 'nat', 'prs', or 'subh'
+            forecast_hour_set (str): one of 'fh00-01', 'fh02-48', 'fh00', or 'fh01-18'
+            cloud_provider (str): one of 'azure', 'aws', or 'google'
             destination: An HREF for the Collection JSON
         """
         collection = stac.create_collection(
@@ -56,29 +60,30 @@ def create_noaahrrr_command(cli: Group) -> Command:
         collection.save_object()
 
     @noaahrrr.command("create-item", short_help="Create a STAC item")
+    @click.argument("region", type=click.STRING)
     @click.argument("product", type=click.STRING)
+    @click.argument("cloud_provider", type=click.STRING)
     @click.argument("reference_datetime", type=click.DateTime(formats=["%Y-%m-%dT%H"]))
     @click.argument("forecast_hour", type=click.IntRange(0, EXTENDED_FORECAST_MAX_HOUR))
-    @click.argument("region", type=click.STRING)
-    @click.argument("cloud_provider", type=click.STRING)
     @click.argument("destination", type=click.STRING)
     def create_item_command(
+        region: str,
         product: str,
+        cloud_provider: str,
         reference_datetime: datetime,
         forecast_hour: int,
-        region: str,
-        cloud_provider: str,
         destination: str,
     ) -> None:
         """Creates a STAC Item
 
         Args:
+            region (str): either 'conus' or 'alaska'
+            product (str): one of 'sfc', 'nat', 'prs', or 'subh'
+            cloud_provider (str): one of 'azure', 'aws', or 'google'
             reference_datetime (datetime): datetime with year, month, day, and hour that
                 represents when the forecast was generated (cycle run hour)
             forecast_hour (int): number of hours out from the reference_datetime for the
                 forecast
-            region (str): either 'conus' or 'alaska'
-            cloud_provider (str): one of 'azure', 'aws', or 'google'
         """
         item = stac.create_item(
             product=Product.from_str(product),

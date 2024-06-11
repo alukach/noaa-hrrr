@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-# from pystac.extensions.datacube import DatacubeExtension
 import pystac
 from herbie import Herbie
 from pystac import (
@@ -119,8 +118,14 @@ def create_collection(
     """Creates a STAC Collection.
 
     Args:
-        cloud_provider: cloud provider cloud_provider from which items will be generated
-            Each cloud_provider has data available from a different start date.
+        region (Region): Either Region.conus or Region.Alaska
+        product (Product): The product for this collection, must be one of the members
+            of the Product Enum.
+        forecast_hour_set (ForecastHourSet): The forecast hour set (e.g. FH00-01,
+            FH02-48) for this collection. Must be a member of the ForecastHourSet Enum.
+        cloud_provider (CloudProvider): cloud provider for the assets. Must be a member
+            of the CloudProvider Enum. Each cloud_provider has data available from a
+            different start date.
     Returns:
         Collection: STAC Collection object
     """
@@ -201,6 +206,8 @@ def create_collection(
         keys=["variable", "description", "unit"]
     ).sort_index(level="variable")
 
+    # define the datacube metadata using the inventory files for this
+    # region x product x forecast hour set
     datacube_ext = DatacubeExtension.ext(collection, add_if_missing=True)
     datacube_ext.apply(
         dimensions={
@@ -272,30 +279,27 @@ def create_collection(
 
 
 def create_item(
+    region: Region,
     product: Product,
+    cloud_provider: CloudProvider,
     reference_datetime: datetime,
     forecast_hour: int,
-    region: Region,
-    cloud_provider: CloudProvider,
 ) -> Item:
-    """Creates a STAC item from a raster asset.
-
-    This example function uses :py:func:`stactools.core.utils.create_item` to
-    generate an example item.  Datasets should customize the item with
-    dataset-specific information, e.g.  extracted from metadata files.
-
-    See `the STAC specification
-    <https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md>`_
-    for information about an item's fields, and
-    `Item<https://pystac.readthedocs.io/en/latest/api/pystac.html#pystac.Item>`_ for
-    information on the PySTAC class.
-
-    This function should be updated to take all hrefs needed to build the item.
-    It is an anti-pattern to assume that related files (e.g. metadata) are in
-    the same directory as the primary file.
+    """Creates a STAC item for a region x product x cloud provider x reference_datetime
+    (cycle run hour) combination.
 
     Args:
-        asset_href (str): The HREF pointing to an asset associated with the item
+        region (Region): Either Region.conus or Region.Alaska
+        product (Product): The product for this collection, must be one of the members
+            of the Product Enum.
+        cloud_provider (CloudProvider): cloud provider for the assets. Must be a member
+            of the CloudProvider Enum. Each cloud_provider has data available from a
+            different start date.
+        reference_datetime (datetime): The reference datetime for the forecast data,
+            corresponds to 'date' + 'cycle run hour'
+        forecast_hour (int): The forecast hour (FH) for the item.
+            This will set the item's datetime property ('date' + 'cycle run hour' +
+            'forecast hour')
 
     Returns:
         Item: STAC Item object
@@ -357,9 +361,5 @@ def create_item(
     item.assets[ItemType.INDEX.value] = ITEM_ASSETS[product][
         ItemType.INDEX
     ].create_asset(herbie_metadata.idx)
-
-    # datacube = DatacubeExtension.ext(
-    #     item.assets[product.value],  # add_if_missing=True
-    # )
 
     return item

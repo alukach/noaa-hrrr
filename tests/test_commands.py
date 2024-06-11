@@ -66,7 +66,7 @@ def test_create_item(tmp_path: Path) -> None:
     runner = CliRunner()
     result = runner.invoke(
         command,
-        ["create-item", "sfc", "2024-05-01T12", "0", "conus", "azure", path],
+        ["create-item", "conus", "sfc", "azure", "2024-05-01T12", "0", path],
     )
     assert result.exit_code == 0, "\n{}".format(result.output)
     item = Item.from_file(path)

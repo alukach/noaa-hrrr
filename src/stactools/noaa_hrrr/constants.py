@@ -159,7 +159,6 @@ class ItemType(StrEnum):
 
     GRIB = "grib"
     INDEX = "index"
-    # datacube = "datacube"
 
 
 @dataclass
@@ -171,6 +170,7 @@ class Variable:
     description: str
 
 
+# each product has a specific set of forecast hour sets
 PRODUCT_FORECAST_HOUR_SETS = {
     Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
     Product.pressure: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
@@ -180,30 +180,12 @@ PRODUCT_FORECAST_HOUR_SETS = {
 
 
 @dataclass
-class CycleRunConfig:
-    region: Region
-    product: Product
-    forecast_hour_set: ForecastHourSet
-
-    def __post_init__(self) -> None:
-        # populate the inventory for each forecast hour
-        # self.inventory = {
-        #     forecast_hour: [
-        #         Variable.from_template(
-        #             forecast_hour=forecast_hour,
-        #             **template,
-        #         )
-        #         for template in TEMPLATE_INVENTORY[
-        #             self.region, self.product, self.forecast_hour_set
-        #         ]
-        #     ]
-        #     for forecast_hour in self.forecast_hour_set.generate_forecast_hours()
-        # }
-        pass
-
-
-@dataclass
 class RegionConfig:
+    """Since all items within a single region share the same exact extent and a few
+    other properties, store that information as a constant that can be used during STAC
+    metadata creation
+    """
+
     item_bbox_proj: tuple[float, float, float, float]
     item_crs: CRS
     herbie_model_id: str
