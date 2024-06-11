@@ -59,4 +59,4 @@ mypy_path = "src"
 select = ["E", "F", "I"]
 
 [tool.setuptools.package-data]
-"stactools.noaa_hrrr.data" = ["stactools/noaa_hrrr/data/*.json"]
+"stactools.noaa_hrrr.data" = ["*.csv.gz"]
