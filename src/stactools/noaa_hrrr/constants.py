@@ -1,8 +1,9 @@
+import re
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 from pathlib import Path
-from typing import Any, Generator, List, Type, TypeVar
+from typing import Any, Generator, List, Optional, Type, TypeVar, Union
 
 from rasterio.crs import CRS
 from rasterio.warp import transform_bounds
@@ -12,13 +13,14 @@ DATA_DIR = Path(__file__).parent / "data"
 T = TypeVar("T", bound="StrEnum")
 
 ITEM_ID_FORMAT = "hrrr-{region}-{product}-{reference_datetime}-FH{forecast_hour}"
-COLLECTION_ID_BASE = "noaa-hrrr"
-COLLECTION_ID_FORMAT = COLLECTION_ID_BASE + "-{region}-{product}-{forecast_hour_set}"
+COLLECTION_ID_FORMAT = "noaa-hrrr-{product}"
 
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18
 
 RESOLUTION_METERS = 3000
+
+VSI_PATH_FORMAT = "/vsisubfile/{start_byte}_{byte_size},/vsicurl/{grib_url}"
 
 
 class StrEnum(str, Enum):
@@ -54,10 +56,10 @@ class Region(StrEnum):
 class Product(StrEnum):
     """Values for the 'product' parameter in the HRRR hrefs"""
 
-    pressure = "prs"
-    native = "nat"
-    surface = "sfc"
-    sub_hourly = "subh"
+    prs = "prs"
+    nat = "nat"
+    sfc = "sfc"
+    subh = "subh"
 
 
 class ForecastHourSet(StrEnum):
@@ -67,7 +69,7 @@ class ForecastHourSet(StrEnum):
     The inventory of layers within a GRIB file depends on which set it is in
     """
 
-    # subhourly
+    # for subhourly
     FH00 = "fh00"
     FH01_18 = "fh01-18"
 
@@ -82,7 +84,7 @@ class ForecastHourSet(StrEnum):
         """Pick the enum value given a forecast hour as an integer"""
         if not 0 <= forecast_hour <= 48:
             raise ValueError("integer must within 0-48")
-        if product == Product.sub_hourly:
+        if product == Product.subh:
             return cls.FH00 if forecast_hour == 0 else cls.FH01_18
         else:
             return cls.FH00_01 if forecast_hour < 2 else cls.FH02_48
@@ -154,28 +156,108 @@ class ForecastCycleType:
         return self.type
 
 
-class ItemType(StrEnum):
-    """STAC item types"""
+@dataclass
+class ForecastLayerType:
+    forecast_layer_type: str
+    start_timedelta: Optional[timedelta] = None
+    end_timedelta: Optional[timedelta] = None
+    statistic_type: Optional[str] = None
 
-    GRIB = "grib"
-    INDEX = "index"
+    @classmethod
+    def from_str(cls, forecast_str: str) -> "ForecastLayerType":
+        unit_lookup = {
+            "min": "minutes",
+            "hour": "hours",
+            "day": "days",
+        }
+
+        if forecast_str == "anl":
+            return cls(forecast_layer_type="analysis")
+
+        point_in_time_match = re.match(r"(\d+)\s(hour|min) fcst", forecast_str)
+        if point_in_time_match:
+            unit = point_in_time_match.group(2)
+            end = point_in_time_match.group(1)
+
+            return cls(
+                forecast_layer_type="point_in_time",
+                end_timedelta=timedelta(**{unit_lookup[unit]: float(end)}),
+            )
+
+        summary_match = re.match(
+            r"(\d+)-(\d+)\s(hour|min|day)\s(max|ave|min|acc) fcst", forecast_str
+        )
+        if summary_match:
+            start = int(summary_match.group(1))
+            end = int(summary_match.group(2))
+            unit = summary_match.group(3)
+            statistic_type = summary_match.group(4)
+
+            if start == end:
+                forecast_layer_type = "instantaneous"
+            elif (start == 0) & (start < end):
+                forecast_layer_type = "cumulative_summary"
+            elif (start > 0) & (start < end):
+                forecast_layer_type = "periodic_summary"
+            else:
+                raise ValueError(
+                    f"could not parse the forecast_layer_type from '{forecast_str}'"
+                )
+
+            return cls(
+                forecast_layer_type=forecast_layer_type,
+                start_timedelta=timedelta(**{unit_lookup[unit]: start}),
+                end_timedelta=timedelta(**{unit_lookup[unit]: end}),
+                statistic_type=statistic_type,
+            )
+
+        else:
+            raise ValueError(
+                f"{forecast_str} cannot be parsed into a ForecastLayerType"
+            )
+
+    def asset_properties(
+        self, reference_datetime: datetime
+    ) -> dict[str, Union[str, datetime]]:
+        return {
+            f"hrrr:{attr}": (reference_datetime + val).strftime("%Y-%m-%dT%H:%M:%S")
+            if isinstance(val, timedelta)
+            else val
+            for attr, val in self.__dict__.items()
+            if val is not None
+        }
+
+    def __str__(self) -> str:
+        out = self.forecast_layer_type
+        if self.statistic_type:
+            out += f"__{self.statistic_type}"
+
+        return out
 
 
 @dataclass
-class Variable:
-    row_number: int
-    level_layer: str
-    parameter: str
-    forecast_valid: str
+class ProductConfig:
     description: str
+    forecast_hour_sets: List[ForecastHourSet]
 
 
-# each product has a specific set of forecast hour sets
-PRODUCT_FORECAST_HOUR_SETS = {
-    Product.surface: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
-    Product.pressure: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
-    Product.native: [ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
-    Product.sub_hourly: [ForecastHourSet.FH00, ForecastHourSet.FH01_18],
+PRODUCT_CONFIGS = {
+    Product.sfc: ProductConfig(
+        description="2D surface levels",
+        forecast_hour_sets=[ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    ),
+    Product.prs: ProductConfig(
+        description="3D pressure levels",
+        forecast_hour_sets=[ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    ),
+    Product.nat: ProductConfig(
+        description="native levels",
+        forecast_hour_sets=[ForecastHourSet.FH00_01, ForecastHourSet.FH02_48],
+    ),
+    Product.subh: ProductConfig(
+        description="sub-hourly 2D surface levels",
+        forecast_hour_sets=[ForecastHourSet.FH00, ForecastHourSet.FH01_18],
+    ),
 }
 
 
@@ -190,6 +272,7 @@ class RegionConfig:
     item_crs: CRS
     herbie_model_id: str
     cycle_run_hours: List[int]
+    grib_url_format: str
 
     def __post_init__(self) -> None:
         """Get bounding box and geometry in EPSG:4326"""
@@ -214,6 +297,24 @@ class RegionConfig:
                 ),
             ),
         }
+
+    def format_grib_url(
+        self,
+        product: Product,
+        reference_datetime: datetime,
+        forecast_hour: int,
+        idx: bool = False,
+    ) -> str:
+        url = self.grib_url_format.format(
+            product=product.value,
+            date=reference_datetime,
+            fxx=forecast_hour,
+        )
+
+        if idx:
+            url += ".idx"
+
+        return url
 
 
 REGION_CONFIGS = {
@@ -240,6 +341,7 @@ REGION_CONFIGS = {
         ),
         herbie_model_id="hrrr",
         cycle_run_hours=[i for i in range(0, 24)],
+        grib_url_format="hrrr.{date:%Y%m%d}/conus/hrrr.t{date:%H}z.wrf{product}f{fxx:02d}.grib2",
     ),
     Region.alaska: RegionConfig(
         item_bbox_proj=(
@@ -263,6 +365,7 @@ REGION_CONFIGS = {
         ),
         herbie_model_id="hrrrak",
         cycle_run_hours=[i for i in range(0, 24, 3)],
+        grib_url_format="hrrr.{date:%Y%m%d}/alaska/hrrr.t{date:%H}z.wrf{product}f{fxx:02d}.ak.grib2",
     ),
 }
 
@@ -270,24 +373,30 @@ REGION_CONFIGS = {
 REGION_CONFIGS[Region.alaska].bbox_4326 = (-174.8849, 41.5960, -115.6988, 76.3464)
 
 
-# each cloud provider has data starting from a different date
-CLOUD_PROVIDER_START_DATES = {
-    CloudProvider.azure: datetime(year=2021, month=3, day=21),
-    CloudProvider.aws: datetime(year=2014, month=7, day=30),
-    CloudProvider.google: datetime(year=2014, month=7, day=30),
+@dataclass
+class CloudProviderConfig:
+    start_date: datetime
+    url_base: str
+
+
+CLOUD_PROVIDER_CONFIGS = {
+    CloudProvider.aws: CloudProviderConfig(
+        start_date=datetime(year=2014, month=7, day=30),
+        url_base="https://noaa-hrrr-bdp-pds.s3.amazonaws.com/",
+    ),
+    CloudProvider.azure: CloudProviderConfig(
+        start_date=datetime(year=2021, month=3, day=21),
+        url_base="https://noaahrrr.blob.core.windows.net/hrrr/",
+    ),
+    CloudProvider.google: CloudProviderConfig(
+        start_date=datetime(year=2014, month=7, day=30),
+        url_base="https://storage.googleapis.com/high-resolution-rapid-refresh/",
+    ),
 }
 
-# descriptions for each collection configuration
-PRODUCT_DESCRIPTIONS = {
-    Product.surface: "2D Surface Levels",
-    Product.pressure: "3D Pressure Levels",
-    Product.native: "Native Levels",
-    Product.sub_hourly: "2D Surface Levels - Sub Hourly",
-}
 
-FORECAST_HOUR_SET_DESCRIPTIONS = {
-    ForecastHourSet.FH00_01: "forecast hours 00 and 01",
-    ForecastHourSet.FH02_48: "forecast hours 02 thru 48",
-    ForecastHourSet.FH00: "forecast hour 00",
-    ForecastHourSet.FH01_18: "forecast hours 01 thru 18",
-}
+class ItemType(StrEnum):
+    """STAC item types"""
+
+    GRIB = "grib"
+    INDEX = "index"

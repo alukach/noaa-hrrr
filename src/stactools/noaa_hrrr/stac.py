@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
+import pandas as pd
 import pystac
-from herbie import Herbie
 from pystac import (
     Collection,
     Extent,
@@ -9,32 +9,25 @@ from pystac import (
     SpatialExtent,
     TemporalExtent,
 )
+from pystac.asset import Asset
 from pystac.catalog import CatalogType
-from pystac.extensions.datacube import (
-    DatacubeExtension,
-    Dimension,
-    DimensionType,
-    Variable,
-    VariableType,
-)
-from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
+from pystac.extensions.item_assets import AssetDefinition
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
-    CLOUD_PROVIDER_START_DATES,
+    CLOUD_PROVIDER_CONFIGS,
     COLLECTION_ID_FORMAT,
-    FORECAST_HOUR_SET_DESCRIPTIONS,
     ITEM_ID_FORMAT,
-    PRODUCT_DESCRIPTIONS,
+    PRODUCT_CONFIGS,
     REGION_CONFIGS,
-    RESOLUTION_METERS,
+    VSI_PATH_FORMAT,
     CloudProvider,
     ForecastCycleType,
-    ForecastHourSet,
+    ForecastLayerType,
     ItemType,
     Product,
     Region,
 )
-from stactools.noaa_hrrr.inventory import load_inventory_df
+from stactools.noaa_hrrr.inventory import read_idx
 
 GRIB2_MEDIA_TYPE = "application/wmo-GRIB2"
 NDJSON_MEDIA_TYPE = "application/x-ndjson"
@@ -50,8 +43,8 @@ INDEX_ASSET_DEFINITION = AssetDefinition(
     }
 )
 
-ITEM_ASSETS = {
-    Product.surface: {
+ITEM_BASE_ASSETS = {
+    Product.sfc: {
         ItemType.GRIB: AssetDefinition(
             {
                 "type": GRIB2_MEDIA_TYPE,
@@ -65,7 +58,7 @@ ITEM_ASSETS = {
         ),
         ItemType.INDEX: INDEX_ASSET_DEFINITION,
     },
-    Product.sub_hourly: {
+    Product.subh: {
         ItemType.GRIB: AssetDefinition(
             {
                 "type": GRIB2_MEDIA_TYPE,
@@ -80,7 +73,7 @@ ITEM_ASSETS = {
         ),
         ItemType.INDEX: INDEX_ASSET_DEFINITION,
     },
-    Product.pressure: {
+    Product.prs: {
         ItemType.GRIB: AssetDefinition(
             {
                 "type": GRIB2_MEDIA_TYPE,
@@ -94,7 +87,7 @@ ITEM_ASSETS = {
         ),
         ItemType.INDEX: INDEX_ASSET_DEFINITION,
     },
-    Product.native: {
+    Product.nat: {
         ItemType.GRIB: AssetDefinition(
             {
                 "type": GRIB2_MEDIA_TYPE,
@@ -112,29 +105,27 @@ ITEM_ASSETS = {
 
 
 def create_collection(
-    region: Region,
     product: Product,
-    forecast_hour_set: ForecastHourSet,
     cloud_provider: CloudProvider,
 ) -> Collection:
     """Creates a STAC Collection.
 
     Args:
-        region (Region): Either Region.conus or Region.Alaska
         product (Product): The product for this collection, must be one of the members
             of the Product Enum.
-        forecast_hour_set (ForecastHourSet): The forecast hour set (e.g. FH00-01,
-            FH02-48) for this collection. Must be a member of the ForecastHourSet Enum.
         cloud_provider (CloudProvider): cloud provider for the assets. Must be a member
             of the CloudProvider Enum. Each cloud_provider has data available from a
             different start date.
     Returns:
         Collection: STAC Collection object
     """
-    region_config = REGION_CONFIGS[region]
+    product_config = PRODUCT_CONFIGS[product]
+    cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
     extent = Extent(
-        SpatialExtent([region_config.bbox_4326]),
-        TemporalExtent([[CLOUD_PROVIDER_START_DATES[cloud_provider], None]]),
+        SpatialExtent(
+            [region_config.bbox_4326 for region_config in REGION_CONFIGS.values()]
+        ),
+        TemporalExtent([[cloud_provider_config.start_date, None]]),
     )
 
     providers = [
@@ -170,11 +161,12 @@ def create_collection(
 
     collection = Collection(
         id=COLLECTION_ID_FORMAT.format(
-            region=region.value,
             product=product.value,
-            forecast_hour_set=forecast_hour_set.value,
         ),
-        title="NOAA High Resolution Rapid Refresh (HRRR) collection",
+        title=(
+            "NOAA High Resolution Rapid Refresh (HRRR) - "
+            f"{product_config.description}"
+        ),
         description=(
             "The NOAA HRRR is a real-time 3km resolution, hourly updated, "
             "cloud-resolving, convection-allowing atmospheric model, "
@@ -182,9 +174,7 @@ def create_collection(
             "assimilated in the HRRR every 15 min over a 1-hour period adding further "
             "detail to that provided by the hourly data assimilation from the 13km "
             "radar-enhanced Rapid Refresh (RAP) system. "
-            f"This specific collection represents {PRODUCT_DESCRIPTIONS[product]} for "
-            f"{FORECAST_HOUR_SET_DESCRIPTIONS[forecast_hour_set]} in the {region.value}"
-            " region."
+            f"This specific collection represents {product_config.description}."
         ),
         extent=extent,
         license="CC-BY-4.0",
@@ -194,91 +184,6 @@ def create_collection(
     )
 
     collection.add_links(links)
-
-    item_assets_ext = ItemAssetsExtension.ext(collection, add_if_missing=True)
-    item_assets_ext.item_assets = {
-        item_type.value: item_asset
-        for item_type, item_asset in ITEM_ASSETS[product].items()
-    }
-    inventory_df = load_inventory_df(
-        region=region,
-        product=product,
-        forecast_hour_set=forecast_hour_set,
-        forecast_cycle_type=ForecastCycleType("extended"),
-    )
-
-    variable_df = inventory_df.set_index(
-        keys=["variable", "description", "unit"]
-    ).sort_index(level="variable")
-
-    # define the datacube metadata using the inventory files for this
-    # region x product x forecast hour set
-    datacube_ext = DatacubeExtension.ext(collection, add_if_missing=True)
-    datacube_ext.apply(
-        dimensions={
-            "x": Dimension(
-                properties={
-                    "type": DimensionType.SPATIAL,
-                    "reference_system": region_config.item_crs.to_wkt(),
-                    "extent": [
-                        region_config.item_bbox_proj[0] + RESOLUTION_METERS / 2,
-                        region_config.item_bbox_proj[2] - RESOLUTION_METERS / 2,
-                    ],
-                    "axis": "x",
-                }
-            ),
-            "y": Dimension(
-                properties={
-                    "type": DimensionType.SPATIAL,
-                    "reference_system": region_config.item_crs.to_wkt(),
-                    "extent": [
-                        region_config.item_bbox_proj[1] + RESOLUTION_METERS / 2,
-                        region_config.item_bbox_proj[3] - RESOLUTION_METERS / 2,
-                    ],
-                    "axis": "y",
-                }
-            ),
-            # these match the information in the inventory files
-            "level": Dimension(
-                properties={
-                    "type": "atmospheric level",
-                    "description": (
-                        "The atmospheric level for which the forecast is applicable, "
-                        "e.g. surface, top of atmosphere, 100 m above ground, etc."
-                    ),
-                    "values": list(sorted(set(inventory_df["level"].unique()))),
-                }
-            ),
-            "forecast_time": Dimension(
-                properties={
-                    "type": DimensionType.TEMPORAL,
-                    "description": (
-                        "The time horizon for which the forecast is applicable."
-                    ),
-                    "values": list(sorted(set(inventory_df["forecast_time"].unique()))),
-                }
-            ),
-        },
-        variables={
-            variable: Variable(
-                properties=dict(
-                    dimensions=["x", "y", "level", "forecast_time"],
-                    type=VariableType.DATA,
-                    description=description,
-                    unit=unit,
-                    # experimental new field for defining the specific values of each
-                    # domain where this variable has data
-                    dimension_domains={
-                        "level": list(group["level"].unique()),
-                        "forecast_time": list(group["forecast_time"].unique()),
-                    },
-                )
-            )
-            for (variable, description, unit), group in variable_df.groupby(
-                level=["variable", "description", "unit"]
-            )
-        },
-    )
 
     return collection
 
@@ -310,6 +215,7 @@ def create_item(
         Item: STAC Item object
     """
     region_config = REGION_CONFIGS[region]
+    cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
 
     # make sure there is data for the reference_datetime
     # (Alaska only runs the model every three hours)
@@ -348,23 +254,58 @@ def create_item(
         },
     )
 
-    herbie_metadata = Herbie(
-        reference_datetime,
-        model=region_config.herbie_model_id,
-        fxx=forecast_hour,
-        priority=[cloud_provider.value],
-        product=product.value,
-        verbose=False,
+    grib_url = cloud_provider_config.url_base + region_config.format_grib_url(
+        product=product,
+        reference_datetime=reference_datetime,
+        forecast_hour=forecast_hour,
+        idx=False,
     )
+    idx_url = grib_url + ".idx"
 
-    assert isinstance(herbie_metadata.grib, str)
-    item.assets[ItemType.GRIB.value] = ITEM_ASSETS[product][ItemType.GRIB].create_asset(
-        herbie_metadata.grib
-    )
+    item.assets[ItemType.GRIB.value] = ITEM_BASE_ASSETS[product][
+        ItemType.GRIB
+    ].create_asset(grib_url)
 
-    assert isinstance(herbie_metadata.idx, str)
-    item.assets[ItemType.INDEX.value] = ITEM_ASSETS[product][
+    item.assets[ItemType.INDEX.value] = ITEM_BASE_ASSETS[product][
         ItemType.INDEX
-    ].create_asset(herbie_metadata.idx)
+    ].create_asset(idx_url)
+
+    # create an asset for each row in the inventory dataframe
+    idx_df = read_idx(
+        region=region,
+        product=product,
+        cloud_provider=cloud_provider,
+        reference_datetime=reference_datetime,
+        forecast_hour=forecast_hour,
+    )
+    for _, row in idx_df.iterrows():
+        forecast_layer_type = ForecastLayerType.from_str(row.forecast_time)
+
+        asset_key = "__".join(
+            [
+                row.variable.replace(" ", "_"),
+                row.level.replace(" ", "_"),
+                str(forecast_layer_type),
+            ]
+        )
+        byte_size = row.byte_size
+        if pd.isna(byte_size):
+            byte_size = ".."
+
+        asset_href = VSI_PATH_FORMAT.format(
+            start_byte=row.start_byte,
+            byte_size=byte_size,
+            grib_url=grib_url,
+        )
+
+        item.assets[asset_key] = Asset(
+            href=asset_href,
+            title=asset_key.replace("__", " - ").replace("_", " "),
+            media_type=GRIB2_MEDIA_TYPE,
+            roles=["data"],
+            extra_fields=forecast_layer_type.asset_properties(
+                reference_datetime=reference_datetime
+            ),
+        )
 
     return item

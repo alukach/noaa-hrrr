@@ -6,33 +6,17 @@ from click.testing import CliRunner
 from pystac import Collection, Item
 from stactools.noaa_hrrr.commands import create_noaahrrr_command
 from stactools.noaa_hrrr.constants import (
-    PRODUCT_FORECAST_HOUR_SETS,
     CloudProvider,
-    ForecastHourSet,
     Product,
-    Region,
 )
 
 command = create_noaahrrr_command(Group())
 
 
-product_forecast_hour_combinations = [
-    (product, fh_set)
-    for product, fh_sets in PRODUCT_FORECAST_HOUR_SETS.items()
-    for fh_set in fh_sets
-]
-
-
-@pytest.mark.parametrize("region", list(Region))  # type: ignore
-@pytest.mark.parametrize(
-    "product, forecast_hour_set",
-    product_forecast_hour_combinations,
-)  # type: ignore
+@pytest.mark.parametrize("product", list(Product))  # type: ignore
 @pytest.mark.parametrize("cloud_provider", list(CloudProvider))  # type: ignore
 def test_create_collection(
-    region: Region,
     product: Product,
-    forecast_hour_set: ForecastHourSet,
     cloud_provider: CloudProvider,
     tmp_path: Path,
 ) -> None:
@@ -46,9 +30,7 @@ def test_create_collection(
         command,
         [
             "create-collection",
-            region.value,
             product.value,
-            forecast_hour_set.value,
             cloud_provider.value,
             path,
         ],

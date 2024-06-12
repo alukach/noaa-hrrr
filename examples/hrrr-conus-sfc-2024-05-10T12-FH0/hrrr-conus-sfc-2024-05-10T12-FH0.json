@@ -41,19 +41,19 @@
       "rel": "root",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels"
     },
     {
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels"
     },
     {
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "NOAA High Resolution Rapid Refresh (HRRR) collection"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels"
     }
   ],
   "assets": {
@@ -74,6 +74,1617 @@
       "roles": [
         "index"
       ]
+    },
+    "REFC__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/0_238534,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "REFC - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "RETOP__cloud_top__analysis": {
+      "href": "/vsisubfile/238534_138642,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RETOP - cloud top - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "var_discipline=0_center=7_local_table=1_parmcat=16_parm=201__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/377176_268771,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "var discipline=0 center=7 local table=1 parmcat=16 parm=201 - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VIL__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/645947_169134,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VIL - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VIS__surface__analysis": {
+      "href": "/vsisubfile/815081_1369441,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VIS - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "REFD__1000_m_above_ground__analysis": {
+      "href": "/vsisubfile/2184522_118078,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "REFD - 1000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "REFD__4000_m_above_ground__analysis": {
+      "href": "/vsisubfile/2302600_109117,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "REFD - 4000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "REFD__263_K_level__analysis": {
+      "href": "/vsisubfile/2411717_124632,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "REFD - 263 K level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "GUST__surface__analysis": {
+      "href": "/vsisubfile/2536349_1240744,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "GUST - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__250_mb__analysis": {
+      "href": "/vsisubfile/3777093_732558,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 250 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__250_mb__analysis": {
+      "href": "/vsisubfile/4509651_720863,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 250 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__300_mb__analysis": {
+      "href": "/vsisubfile/5230514_729032,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 300 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__300_mb__analysis": {
+      "href": "/vsisubfile/5959546_714891,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 300 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__500_mb__analysis": {
+      "href": "/vsisubfile/6674437_731818,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 500 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__500_mb__analysis": {
+      "href": "/vsisubfile/7406255_542238,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - 500 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DPT__500_mb__analysis": {
+      "href": "/vsisubfile/7948493_917161,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DPT - 500 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__500_mb__analysis": {
+      "href": "/vsisubfile/8865654_586092,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 500 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__500_mb__analysis": {
+      "href": "/vsisubfile/9451746_586054,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 500 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__700_mb__analysis": {
+      "href": "/vsisubfile/10037800_727565,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 700 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__700_mb__analysis": {
+      "href": "/vsisubfile/10765365_551835,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - 700 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DPT__700_mb__analysis": {
+      "href": "/vsisubfile/11317200_1044186,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DPT - 700 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DZDT__700_mb__analysis": {
+      "href": "/vsisubfile/12361386_311459,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DZDT - 700 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__700_mb__analysis": {
+      "href": "/vsisubfile/12672845_596025,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 700 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__700_mb__analysis": {
+      "href": "/vsisubfile/13268870_585229,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 700 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__850_mb__analysis": {
+      "href": "/vsisubfile/13854099_744890,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 850 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__850_mb__analysis": {
+      "href": "/vsisubfile/14598989_588228,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - 850 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DPT__850_mb__analysis": {
+      "href": "/vsisubfile/15187217_1131448,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DPT - 850 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__850_mb__analysis": {
+      "href": "/vsisubfile/16318665_622425,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 850 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__850_mb__analysis": {
+      "href": "/vsisubfile/16941090_612216,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 850 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__925_mb__analysis": {
+      "href": "/vsisubfile/17553306_613266,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - 925 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DPT__925_mb__analysis": {
+      "href": "/vsisubfile/18166572_1165161,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DPT - 925 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__925_mb__analysis": {
+      "href": "/vsisubfile/19331733_635702,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 925 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__925_mb__analysis": {
+      "href": "/vsisubfile/19967435_632673,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 925 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__1000_mb__analysis": {
+      "href": "/vsisubfile/20600108_634362,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - 1000 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DPT__1000_mb__analysis": {
+      "href": "/vsisubfile/21234470_1127119,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DPT - 1000 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__1000_mb__analysis": {
+      "href": "/vsisubfile/22361589_631178,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 1000 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__1000_mb__analysis": {
+      "href": "/vsisubfile/22992767_624376,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 1000 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "MAXUVV__100-1000_mb_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/23617143_63006,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MAXUVV - 100-1000 mb above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MAXDVV__100-1000_mb_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/23680149_336900,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MAXDVV - 100-1000 mb above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "DZDT__0.5-0.8_sigma_layer__instantaneous__ave": {
+      "href": "/vsisubfile/24017049_172939,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DZDT - 0.5-0.8 sigma layer - instantaneous - ave",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "ave",
+      "roles": [
+        "data"
+      ]
+    },
+    "MSLMA__mean_sea_level__analysis": {
+      "href": "/vsisubfile/24189988_623746,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MSLMA - mean sea level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__1000_mb__analysis": {
+      "href": "/vsisubfile/24813734_712569,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 1000 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "MAXREF__1000_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/25526303_109966,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MAXREF - 1000 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "REFD__263_K_level__instantaneous__max": {
+      "href": "/vsisubfile/25636269_124687,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "REFD - 263 K level - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MXUPHL__5000-2000_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/25760956_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MXUPHL - 5000-2000 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MNUPHL__5000-2000_m_above_ground__instantaneous__min": {
+      "href": "/vsisubfile/25761168_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MNUPHL - 5000-2000 m above ground - instantaneous - min",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "min",
+      "roles": [
+        "data"
+      ]
+    },
+    "MXUPHL__2000-0_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/25761380_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MXUPHL - 2000-0 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MNUPHL__2000-0_m_above_ground__instantaneous__min": {
+      "href": "/vsisubfile/25761592_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MNUPHL - 2000-0 m above ground - instantaneous - min",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "min",
+      "roles": [
+        "data"
+      ]
+    },
+    "MXUPHL__3000-0_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/25761804_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MXUPHL - 3000-0 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MNUPHL__3000-0_m_above_ground__instantaneous__min": {
+      "href": "/vsisubfile/25762016_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MNUPHL - 3000-0 m above ground - instantaneous - min",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "min",
+      "roles": [
+        "data"
+      ]
+    },
+    "RELV__2000-0_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/25762228_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RELV - 2000-0 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "RELV__1000-0_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/25762440_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RELV - 1000-0 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "HAIL__entire_atmosphere__instantaneous__max": {
+      "href": "/vsisubfile/25762652_96888,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HAIL - entire atmosphere - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "HAIL__0.1_sigma_level__instantaneous__max": {
+      "href": "/vsisubfile/25859540_6809,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HAIL - 0.1 sigma level - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "HAIL__surface__instantaneous__max": {
+      "href": "/vsisubfile/25866349_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HAIL - surface - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__instantaneous__max": {
+      "href": "/vsisubfile/25866561_11898,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TCOLG - entire atmosphere (considered as a single layer) - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "LTNGSD__1_m_above_ground__analysis": {
+      "href": "/vsisubfile/25878459_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LTNGSD - 1 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LTNGSD__2_m_above_ground__analysis": {
+      "href": "/vsisubfile/25878647_53022,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LTNGSD - 2 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LTNG__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/25931669_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LTNG - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__80_m_above_ground__analysis": {
+      "href": "/vsisubfile/25931857_1129423,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 80 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__80_m_above_ground__analysis": {
+      "href": "/vsisubfile/27061280_1147648,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 80 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PRES__surface__analysis": {
+      "href": "/vsisubfile/28208928_1509864,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PRES - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__surface__analysis": {
+      "href": "/vsisubfile/29718792_2153695,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__surface__analysis": {
+      "href": "/vsisubfile/31872487_1263576,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "ASNOW__surface__instantaneous__acc": {
+      "href": "/vsisubfile/33136063_323,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "ASNOW - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "MSTAV__0_m_underground__analysis": {
+      "href": "/vsisubfile/33136386_1482639,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MSTAV - 0 m underground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CNWAT__surface__analysis": {
+      "href": "/vsisubfile/34619025_87150,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CNWAT - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "WEASD__surface__analysis": {
+      "href": "/vsisubfile/34706175_79078,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "WEASD - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SNOWC__surface__analysis": {
+      "href": "/vsisubfile/34785253_51912,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SNOWC - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SNOD__surface__analysis": {
+      "href": "/vsisubfile/34837165_64489,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SNOD - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TMP__2_m_above_ground__analysis": {
+      "href": "/vsisubfile/34901654_1166814,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TMP - 2 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "POT__2_m_above_ground__analysis": {
+      "href": "/vsisubfile/36068468_1159402,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "POT - 2 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SPFH__2_m_above_ground__analysis": {
+      "href": "/vsisubfile/37227870_1468901,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SPFH - 2 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DPT__2_m_above_ground__analysis": {
+      "href": "/vsisubfile/38696771_1169022,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DPT - 2 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "RH__2_m_above_ground__analysis": {
+      "href": "/vsisubfile/39865793_1578809,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RH - 2 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "MASSDEN__8_m_above_ground__analysis": {
+      "href": "/vsisubfile/41444602_761369,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MASSDEN - 8 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "UGRD__10_m_above_ground__analysis": {
+      "href": "/vsisubfile/42205971_2381615,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "UGRD - 10 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGRD__10_m_above_ground__analysis": {
+      "href": "/vsisubfile/44587586_2143472,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGRD - 10 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "WIND__10_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/46731058_1217507,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "WIND - 10 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MAXUW__10_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/47948565_1195150,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MAXUW - 10 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "MAXVW__10_m_above_ground__instantaneous__max": {
+      "href": "/vsisubfile/49143715_1185667,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MAXVW - 10 m above ground - instantaneous - max",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "max",
+      "roles": [
+        "data"
+      ]
+    },
+    "CPOFP__surface__analysis": {
+      "href": "/vsisubfile/50329382_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CPOFP - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PRATE__surface__analysis": {
+      "href": "/vsisubfile/50329570_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PRATE - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "APCP__surface__instantaneous__acc": {
+      "href": "/vsisubfile/50329758_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "APCP - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "WEASD__surface__instantaneous__acc": {
+      "href": "/vsisubfile/50329970_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "WEASD - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "FROZR__surface__instantaneous__acc": {
+      "href": "/vsisubfile/50330182_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "FROZR - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "FRZR__surface__instantaneous__acc": {
+      "href": "/vsisubfile/50330394_14876,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "FRZR - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "SSRUN__surface__instantaneous__acc": {
+      "href": "/vsisubfile/50345270_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SSRUN - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "BGRUN__surface__instantaneous__acc": {
+      "href": "/vsisubfile/50345482_212,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "BGRUN - surface - instantaneous - acc",
+      "hrrr:forecast_layer_type": "instantaneous",
+      "hrrr:start_timedelta": "2024-05-10T12:00:00",
+      "hrrr:end_timedelta": "2024-05-10T12:00:00",
+      "hrrr:statistic_type": "acc",
+      "roles": [
+        "data"
+      ]
+    },
+    "CSNOW__surface__analysis": {
+      "href": "/vsisubfile/50345694_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CSNOW - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CICEP__surface__analysis": {
+      "href": "/vsisubfile/50345882_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CICEP - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CFRZR__surface__analysis": {
+      "href": "/vsisubfile/50346070_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CFRZR - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CRAIN__surface__analysis": {
+      "href": "/vsisubfile/50346258_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CRAIN - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SFCR__surface__analysis": {
+      "href": "/vsisubfile/50346446_1893461,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SFCR - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "FRICV__surface__analysis": {
+      "href": "/vsisubfile/52239907_1058245,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "FRICV - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SHTFL__surface__analysis": {
+      "href": "/vsisubfile/53298152_1215256,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SHTFL - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LHTFL__surface__analysis": {
+      "href": "/vsisubfile/54513408_1157219,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LHTFL - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VEG__surface__analysis": {
+      "href": "/vsisubfile/55670627_1471458,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VEG - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VEGMIN__surface__analysis": {
+      "href": "/vsisubfile/57142085_1116137,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VEGMIN - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VEGMAX__surface__analysis": {
+      "href": "/vsisubfile/58258222_876934,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VEGMAX - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LAI__surface__analysis": {
+      "href": "/vsisubfile/59135156_835225,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LAI - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "GFLUX__surface__analysis": {
+      "href": "/vsisubfile/59970381_587415,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "GFLUX - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VGTYP__surface__analysis": {
+      "href": "/vsisubfile/60557796_781172,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VGTYP - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LFTX__500-1000_mb__analysis": {
+      "href": "/vsisubfile/61338968_960907,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LFTX - 500-1000 mb - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE__surface__analysis": {
+      "href": "/vsisubfile/62299875_373062,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CAPE - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN__surface__analysis": {
+      "href": "/vsisubfile/62672937_236119,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CIN - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PWAT__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
+      "href": "/vsisubfile/62909056_964440,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PWAT - entire atmosphere (considered as a single layer) - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "AOTK__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
+      "href": "/vsisubfile/63873496_188,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "AOTK - entire atmosphere (considered as a single layer) - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "COLMD__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
+      "href": "/vsisubfile/63873684_956913,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "COLMD - entire atmosphere (considered as a single layer) - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TCOLW__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/64830597_1011101,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TCOLW - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TCOLI__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/65841698_665989,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TCOLI - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TCDC__boundary_layer_cloud_layer__analysis": {
+      "href": "/vsisubfile/66507687_658472,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TCDC - boundary layer cloud layer - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LCDC__low_cloud_layer__analysis": {
+      "href": "/vsisubfile/67166159_798254,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LCDC - low cloud layer - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "MCDC__middle_cloud_layer__analysis": {
+      "href": "/vsisubfile/67964413_258527,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "MCDC - middle cloud layer - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HCDC__high_cloud_layer__analysis": {
+      "href": "/vsisubfile/68222940_266246,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HCDC - high cloud layer - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "TCDC__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/68489186_866399,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "TCDC - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__cloud_ceiling__analysis": {
+      "href": "/vsisubfile/69355585_1078460,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - cloud ceiling - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__cloud_base__analysis": {
+      "href": "/vsisubfile/70434045_1957211,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - cloud base - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PRES__cloud_base__analysis": {
+      "href": "/vsisubfile/72391256_936211,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PRES - cloud base - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PRES__cloud_top__analysis": {
+      "href": "/vsisubfile/73327467_607404,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PRES - cloud top - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__cloud_top__analysis": {
+      "href": "/vsisubfile/73934871_928535,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - cloud top - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "ULWRF__top_of_atmosphere__analysis": {
+      "href": "/vsisubfile/74863406_1745120,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "ULWRF - top of atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DSWRF__surface__analysis": {
+      "href": "/vsisubfile/76608526_1341640,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DSWRF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "DLWRF__surface__analysis": {
+      "href": "/vsisubfile/77950166_2022791,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "DLWRF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "USWRF__surface__analysis": {
+      "href": "/vsisubfile/79972957_1050995,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "USWRF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "ULWRF__surface__analysis": {
+      "href": "/vsisubfile/81023952_1623028,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "ULWRF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CFNSF__surface__analysis": {
+      "href": "/vsisubfile/82646980_5630,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CFNSF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VBDSF__surface__analysis": {
+      "href": "/vsisubfile/82652610_1153003,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VBDSF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VDDSF__surface__analysis": {
+      "href": "/vsisubfile/83805613_1326009,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VDDSF - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "USWRF__top_of_atmosphere__analysis": {
+      "href": "/vsisubfile/85131622_1459932,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "USWRF - top of atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HLCY__3000-0_m_above_ground__analysis": {
+      "href": "/vsisubfile/86591554_1160137,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HLCY - 3000-0 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HLCY__1000-0_m_above_ground__analysis": {
+      "href": "/vsisubfile/87751691_1894852,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HLCY - 1000-0 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "USTM__0-6000_m_above_ground__analysis": {
+      "href": "/vsisubfile/89646543_1007020,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "USTM - 0-6000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VSTM__0-6000_m_above_ground__analysis": {
+      "href": "/vsisubfile/90653563_949078,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VSTM - 0-6000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VUCSH__0-1000_m_above_ground__analysis": {
+      "href": "/vsisubfile/91602641_2381615,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VUCSH - 0-1000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VVCSH__0-1000_m_above_ground__analysis": {
+      "href": "/vsisubfile/93984256_2381615,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VVCSH - 0-1000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VUCSH__0-6000_m_above_ground__analysis": {
+      "href": "/vsisubfile/96365871_2619757,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VUCSH - 0-6000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "VVCSH__0-6000_m_above_ground__analysis": {
+      "href": "/vsisubfile/98985628_2619757,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "VVCSH - 0-6000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__0C_isotherm__analysis": {
+      "href": "/vsisubfile/101605385_1851539,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 0C isotherm - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "RH__0C_isotherm__analysis": {
+      "href": "/vsisubfile/103456924_715500,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RH - 0C isotherm - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PRES__0C_isotherm__analysis": {
+      "href": "/vsisubfile/104172424_716404,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PRES - 0C isotherm - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__highest_tropospheric_freezing_level__analysis": {
+      "href": "/vsisubfile/104888828_711102,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - highest tropospheric freezing level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "RH__highest_tropospheric_freezing_level__analysis": {
+      "href": "/vsisubfile/105599930_692988,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RH - highest tropospheric freezing level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PRES__highest_tropospheric_freezing_level__analysis": {
+      "href": "/vsisubfile/106292918_698244,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PRES - highest tropospheric freezing level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__263_K_level__analysis": {
+      "href": "/vsisubfile/106991162_664196,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 263 K level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__253_K_level__analysis": {
+      "href": "/vsisubfile/107655358_623095,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - 253 K level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "4LFTX__180-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/108278453_988520,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "4LFTX - 180-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE__180-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/109266973_450930,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CAPE - 180-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN__180-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/109717903_281601,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CIN - 180-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HPBL__surface__analysis": {
+      "href": "/vsisubfile/109999504_2841509,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HPBL - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__level_of_adiabatic_condensation_from_sfc__analysis": {
+      "href": "/vsisubfile/112841013_2871871,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - level of adiabatic condensation from sfc - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE__90-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/115712884_335763,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CAPE - 90-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN__90-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/116048647_253547,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CIN - 90-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE__255-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/116302194_445177,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CAPE - 255-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CIN__255-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/116747371_289674,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CIN - 255-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__equilibrium_level__analysis": {
+      "href": "/vsisubfile/117037045_2112637,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - equilibrium level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "PLPL__255-0_mb_above_ground__analysis": {
+      "href": "/vsisubfile/119149682_1307181,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "PLPL - 255-0 mb above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CAPE__0-3000_m_above_ground__analysis": {
+      "href": "/vsisubfile/120456863_539006,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CAPE - 0-3000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "HGT__level_of_free_convection__analysis": {
+      "href": "/vsisubfile/120995869_2720495,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "HGT - level of free convection - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "EFHL__surface__analysis": {
+      "href": "/vsisubfile/123716364_749578,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "EFHL - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "CANGLE__0-500_m_above_ground__analysis": {
+      "href": "/vsisubfile/124465942_2073519,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "CANGLE - 0-500 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LAYTH__261_K_level_-_256_K_level__analysis": {
+      "href": "/vsisubfile/126539461_1275884,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LAYTH - 261 K level - 256 K level - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "ESP__0-3000_m_above_ground__analysis": {
+      "href": "/vsisubfile/127815345_420946,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "ESP - 0-3000 m above ground - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "RHPW__entire_atmosphere__analysis": {
+      "href": "/vsisubfile/128236291_1207426,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "RHPW - entire atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "LAND__surface__analysis": {
+      "href": "/vsisubfile/129443717_50465,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "LAND - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "ICEC__surface__analysis": {
+      "href": "/vsisubfile/129494182_418,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "ICEC - surface - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SBT123__top_of_atmosphere__analysis": {
+      "href": "/vsisubfile/129494600_1441112,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SBT123 - top of atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SBT124__top_of_atmosphere__analysis": {
+      "href": "/vsisubfile/130935712_1617420,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SBT124 - top of atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SBT113__top_of_atmosphere__analysis": {
+      "href": "/vsisubfile/132553132_1315788,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SBT113 - top of atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
+    },
+    "SBT114__top_of_atmosphere__analysis": {
+      "href": "/vsisubfile/133868920_..,/vsicurl/https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2",
+      "type": "application/wmo-GRIB2",
+      "title": "SBT114 - top of atmosphere - analysis",
+      "hrrr:forecast_layer_type": "analysis",
+      "roles": [
+        "data"
+      ]
     }
   },
   "bbox": [
@@ -83,5 +1694,5 @@
     52.62870335266728
   ],
   "stac_extensions": [],
-  "collection": "noaa-hrrr-conus-sfc-fh00-01"
+  "collection": "noaa-hrrr-sfc"
 }

@@ -7,7 +7,6 @@ from stactools.noaa_hrrr import stac
 from stactools.noaa_hrrr.constants import (
     EXTENDED_FORECAST_MAX_HOUR,
     CloudProvider,
-    ForecastHourSet,
     Product,
     Region,
 )
@@ -29,31 +28,23 @@ def create_noaahrrr_command(cli: Group) -> Command:
         "create-collection",
         short_help="Creates a STAC collection",
     )
-    @click.argument("region", type=click.STRING)
     @click.argument("product", type=click.STRING)
-    @click.argument("forecast_hour_set", type=click.STRING)
     @click.argument("cloud_provider", type=click.STRING)
     @click.argument("destination", type=click.STRING)
     def create_collection_command(
-        region: str,
         product: str,
-        forecast_hour_set: str,
         cloud_provider: str,
         destination: str,
     ) -> None:
         """Creates a STAC Collection
 
         Args:
-            region (str): either 'conus' or 'alaska'
             product (str): one of 'sfc', 'nat', 'prs', or 'subh'
-            forecast_hour_set (str): one of 'fh00-01', 'fh02-48', 'fh00', or 'fh01-18'
             cloud_provider (str): one of 'azure', 'aws', or 'google'
             destination: An HREF for the Collection JSON
         """
         collection = stac.create_collection(
-            region=Region.from_str(region),
             product=Product.from_str(product),
-            forecast_hour_set=ForecastHourSet.from_str(forecast_hour_set),
             cloud_provider=CloudProvider.from_str(cloud_provider),
         )
         collection.set_self_href(destination)
