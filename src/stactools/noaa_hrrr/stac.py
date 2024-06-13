@@ -12,7 +12,6 @@ from pystac import (
     SpatialExtent,
     TemporalExtent,
 )
-from pystac.asset import Asset
 from pystac.catalog import CatalogType
 from pystac.extensions.item_assets import AssetDefinition
 from pystac.item_collection import ItemCollection
@@ -23,7 +22,6 @@ from stactools.noaa_hrrr.constants import (
     ITEM_ID_FORMAT,
     PRODUCT_CONFIGS,
     REGION_CONFIGS,
-    VSI_PATH_FORMAT,
     CloudProvider,
     ForecastCycleType,
     ForecastLayerType,
@@ -282,35 +280,37 @@ def create_item(
         reference_datetime=reference_datetime,
         forecast_hour=forecast_hour,
     )
-    for _, row in idx_df.iterrows():
+    grib_asset = item.assets[ItemType.GRIB.value]
+    grib_asset.extra_fields["grib:layers"] = {}
+    for _, row in idx_df[
+        [
+            "grib_message",
+            "start_byte",
+            "byte_size",
+            "variable",
+            "level",
+            "forecast_time",
+        ]
+    ].iterrows():
         forecast_layer_type = ForecastLayerType.from_str(row.forecast_time)
 
-        asset_key = "__".join(
+        layer_key = "__".join(
             [
                 row.variable.replace(" ", "_"),
                 row.level.replace(" ", "_"),
                 str(forecast_layer_type),
             ]
         )
-        byte_size = row.byte_size
-        if pd.isna(byte_size):
-            byte_size = ".."
 
-        asset_href = VSI_PATH_FORMAT.format(
-            start_byte=row.start_byte,
-            byte_size=byte_size,
-            grib_url=grib_url,
-        )
+        if pd.isna(row.byte_size):
+            row.byte_size = None
 
-        item.assets[asset_key] = Asset(
-            href=asset_href,
-            title=asset_key.replace("__", " - ").replace("_", " "),
-            media_type=GRIB2_MEDIA_TYPE,
-            roles=["data"],
-            extra_fields=forecast_layer_type.asset_properties(
+        grib_asset.extra_fields["grib:layers"][layer_key] = {
+            **row,
+            **forecast_layer_type.asset_properties(
                 reference_datetime=reference_datetime
             ),
-        )
+        }
 
     return item
 

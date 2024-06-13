@@ -232,7 +232,7 @@ class ForecastLayerType:
         asset metadata
         """
         return {
-            f"hrrr:{attr}": (reference_datetime + val).strftime("%Y-%m-%dT%H:%M:%S")
+            attr: (reference_datetime + val).strftime("%Y-%m-%dT%H:%M:%S")
             if isinstance(val, timedelta)
             else val
             for attr, val in self.__dict__.items()

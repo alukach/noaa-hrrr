@@ -26,6 +26,11 @@
       "rel": "item",
       "href": "./hrrr-conus-sfc-2024-05-10T12-FH0/hrrr-conus-sfc-2024-05-10T12-FH0.json",
       "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./hrrr-conus-sfc-2024-05-10T12-FH2/hrrr-conus-sfc-2024-05-10T12-FH2.json",
+      "type": "application/json"
     }
   ],
   "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels",
@@ -44,7 +49,7 @@
       "interval": [
         [
           "2024-05-10T12:00:00Z",
-          "2024-05-10T12:00:00Z"
+          "2024-05-10T14:00:00Z"
         ]
       ]
     }
