@@ -21,8 +21,8 @@ from io import StringIO
 from pathlib import Path
 from typing import Optional
 
+import httpx
 import pandas as pd
-import requests
 from stactools.noaa_hrrr.constants import (
     CLOUD_PROVIDER_CONFIGS,
     DATA_DIR,
@@ -189,7 +189,7 @@ def read_idx(
     )
 
     read_this_idx = None
-    response = requests.get(idx_url)
+    response = httpx.get(idx_url)
     if response.status_code != 200:
         response.raise_for_status()
         response.close()
