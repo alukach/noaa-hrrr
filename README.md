@@ -27,29 +27,11 @@ A short description of the package and its usage.
 
 ## Installation
 
-This package relies on [Herbie](https://herbie.readthedocs.io/en/stable/index.html)
-to wrangle the metadata from the HRRR Dataset, which has some dependencies that are
-easiest to install with `conda`.
+Install `stactools-noaa-hrrr` with pip:
 
-1. Set up the conda environment
-
-    ```shell
-
-    wget https://github.com/developmentseed/noaa-hrrr/blob/main/environment.yml
-    conda env create -f environment.yml
-    ```
-
-2. Activate the conda environment
-
-    ```shell
-    conda activate stactools-noaa-hrrr
-    ```
-
-3. Install `stactools-noaa-hrrr`
-
-    ```shell
-    pip install stactools-noaa-hrrr
-    ```
+```shell
+pip install stactools-noaa-hrrr
+```
 
 ## Command-line usage
 

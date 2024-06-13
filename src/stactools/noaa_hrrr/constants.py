@@ -158,6 +158,11 @@ class ForecastCycleType:
 
 @dataclass
 class ForecastLayerType:
+    """Each GRIB file has many forecast layers. Each one represents either a
+    real-time forecast (analysis), a point in time forecast, or a summary
+    statistic of the forecast for a period of time.
+    """
+
     forecast_layer_type: str
     start_timedelta: Optional[timedelta] = None
     end_timedelta: Optional[timedelta] = None
@@ -219,6 +224,9 @@ class ForecastLayerType:
     def asset_properties(
         self, reference_datetime: datetime
     ) -> dict[str, Union[str, datetime]]:
+        """Write the specific HRRR attributes out in a dictionary to be added to
+        asset metadata
+        """
         return {
             f"hrrr:{attr}": (reference_datetime + val).strftime("%Y-%m-%dT%H:%M:%S")
             if isinstance(val, timedelta)
@@ -270,7 +278,6 @@ class RegionConfig:
 
     item_bbox_proj: tuple[float, float, float, float]
     item_crs: CRS
-    herbie_model_id: str
     cycle_run_hours: List[int]
     grib_url_format: str
 
@@ -339,7 +346,6 @@ REGION_CONFIGS = {
                 "no_defs": True,
             }
         ),
-        herbie_model_id="hrrr",
         cycle_run_hours=[i for i in range(0, 24)],
         grib_url_format="hrrr.{date:%Y%m%d}/conus/hrrr.t{date:%H}z.wrf{product}f{fxx:02d}.grib2",
     ),
@@ -363,7 +369,6 @@ REGION_CONFIGS = {
                 "no_defs": True,
             }
         ),
-        herbie_model_id="hrrrak",
         cycle_run_hours=[i for i in range(0, 24, 3)],
         grib_url_format="hrrr.{date:%Y%m%d}/alaska/hrrr.t{date:%H}z.wrf{product}f{fxx:02d}.ak.grib2",
     ),
