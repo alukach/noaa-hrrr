@@ -13,7 +13,7 @@ from pystac import (
     TemporalExtent,
 )
 from pystac.catalog import CatalogType
-from pystac.extensions.item_assets import AssetDefinition
+from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.item_collection import ItemCollection
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
@@ -29,7 +29,7 @@ from stactools.noaa_hrrr.constants import (
     Product,
     Region,
 )
-from stactools.noaa_hrrr.inventory import NotFoundError, read_idx
+from stactools.noaa_hrrr.inventory import NotFoundError, load_inventory_df, read_idx
 
 GRIB2_MEDIA_TYPE = "application/wmo-GRIB2"
 NDJSON_MEDIA_TYPE = "application/x-ndjson"
@@ -187,6 +187,49 @@ def create_collection(
 
     collection.add_links(links)
 
+    # item assets extension
+    item_assets_ext = ItemAssetsExtension.ext(collection, add_if_missing=True)
+
+    assets = {
+        item_type.value: item_asset
+        for item_type, item_asset in ITEM_BASE_ASSETS[product].items()
+    }
+
+    inventory_df = load_inventory_df(
+        region=Region.conus,
+        product=product,
+    )
+
+    grib_asset = assets[ItemType.GRIB.value]
+
+    grib_asset.properties["grib:layers"] = {}
+
+    for _, row in inventory_df[
+        [
+            "description",
+            "unit",
+            "variable",
+            "level",
+            "forecast_valid",
+        ]
+    ].iterrows():
+        forecast_valid = row.pop("forecast_valid")
+        forecast_layer_type = ForecastLayerType.from_str(forecast_valid)
+
+        layer_key = "__".join(
+            [
+                row.variable.replace(" ", "_"),
+                row.level.replace(" ", "_"),
+                str(forecast_layer_type),
+            ]
+        )
+        grib_asset.properties["grib:layers"][layer_key] = {
+            **row,
+            "forecast_layer_type": forecast_layer_type.forecast_layer_type,
+        }
+
+    item_assets_ext.item_assets = assets
+
     return collection
 
 
@@ -218,6 +261,11 @@ def create_item(
     """
     region_config = REGION_CONFIGS[region]
     cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
+    inventory_df = load_inventory_df(
+        region=region,
+        product=product,
+        forecast_hour=forecast_hour,
+    )
 
     # make sure there is data for the reference_datetime
     # (Alaska only runs the model every three hours)
@@ -279,20 +327,26 @@ def create_item(
         cloud_provider=cloud_provider,
         reference_datetime=reference_datetime,
         forecast_hour=forecast_hour,
+    ).merge(
+        inventory_df[["variable", "description", "unit"]].drop_duplicates(),
+        how="left",
+        on="variable",
     )
     grib_asset = item.assets[ItemType.GRIB.value]
     grib_asset.extra_fields["grib:layers"] = {}
     for _, row in idx_df[
         [
+            "description",
+            "unit",
             "grib_message",
             "start_byte",
             "byte_size",
             "variable",
             "level",
-            "forecast_time",
+            "forecast_valid",
         ]
     ].iterrows():
-        forecast_layer_type = ForecastLayerType.from_str(row.forecast_time)
+        forecast_layer_type = ForecastLayerType.from_str(row.forecast_valid)
 
         layer_key = "__".join(
             [
@@ -307,9 +361,7 @@ def create_item(
 
         grib_asset.extra_fields["grib:layers"][layer_key] = {
             **row,
-            **forecast_layer_type.asset_properties(
-                reference_datetime=reference_datetime
-            ),
+            **forecast_layer_type.asset_properties(),
         }
 
     return item

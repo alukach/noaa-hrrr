@@ -225,16 +225,12 @@ class ForecastLayerType:
                 f"{forecast_str} cannot be parsed into a ForecastLayerType"
             )
 
-    def asset_properties(
-        self, reference_datetime: datetime
-    ) -> dict[str, Union[str, datetime]]:
+    def asset_properties(self) -> dict[str, Union[str, float]]:
         """Write the specific HRRR attributes out in a dictionary to be added to
         asset metadata
         """
         return {
-            attr: (reference_datetime + val).strftime("%Y-%m-%dT%H:%M:%S")
-            if isinstance(val, timedelta)
-            else val
+            attr: float(val.total_seconds()) if isinstance(val, timedelta) else val
             for attr, val in self.__dict__.items()
             if val is not None
         }
