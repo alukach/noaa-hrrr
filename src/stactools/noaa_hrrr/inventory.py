@@ -170,6 +170,11 @@ def load_inventory_df(
     return inventory_df
 
 
+# Define custom exceptions
+class NotFoundError(Exception):
+    pass
+
+
 def read_idx(
     region: Region,
     product: Product,
@@ -189,11 +194,18 @@ def read_idx(
     )
 
     read_this_idx = None
-    response = httpx.get(idx_url)
-    if response.status_code != 200:
-        response.raise_for_status()
-        response.close()
-        raise ValueError(f"\nCant open index file {idx_url}\n")
+
+    response = httpx.get(idx_url, timeout=20)
+
+    try:
+        response.raise_for_status()  # Raise an HTTPStatusError for 4xx/5xx status codes
+    except httpx.HTTPStatusError as e:
+        if e.response.status_code == 404:
+            response.close()
+            raise NotFoundError(f"404 Not Found: {idx_url}")
+        else:
+            response.close()
+            raise e
 
     read_this_idx = StringIO(response.text)
     response.close()

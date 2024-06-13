@@ -1,5 +1,7 @@
+import logging
 import multiprocessing as mp
 from datetime import datetime, timedelta
+from typing import Union
 
 import pandas as pd
 import pystac
@@ -29,7 +31,7 @@ from stactools.noaa_hrrr.constants import (
     Product,
     Region,
 )
-from stactools.noaa_hrrr.inventory import read_idx
+from stactools.noaa_hrrr.inventory import NotFoundError, read_idx
 
 GRIB2_MEDIA_TYPE = "application/wmo-GRIB2"
 NDJSON_MEDIA_TYPE = "application/x-ndjson"
@@ -313,6 +315,22 @@ def create_item(
     return item
 
 
+def create_item_safe(
+    region: Region,
+    product: Product,
+    cloud_provider: CloudProvider,
+    reference_datetime: datetime,
+    forecast_hour: int,
+) -> Union[Item, None]:
+    try:
+        return create_item(
+            region, product, cloud_provider, reference_datetime, forecast_hour
+        )
+    except NotFoundError as e:
+        logging.warning(e)
+        return None
+
+
 def create_item_collection(
     region: Region,
     product: Product,
@@ -339,7 +357,7 @@ def create_item_collection(
         reference_date += one_day
 
     print(f"creating {len(tasks)} items")
-    with mp.Pool() as pool:
-        items = pool.starmap(create_item, tasks)
+    with mp.Pool(8) as pool:
+        items = pool.starmap(create_item_safe, tasks)
 
-    return ItemCollection(items)
+    return ItemCollection(item for item in items if item is not None)

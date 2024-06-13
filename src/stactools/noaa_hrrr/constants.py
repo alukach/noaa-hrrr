@@ -201,7 +201,11 @@ class ForecastLayerType:
             if start == end:
                 forecast_layer_type = "instantaneous"
             elif (start == 0) & (start < end):
-                forecast_layer_type = "cumulative_summary"
+                forecast_layer_type = (
+                    "periodic_summary"
+                    if ((end == 1) & (unit == "hour"))
+                    else "cumulative_summary"
+                )
             elif (start > 0) & (start < end):
                 forecast_layer_type = "periodic_summary"
             else:
@@ -238,7 +242,7 @@ class ForecastLayerType:
     def __str__(self) -> str:
         out = self.forecast_layer_type
         if self.statistic_type:
-            out += f"__{self.statistic_type}"
+            out = out.replace("summary", self.statistic_type)
 
         return out
 
