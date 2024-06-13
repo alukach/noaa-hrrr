@@ -1,11 +1,13 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pytest
 from stactools.noaa_hrrr import stac
 from stactools.noaa_hrrr.constants import (
     COLLECTION_ID_FORMAT,
     ITEM_ID_FORMAT,
+    REGION_CONFIGS,
     CloudProvider,
+    ForecastCycleType,
     Product,
     Region,
 )
@@ -64,6 +66,28 @@ def test_create_item(
     assert (
         item.properties["noaa-hrrr:forecast_cycle_type"] == "extended"
     )  # because hour=6
+
+
+def test_create_item_collection() -> None:
+    start_date = datetime(year=2024, month=5, day=1)
+    item_collection = stac.create_item_collection(
+        product=Product.sfc,
+        cloud_provider=CloudProvider.azure,
+        region=Region.alaska,
+        start_date=start_date,
+        end_date=start_date,
+    )
+
+    n_expected_items = 0
+    region_config = REGION_CONFIGS[Region.alaska]
+    for cycle_run_hour in region_config.cycle_run_hours:
+        forecast_cycle_type = ForecastCycleType.from_timestamp(
+            start_date + timedelta(hours=cycle_run_hour)
+        )
+        for _ in forecast_cycle_type.generate_forecast_hours():
+            n_expected_items += 1
+
+    assert len(item_collection) == n_expected_items
 
 
 def test_create_item_forecast_cycle_type() -> None:

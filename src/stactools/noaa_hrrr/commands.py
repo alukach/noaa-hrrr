@@ -1,4 +1,5 @@
 import logging
+import os
 from datetime import datetime
 
 import click
@@ -85,24 +86,42 @@ def create_noaahrrr_command(cli: Group) -> Command:
         )
         item.save_object(dest_href=destination)
 
-    # @noaahrrr.command(
-    #     "create-item-collection",
-    #     short_help="Create a set of STAC items for a reference datetime",
-    # )
-    # @click.argument("start_reference_date", type=click.DateTime(formats=["%Y-%m-%d"]))
-    # @click.argument("end_reference_date", type=click.DateTime(formats=["%Y-%m-%d"]))
-    # @click.argument("region", type=click.STRING)
-    # @click.argument("cloud_provider", type=click.STRING)
-    # @click.argument("destination", type=click.STRING)
-    # def create_item_collection_command(
-    #     start_reference_date: datetime,
-    #     end_reference_date: datetime,
-    #     region: str,
-    #     cloud_provider: str,
-    #     destination: str,
-    # ):
-    #     """Create collection of STAC items for a date range"""
-    #
-    #     return
+    @noaahrrr.command(
+        "create-item-collection",
+        short_help="Create a collection of STAC items for a date range",
+    )
+    @click.argument("region", type=click.STRING)
+    @click.argument("product", type=click.STRING)
+    @click.argument("cloud_provider", type=click.STRING)
+    @click.argument("start_date", type=click.DateTime(formats=["%Y-%m-%d"]))
+    @click.argument("end_date", type=click.DateTime(formats=["%Y-%m-%d"]))
+    @click.argument("destination", type=click.STRING)
+    def create_item_collection_command(
+        region: str,
+        product: str,
+        cloud_provider: str,
+        start_date: datetime,
+        end_date: datetime,
+        destination: str,
+    ) -> None:
+        """Creates a STAC Item
+
+        Args:
+            region (str): either 'conus' or 'alaska'
+            product (str): one of 'sfc', 'nat', 'prs', or 'subh'
+            cloud_provider (str): one of 'azure', 'aws', or 'google'
+            start_date, end_datetime (datetime): date range for which you want to create
+                an item collection
+            destination (str): destination path to save files
+        """
+        item_collection = stac.create_item_collection(
+            product=Product.from_str(product),
+            region=Region.from_str(region),
+            cloud_provider=CloudProvider.from_str(cloud_provider),
+            start_date=start_date,
+            end_date=end_date,
+        )
+        for item in item_collection:
+            item.save_object(dest_href=os.path.join(destination, f"{item.id}.json"))
 
     return noaahrrr

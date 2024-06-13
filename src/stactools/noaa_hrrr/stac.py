@@ -1,3 +1,4 @@
+import multiprocessing as mp
 from datetime import datetime, timedelta
 
 import pandas as pd
@@ -12,6 +13,7 @@ from pystac import (
 from pystac.asset import Asset
 from pystac.catalog import CatalogType
 from pystac.extensions.item_assets import AssetDefinition
+from pystac.item_collection import ItemCollection
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
     CLOUD_PROVIDER_CONFIGS,
@@ -309,3 +311,35 @@ def create_item(
         )
 
     return item
+
+
+def create_item_collection(
+    region: Region,
+    product: Product,
+    cloud_provider: CloudProvider,
+    start_date: datetime,
+    end_date: datetime,
+) -> pystac.ItemCollection:
+    """Create an item collection containing all items for a date range"""
+
+    region_config = REGION_CONFIGS[region]
+
+    one_day = timedelta(days=1)
+    tasks = []
+    reference_date = start_date.replace(hour=0, minute=0, second=0, microsecond=0)
+    while reference_date <= end_date:
+        for cycle_run_hour in region_config.cycle_run_hours:
+            reference_datetime = reference_date + timedelta(hours=cycle_run_hour)
+            forecast_cycle_type = ForecastCycleType.from_timestamp(reference_datetime)
+            for forecast_hour in forecast_cycle_type.generate_forecast_hours():
+                tasks.append(
+                    (region, product, cloud_provider, reference_datetime, forecast_hour)
+                )
+
+        reference_date += one_day
+
+    print(f"creating {len(tasks)} items")
+    with mp.Pool() as pool:
+        items = pool.starmap(create_item, tasks)
+
+    return ItemCollection(items)
