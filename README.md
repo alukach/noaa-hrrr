@@ -35,10 +35,28 @@ pip install stactools-noaa-hrrr
 
 ## Command-line usage
 
-Description of the command line functions
+To create a collection object:
 
 ```shell
-stac noaahrrr create-item 2024-05-01T12 10 conus azure example-item.json
+stac noaahrrr create-collection {region} {product} {cloud_provider} {destination_file}
+```
+
+e.g.
+
+```shell
+stac noaahrrr create-collection conus sfc azure example-collection.json
+```
+
+To create an item:
+
+```shell
+stac noaahrrr create-item {region} {product} {cloud_provider} {reference_datetime} {forecast_hour} {destination_file}
+```
+
+e.g.
+
+```shell
+stac noaahrrr create-item conus sfc azure 2024-05-01T12 10 example-item.json
 ```
 
 ### Docker
