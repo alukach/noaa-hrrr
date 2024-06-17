@@ -50,7 +50,13 @@ stac noaahrrr create-collection conus sfc azure example-collection.json
 To create an item:
 
 ```shell
-stac noaahrrr create-item {region} {product} {cloud_provider} {reference_datetime} {forecast_hour} {destination_file}
+stac noaahrrr create-item \
+  {region} \
+  {product} \
+  {cloud_provider} \
+  {reference_datetime} \
+  {forecast_hour} \
+  {destination_file}
 ```
 
 e.g.
