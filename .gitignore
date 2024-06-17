@@ -141,3 +141,5 @@ cython_debug/
 
 scratch
 .Trash-0
+.virtual_documents
+
