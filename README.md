@@ -65,6 +65,24 @@ e.g.
 stac noaahrrr create-item conus sfc azure 2024-05-01T12 10 example-item.json
 ```
 
+To create all items for a date range:
+
+```shell
+stac noaahrrr create-item-collection \
+  {region} \
+  {product} \
+  {cloud_provider} \
+  {start_date} \
+  {end_date} \
+  {destination_folder}
+```
+
+e.g.
+
+```shell
+stac noaahrrr create-item-collection conus sfc azure 2024-05-01 2024-05-31 /tmp/items
+```
+
 ### Docker
 
 You can launch a jupyterhub server in a docker container with all of the
