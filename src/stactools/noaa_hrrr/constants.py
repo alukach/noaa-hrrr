@@ -22,6 +22,19 @@ RESOLUTION_METERS = 3000
 
 VSI_PATH_FORMAT = "/vsisubfile/{start_byte}_{byte_size},/vsicurl/{grib_url}"
 
+START_BYTE = "start_byte"
+BYTE_SIZE = "byte_size"
+REFERENCE_TIME = "reference_time"
+VALID_TIME = "valid_time"
+FORECAST_HOUR = "forecast_hour"
+FORECAST_VALID = "forecast_valid"
+LEVEL = "level"
+GRIB_MESSAGE = "grib_message"
+VARIABLE = "variable"
+DESCRIPTION = "description"
+UNIT = "unit"
+GRIB_LAYERS = "grib:layers"
+
 
 class StrEnum(str, Enum):
     """A string-based enum, that can lookup an enum value from a string.

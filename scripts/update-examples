@@ -16,6 +16,7 @@ root = Path(__file__).parents[1]
 examples = root / "examples"
 
 collection = stactools.noaa_hrrr.stac.create_collection(
+    region=Region.conus,
     product=Product.sfc,
     cloud_provider=CloudProvider.azure,
 )

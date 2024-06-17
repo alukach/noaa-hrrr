@@ -29,10 +29,12 @@ def create_noaahrrr_command(cli: Group) -> Command:
         "create-collection",
         short_help="Creates a STAC collection",
     )
+    @click.argument("region", type=click.STRING)
     @click.argument("product", type=click.STRING)
     @click.argument("cloud_provider", type=click.STRING)
     @click.argument("destination", type=click.STRING)
     def create_collection_command(
+        region: str,
         product: str,
         cloud_provider: str,
         destination: str,
@@ -45,6 +47,7 @@ def create_noaahrrr_command(cli: Group) -> Command:
             destination: An HREF for the Collection JSON
         """
         collection = stac.create_collection(
+            region=Region.from_str(region),
             product=Product.from_str(product),
             cloud_provider=CloudProvider.from_str(cloud_provider),
         )

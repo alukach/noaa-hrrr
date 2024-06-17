@@ -13,9 +13,11 @@ from stactools.noaa_hrrr.constants import (
 )
 
 
+@pytest.mark.parametrize("region", list(Region))  # type: ignore
 @pytest.mark.parametrize("product", list(Product))  # type: ignore
 @pytest.mark.parametrize("cloud_provider", list(CloudProvider))  # type: ignore
 def test_create_collection(
+    region: Region,
     product: Product,
     cloud_provider: CloudProvider,
 ) -> None:
@@ -23,6 +25,7 @@ def test_create_collection(
     # the collection
 
     collection = stac.create_collection(
+        region=region,
         product=product,
         cloud_provider=cloud_provider,
     )

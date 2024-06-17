@@ -24,10 +24,21 @@ from typing import Optional
 import httpx
 import pandas as pd
 from stactools.noaa_hrrr.constants import (
+    BYTE_SIZE,
     CLOUD_PROVIDER_CONFIGS,
     DATA_DIR,
+    DESCRIPTION,
+    FORECAST_HOUR,
+    FORECAST_VALID,
+    GRIB_MESSAGE,
+    LEVEL,
     PRODUCT_CONFIGS,
+    REFERENCE_TIME,
     REGION_CONFIGS,
+    START_BYTE,
+    UNIT,
+    VALID_TIME,
+    VARIABLE,
     CloudProvider,
     ForecastCycleType,
     ForecastHourSet,
@@ -43,16 +54,15 @@ INVENTORY_CSV_GZ_FORMAT = "__".join(
     ]
 )
 
-FORECAST_HOUR = "forecast_hour"
 INVENTORY_COLS = [
-    "grib_message",
-    "variable",
-    "level",
-    "forecast_valid",
+    GRIB_MESSAGE,
+    VARIABLE,
+    LEVEL,
+    FORECAST_VALID,
 ]
 DESCRIPTION_COLS = [
-    "description",
-    "unit",
+    DESCRIPTION,
+    UNIT,
 ]
 
 # URLs for the published inventory for each region/product/forecast_hour_set from NOAA
@@ -214,12 +224,12 @@ def read_idx(
         read_this_idx,
         sep=":",
         names=[
-            "grib_message",
+            GRIB_MESSAGE,
             "start_byte",
             "reference_time",
-            "variable",
-            "level",
-            "forecast_valid",
+            VARIABLE,
+            LEVEL,
+            FORECAST_VALID,
             "?",
             "??",
             "???",
@@ -227,22 +237,20 @@ def read_idx(
     )
 
     # Format the DataFrame
-    df["reference_time"] = pd.to_datetime(df.reference_time, format="d=%Y%m%d%H")
-    df["valid_time"] = df["reference_time"] + timedelta(hours=forecast_hour)
-    df["start_byte"] = df["start_byte"].astype(int)
-    df["byte_size"] = (df["start_byte"].shift(-1) - df["start_byte"]).astype(
-        pd.Int64Dtype()
-    )
+    df[REFERENCE_TIME] = pd.to_datetime(df.reference_time, format="d=%Y%m%d%H")
+    df[VALID_TIME] = df[REFERENCE_TIME] + timedelta(hours=forecast_hour)
+    df[START_BYTE] = df[START_BYTE].astype(int)
+    df[BYTE_SIZE] = (df[START_BYTE].shift(-1) - df[START_BYTE]).astype(pd.Int64Dtype())
     df = df.reindex(
         columns=[
-            "grib_message",
-            "start_byte",
-            "byte_size",
-            "reference_time",
-            "valid_time",
-            "variable",
-            "level",
-            "forecast_valid",
+            GRIB_MESSAGE,
+            START_BYTE,
+            BYTE_SIZE,
+            REFERENCE_TIME,
+            VALID_TIME,
+            VARIABLE,
+            LEVEL,
+            FORECAST_VALID,
             "?",
             "??",
             "???",
@@ -316,19 +324,19 @@ def generate_inventory_csv_gzs(dest_dir: Path) -> None:
                     NOAA_INVENTORY_URLS[region, product, forecast_hour_set],
                 )[1]
 
-                noaa_inventory[["description", "unit"]] = noaa_inventory[
+                noaa_inventory[[DESCRIPTION, UNIT]] = noaa_inventory[
                     "Description"
                 ].str.extract(r"(.+?) \[(.+?)\]")
 
                 variable_descriptions = (
-                    noaa_inventory[["Parameter", "description", "unit"]]
+                    noaa_inventory[["Parameter", DESCRIPTION, UNIT]]
                     .drop_duplicates()
-                    .rename(columns={"Parameter": "variable"})
+                    .rename(columns={"Parameter": VARIABLE})
                 )
 
                 # add the variable descriptions
                 inventory_df = inventory_df.merge(
-                    variable_descriptions, on="variable", how="left"
+                    variable_descriptions, on=VARIABLE, how="left"
                 )
                 assert inventory_df.shape[0] == n_rows
 

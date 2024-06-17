@@ -13,15 +13,34 @@ from pystac import (
     TemporalExtent,
 )
 from pystac.catalog import CatalogType
+from pystac.extensions.datacube import (
+    DatacubeExtension,
+    Dimension,
+    DimensionType,
+    Variable,
+    VariableType,
+)
 from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.item_collection import ItemCollection
 from pystac.provider import Provider, ProviderRole
 from stactools.noaa_hrrr.constants import (
+    BYTE_SIZE,
     CLOUD_PROVIDER_CONFIGS,
     COLLECTION_ID_FORMAT,
+    DESCRIPTION,
+    FORECAST_VALID,
+    GRIB_LAYERS,
+    GRIB_MESSAGE,
     ITEM_ID_FORMAT,
+    LEVEL,
     PRODUCT_CONFIGS,
+    REFERENCE_TIME,
     REGION_CONFIGS,
+    RESOLUTION_METERS,
+    START_BYTE,
+    UNIT,
+    VALID_TIME,
+    VARIABLE,
     CloudProvider,
     ForecastCycleType,
     ForecastLayerType,
@@ -38,7 +57,7 @@ INDEX_ASSET_DEFINITION = AssetDefinition(
         "type": NDJSON_MEDIA_TYPE,
         "roles": ["index"],
         "title": "Index file",
-        "description": (
+        DESCRIPTION: (
             "The index file contains information on each message within "
             "the GRIB2 file."
         ),
@@ -52,7 +71,7 @@ ITEM_BASE_ASSETS = {
                 "type": GRIB2_MEDIA_TYPE,
                 "roles": ["data"],
                 "title": "2D Surface Levels",
-                "description": (
+                DESCRIPTION: (
                     "2D Surface Level forecast data as a grib2 file. Subsets of the "
                     "data can be loaded using the provided byte range."
                 ),
@@ -66,7 +85,7 @@ ITEM_BASE_ASSETS = {
                 "type": GRIB2_MEDIA_TYPE,
                 "roles": ["data"],
                 "title": "2D Surface Levels - Sub Hourly",
-                "description": (
+                DESCRIPTION: (
                     "2D Surface Level forecast data (sub-hourly, 15 minute intervals) "
                     "as a grib2 file. Subsets of the data can be loaded using the "
                     "provided byte range."
@@ -81,7 +100,7 @@ ITEM_BASE_ASSETS = {
                 "type": GRIB2_MEDIA_TYPE,
                 "roles": ["data"],
                 "title": "3D Pressure Levels",
-                "description": (
+                DESCRIPTION: (
                     "3D Pressure Level forecast data as a grib2 file. Subsets of the "
                     "data can be loaded using the provided byte range."
                 ),
@@ -95,7 +114,7 @@ ITEM_BASE_ASSETS = {
                 "type": GRIB2_MEDIA_TYPE,
                 "roles": ["data"],
                 "title": "Native Levels",
-                "description": (
+                DESCRIPTION: (
                     "Native Level forecast data as a grib2 file. Subsets of the data "
                     "can be loaded using the provided byte range."
                 ),
@@ -105,8 +124,26 @@ ITEM_BASE_ASSETS = {
     },
 }
 
+RENDER_PARAMS = {
+    Product.sfc: {
+        "WIND__10_m_above_ground__periodic_max": {
+            "title": "Wind speed (m/s) 10 m above ground",
+            "colormap_name": "viridis",
+            "rescale": [[0, 20]],
+            "resampling": "nearest",
+        },
+        "DSWRF__surface__point_in_time": {
+            "title": "Downward Short-Wave Radiation Flux (W/m2)",
+            "colormap_name": "rainbow",
+            "rescale": [[0, 800]],
+            "resampling": "nearest",
+        },
+    }
+}
+
 
 def create_collection(
+    region: Region,
     product: Product,
     cloud_provider: CloudProvider,
 ) -> Collection:
@@ -121,12 +158,17 @@ def create_collection(
     Returns:
         Collection: STAC Collection object
     """
+    region_config = REGION_CONFIGS[region]
     product_config = PRODUCT_CONFIGS[product]
     cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
+
+    inventory_df = load_inventory_df(
+        region=region,
+        product=product,
+    )
+
     extent = Extent(
-        SpatialExtent(
-            [region_config.bbox_4326 for region_config in REGION_CONFIGS.values()]
-        ),
+        SpatialExtent([region_config.bbox_4326]),
         TemporalExtent([[cloud_provider_config.start_date, None]]),
     )
 
@@ -167,7 +209,8 @@ def create_collection(
         ),
         title=(
             "NOAA High Resolution Rapid Refresh (HRRR) - "
-            f"{product_config.description}"
+            f"{product_config.description} - "
+            f"{region.value}"
         ),
         description=(
             "The NOAA HRRR is a real-time 3km resolution, hourly updated, "
@@ -176,7 +219,8 @@ def create_collection(
             "assimilated in the HRRR every 15 min over a 1-hour period adding further "
             "detail to that provided by the hourly data assimilation from the 13km "
             "radar-enhanced Rapid Refresh (RAP) system. "
-            f"This specific collection represents {product_config.description}."
+            f"This specific collection represents {product_config.description} "
+            f"for the {region.value} region."
         ),
         extent=extent,
         license="CC-BY-4.0",
@@ -195,25 +239,20 @@ def create_collection(
         for item_type, item_asset in ITEM_BASE_ASSETS[product].items()
     }
 
-    inventory_df = load_inventory_df(
-        region=Region.conus,
-        product=product,
-    )
-
+    # fill out the grib:layers for the grib asset
     grib_asset = assets[ItemType.GRIB.value]
-
-    grib_asset.properties["grib:layers"] = {}
+    grib_asset.properties[GRIB_LAYERS] = {}
 
     for _, row in inventory_df[
         [
-            "description",
-            "unit",
-            "variable",
-            "level",
-            "forecast_valid",
+            DESCRIPTION,
+            UNIT,
+            VARIABLE,
+            LEVEL,
+            FORECAST_VALID,
         ]
     ].iterrows():
-        forecast_valid = row.pop("forecast_valid")
+        forecast_valid = row.pop(FORECAST_VALID)
         forecast_layer_type = ForecastLayerType.from_str(forecast_valid)
 
         layer_key = "__".join(
@@ -223,13 +262,113 @@ def create_collection(
                 str(forecast_layer_type),
             ]
         )
-        grib_asset.properties["grib:layers"][layer_key] = {
+        grib_asset.properties[GRIB_LAYERS][layer_key] = {
             **row,
             "forecast_layer_type": forecast_layer_type.forecast_layer_type,
         }
 
     item_assets_ext.item_assets = assets
 
+    # define the datacube metadata using the inventory files for this
+    # region x product
+    datacube_ext = DatacubeExtension.ext(collection, add_if_missing=True)
+
+    variable_df = inventory_df.set_index(keys=[VARIABLE, DESCRIPTION, UNIT]).sort_index(
+        level=VARIABLE
+    )
+
+    datacube_ext.apply(
+        dimensions={
+            "x": Dimension(
+                properties={
+                    "type": DimensionType.SPATIAL,
+                    "reference_system": region_config.item_crs.to_wkt(),
+                    "extent": [
+                        region_config.item_bbox_proj[0] + RESOLUTION_METERS / 2,
+                        region_config.item_bbox_proj[2] - RESOLUTION_METERS / 2,
+                    ],
+                    "axis": "x",
+                }
+            ),
+            "y": Dimension(
+                properties={
+                    "type": DimensionType.SPATIAL,
+                    "reference_system": region_config.item_crs.to_wkt(),
+                    "extent": [
+                        region_config.item_bbox_proj[1] + RESOLUTION_METERS / 2,
+                        region_config.item_bbox_proj[3] - RESOLUTION_METERS / 2,
+                    ],
+                    "axis": "y",
+                }
+            ),
+            REFERENCE_TIME: Dimension(
+                properties={
+                    "type": DimensionType.TEMPORAL,
+                    "extent": [
+                        cloud_provider_config.start_date.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                        None,
+                    ],
+                    "step": "PT1H" if region == Region.conus else "PT3H",
+                }
+            ),
+            VALID_TIME: Dimension(
+                properties={
+                    "type": DimensionType.TEMPORAL,
+                    "extent": [
+                        cloud_provider_config.start_date.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                        None,
+                    ],
+                    "step": "PT15M" if product == Product.subh else "PT1H",
+                }
+            ),
+            # could be a z spatial dimension but the units are not consistent
+            LEVEL: Dimension(
+                properties={
+                    "type": "atmospheric level",
+                    "description": (
+                        "The atmospheric level for which the forecast is applicable, "
+                        "e.g. surface, top of atmosphere, 100 m above ground, etc."
+                    ),
+                    "values": list(sorted(set(inventory_df[LEVEL].unique()))),
+                }
+            ),
+            FORECAST_VALID: Dimension(
+                properties={
+                    "type": DimensionType.TEMPORAL,
+                    "description": (
+                        "The time horizon for which the forecast is applicable."
+                    ),
+                    "values": list(sorted(set(inventory_df[FORECAST_VALID].unique()))),
+                }
+            ),
+        },
+        variables={
+            variable: Variable(
+                properties=dict(
+                    dimensions=[
+                        "x",
+                        "y",
+                        REFERENCE_TIME,
+                        VALID_TIME,
+                        LEVEL,
+                        FORECAST_VALID,
+                    ],
+                    type=VariableType.DATA,
+                    description=description,
+                    unit=unit,
+                    # experimental new field for defining the specific values of each
+                    # domain where this variable has data
+                    dimension_domains={
+                        LEVEL: list(group[LEVEL].unique()),
+                        FORECAST_VALID: list(group[FORECAST_VALID].unique()),
+                    },
+                )
+            )
+            for (variable, description, unit), group in variable_df.groupby(
+                level=[VARIABLE, DESCRIPTION, UNIT]
+            )
+        },
+    )
     return collection
 
 
@@ -328,22 +467,22 @@ def create_item(
         reference_datetime=reference_datetime,
         forecast_hour=forecast_hour,
     ).merge(
-        inventory_df[["variable", "description", "unit"]].drop_duplicates(),
+        inventory_df[[VARIABLE, DESCRIPTION, UNIT]].drop_duplicates(),
         how="left",
-        on="variable",
+        on=VARIABLE,
     )
     grib_asset = item.assets[ItemType.GRIB.value]
-    grib_asset.extra_fields["grib:layers"] = {}
+    grib_asset.extra_fields[GRIB_LAYERS] = {}
     for _, row in idx_df[
         [
-            "description",
-            "unit",
-            "grib_message",
-            "start_byte",
-            "byte_size",
-            "variable",
-            "level",
-            "forecast_valid",
+            DESCRIPTION,
+            UNIT,
+            GRIB_MESSAGE,
+            START_BYTE,
+            BYTE_SIZE,
+            VARIABLE,
+            LEVEL,
+            FORECAST_VALID,
         ]
     ].iterrows():
         forecast_layer_type = ForecastLayerType.from_str(row.forecast_valid)
@@ -359,10 +498,12 @@ def create_item(
         if pd.isna(row.byte_size):
             row.byte_size = None
 
-        grib_asset.extra_fields["grib:layers"][layer_key] = {
+        grib_asset.extra_fields[GRIB_LAYERS][layer_key] = {
             **row,
             **forecast_layer_type.asset_properties(),
         }
+
+    # add render params
 
     return item
 

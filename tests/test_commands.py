@@ -8,14 +8,17 @@ from stactools.noaa_hrrr.commands import create_noaahrrr_command
 from stactools.noaa_hrrr.constants import (
     CloudProvider,
     Product,
+    Region,
 )
 
 command = create_noaahrrr_command(Group())
 
 
+@pytest.mark.parametrize("region", list(Region))  # type: ignore
 @pytest.mark.parametrize("product", list(Product))  # type: ignore
 @pytest.mark.parametrize("cloud_provider", list(CloudProvider))  # type: ignore
 def test_create_collection(
+    region: Region,
     product: Product,
     cloud_provider: CloudProvider,
     tmp_path: Path,
@@ -30,6 +33,7 @@ def test_create_collection(
         command,
         [
             "create-collection",
+            region.value,
             product.value,
             cloud_provider.value,
             path,

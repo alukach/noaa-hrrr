@@ -41,19 +41,19 @@
       "rel": "root",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels - conus"
     },
     {
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels - conus"
     },
     {
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels"
+      "title": "NOAA High Resolution Rapid Refresh (HRRR) - 2D surface levels - conus"
     }
   ],
   "assets": {
