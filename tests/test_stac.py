@@ -32,6 +32,7 @@ def test_create_collection(
     collection.set_self_href(None)  # required for validation to pass
     assert collection.id == COLLECTION_ID_FORMAT.format(
         product=product.value,
+        region=region.value,
     )
     collection.validate()
 
