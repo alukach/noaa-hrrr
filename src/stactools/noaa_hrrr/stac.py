@@ -3,6 +3,7 @@ import multiprocessing as mp
 from datetime import datetime, timedelta
 from typing import Union
 
+import numpy as np
 import pandas as pd
 import pystac
 from pystac import (
@@ -165,7 +166,7 @@ def create_collection(
     inventory_df = load_inventory_df(
         region=region,
         product=product,
-    )
+    ).replace(np.nan, None)
 
     extent = Extent(
         SpatialExtent([region_config.bbox_4326]),
@@ -432,6 +433,9 @@ def create_item(
             forecast_hour=forecast_hour,
             region=region.value,
         ),
+        collection=COLLECTION_ID_FORMAT.format(
+            product=product.value,
+        ),
         geometry=region_config.geometry_4326,
         bbox=region_config.bbox_4326,
         datetime=forecast_datetime,
@@ -460,16 +464,20 @@ def create_item(
     ].create_asset(idx_url)
 
     # create an asset for each row in the inventory dataframe
-    idx_df = read_idx(
-        region=region,
-        product=product,
-        cloud_provider=cloud_provider,
-        reference_datetime=reference_datetime,
-        forecast_hour=forecast_hour,
-    ).merge(
-        inventory_df[[VARIABLE, DESCRIPTION, UNIT]].drop_duplicates(),
-        how="left",
-        on=VARIABLE,
+    idx_df = (
+        read_idx(
+            region=region,
+            product=product,
+            cloud_provider=cloud_provider,
+            reference_datetime=reference_datetime,
+            forecast_hour=forecast_hour,
+        )
+        .merge(
+            inventory_df[[VARIABLE, DESCRIPTION, UNIT]].drop_duplicates(),
+            how="left",
+            on=VARIABLE,
+        )
+        .replace(np.nan, None)
     )
     grib_asset = item.assets[ItemType.GRIB.value]
     grib_asset.extra_fields[GRIB_LAYERS] = {}
