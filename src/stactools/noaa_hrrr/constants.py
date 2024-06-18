@@ -13,7 +13,7 @@ DATA_DIR = Path(__file__).parent / "data"
 T = TypeVar("T", bound="StrEnum")
 
 ITEM_ID_FORMAT = "hrrr-{region}-{product}-{reference_datetime}-FH{forecast_hour}"
-COLLECTION_ID_FORMAT = "noaa-hrrr-{product}"
+COLLECTION_ID_FORMAT = "noaa-hrrr-{product}-{region}"
 
 EXTENDED_FORECAST_MAX_HOUR = 48
 STANDARD_FORECAST_MAX_HOUR = 18

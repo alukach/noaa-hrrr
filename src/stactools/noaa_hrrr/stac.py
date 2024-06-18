@@ -207,6 +207,7 @@ def create_collection(
     collection = Collection(
         id=COLLECTION_ID_FORMAT.format(
             product=product.value,
+            region=region.value,
         ),
         title=(
             "NOAA High Resolution Rapid Refresh (HRRR) - "
