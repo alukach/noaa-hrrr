@@ -433,9 +433,6 @@ def create_item(
             forecast_hour=forecast_hour,
             region=region.value,
         ),
-        collection=COLLECTION_ID_FORMAT.format(
-            product=product.value,
-        ),
         geometry=region_config.geometry_4326,
         bbox=region_config.bbox_4326,
         datetime=forecast_datetime,
