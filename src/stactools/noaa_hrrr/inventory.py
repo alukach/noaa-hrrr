@@ -8,7 +8,7 @@ along the forecast_valid x level dimensions on which specific variables have dat
 dataframes are used to populate the datacube extension metadata for each collection.
 
 The dimensions of interest are:
-1. forecast time: either the average, minimum, maximum, or accumulated value for a 
+1. forecast_valid: either the average, minimum, maximum, or accumulated value for a 
     specific time range, e.g. 3-4 hours, 0-1 day, etc.
     For forecast hour 0, the level is "analysis"
 2. level: the models generate predictions of many of the variables for various levels 
@@ -19,7 +19,7 @@ import multiprocessing as mp
 from datetime import datetime, timedelta
 from io import StringIO
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
 import httpx
 import pandas as pd
@@ -33,7 +33,6 @@ from stactools.noaa_hrrr.constants import (
     REFERENCE_TIME,
     START_BYTE,
     UNIT,
-    VALID_TIME,
     VARIABLE,
 )
 from stactools.noaa_hrrr.metadata import (
@@ -47,6 +46,8 @@ from stactools.noaa_hrrr.metadata import (
     Product,
     Region,
 )
+
+VARIABLE_DESCRIPTIONS_CSV_GZ = "variable_descriptions.csv.gz"
 
 INVENTORY_CSV_GZ_FORMAT = "__".join(
     [
@@ -156,12 +157,12 @@ NOAA_INVENTORY_URLS = {
 dummy_datetime = datetime(year=2024, month=5, day=1)
 
 
-def load_inventory_df(
+def read_inventory_df(
     region: Region,
     product: Product,
     forecast_hour: Optional[int] = None,
 ) -> pd.DataFrame:
-    """Load variable inventory DataFrame
+    """Read variable inventory DataFrame
 
     Load the inventory of variables with descriptions, units, and level/forecast time
     dimension values for a given region/product/forecast_hour_set/forecast_cycle_type
@@ -182,19 +183,27 @@ def load_inventory_df(
     return inventory_df
 
 
+def read_variable_description_df() -> pd.DataFrame:
+    """Read the variable description dataframe"""
+    return pd.read_csv(
+        DATA_DIR / VARIABLE_DESCRIPTIONS_CSV_GZ,
+    )
+
+
 # Define custom exceptions
 class NotFoundError(Exception):
     pass
 
 
-def read_idx(
+def load_idx(
     region: Region,
     product: Product,
     cloud_provider: CloudProvider,
     reference_datetime: datetime,
     forecast_hour: int,
-) -> pd.DataFrame:
-    """Read the contents of a .idx file, heavily cribbed from Herbie"""
+) -> StringIO:
+    """Load the contents of a .idx file in a format that can be read by pandas"""
+
     region_config = REGION_CONFIGS[region]
     cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
 
@@ -222,13 +231,19 @@ def read_idx(
     read_this_idx = StringIO(response.text)
     response.close()
 
+    return read_this_idx
+
+
+def read_idx(idx: Union[str, StringIO]) -> pd.DataFrame:
+    """Read the contents of a .idx file, heavily cribbed from Herbie"""
+
     df = pd.read_csv(
-        read_this_idx,
+        idx,
         sep=":",
         names=[
             GRIB_MESSAGE,
-            "start_byte",
-            "reference_time",
+            START_BYTE,
+            REFERENCE_TIME,
             VARIABLE,
             LEVEL,
             FORECAST_VALID,
@@ -240,7 +255,6 @@ def read_idx(
 
     # Format the DataFrame
     df[REFERENCE_TIME] = pd.to_datetime(df.reference_time, format="d=%Y%m%d%H")
-    df[VALID_TIME] = df[REFERENCE_TIME] + timedelta(hours=forecast_hour)
     df[START_BYTE] = df[START_BYTE].astype(int)
     df[BYTE_SIZE] = (df[START_BYTE].shift(-1) - df[START_BYTE]).astype(pd.Int64Dtype())
     df = df.reindex(
@@ -249,7 +263,6 @@ def read_idx(
             START_BYTE,
             BYTE_SIZE,
             REFERENCE_TIME,
-            VALID_TIME,
             VARIABLE,
             LEVEL,
             FORECAST_VALID,
@@ -257,9 +270,18 @@ def read_idx(
             "??",
             "???",
         ]
-    )
+    ).dropna(how="all", axis=1)
 
-    return df.dropna(how="all", axis=1)
+    # load the dataframe with units/descriptions for each variable
+    variable_description_df = read_variable_description_df()
+
+    df = df.merge(
+        variable_description_df[[VARIABLE, DESCRIPTION, UNIT]],
+        how="left",
+        on=VARIABLE,
+    ).replace(pd.NA, None)
+
+    return df
 
 
 def generate_single_inventory_df(
@@ -272,11 +294,13 @@ def generate_single_inventory_df(
 
     Loads the inventory dataframe from a .idx file"""
     idx_df = read_idx(
-        region=region,
-        product=product,
-        cloud_provider=CloudProvider.azure,
-        reference_datetime=dummy_datetime + timedelta(hours=cycle_run_hour),
-        forecast_hour=forecast_hour,
+        idx=load_idx(
+            region=region,
+            product=product,
+            cloud_provider=CloudProvider.azure,
+            reference_datetime=dummy_datetime + timedelta(hours=cycle_run_hour),
+            forecast_hour=forecast_hour,
+        ),
     )
     out = idx_df.assign(
         region=region.value,
@@ -289,8 +313,41 @@ def generate_single_inventory_df(
     return out
 
 
+def generate_variable_descriptions_csv_gz(dest_dir: Path) -> None:
+    """Read the NOAA inventory files and create a csv with the units and human-readable
+    descriptions of each variable"""
+    dfs = []
+    for region in Region:
+        for product in Product:
+            for forecast_hour_set in PRODUCT_CONFIGS[product].forecast_hour_sets:
+                # get the variable descriptions from the NOAA inventory tables
+                noaa_inventory = pd.read_html(
+                    NOAA_INVENTORY_URLS[region, product, forecast_hour_set],
+                )[1]
+
+                noaa_inventory[[DESCRIPTION, UNIT]] = noaa_inventory[
+                    "Description"
+                ].str.extract(r"(.+?) \[(.+?)\]")
+
+                variable_descriptions = (
+                    noaa_inventory[["Parameter", DESCRIPTION, UNIT]]
+                    .drop_duplicates()
+                    .rename(columns={"Parameter": VARIABLE})
+                )
+
+                dfs.append(variable_descriptions)
+
+    variable_descriptions_csv_gz = dest_dir / VARIABLE_DESCRIPTIONS_CSV_GZ
+    pd.concat(dfs).drop_duplicates().to_csv(variable_descriptions_csv_gz, index=False)
+
+    logging.info(f"Data successfully written to {variable_descriptions_csv_gz}")
+
+
 def generate_inventory_csv_gzs(dest_dir: Path) -> None:
     """Generate all inventory dataframes and write to .csv.gz files"""
+    generate_variable_descriptions_csv_gz(dest_dir)
+
+    variable_descriptions = pd.read_csv(dest_dir / VARIABLE_DESCRIPTIONS_CSV_GZ)
     forecast_cycle_type = ForecastCycleType("extended")
     cycle_run_hour = 0
     for region in Region:
@@ -320,21 +377,6 @@ def generate_inventory_csv_gzs(dest_dir: Path) -> None:
                 inventory_df = pd.concat(dfs)
 
                 n_rows = inventory_df.shape[0]
-
-                # get the variable descriptions from the NOAA inventory tables
-                noaa_inventory = pd.read_html(
-                    NOAA_INVENTORY_URLS[region, product, forecast_hour_set],
-                )[1]
-
-                noaa_inventory[[DESCRIPTION, UNIT]] = noaa_inventory[
-                    "Description"
-                ].str.extract(r"(.+?) \[(.+?)\]")
-
-                variable_descriptions = (
-                    noaa_inventory[["Parameter", DESCRIPTION, UNIT]]
-                    .drop_duplicates()
-                    .rename(columns={"Parameter": VARIABLE})
-                )
 
                 # add the variable descriptions
                 inventory_df = inventory_df.merge(

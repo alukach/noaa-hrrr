@@ -429,7 +429,7 @@ def parse_href(
 
             return {
                 "region": region,
-                "product": url_params["product"],
+                "product": Product(url_params["product"]),
                 "cloud_provider": cloud_provider,
                 "reference_datetime": reference_datetime,
                 "forecast_hour": url_params["fxx"],

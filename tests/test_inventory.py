@@ -4,7 +4,7 @@ from stactools.noaa_hrrr.inventory import (
     DESCRIPTION_COLS,
     INVENTORY_COLS,
     generate_single_inventory_df,
-    load_inventory_df,
+    read_inventory_df,
 )
 from stactools.noaa_hrrr.metadata import (
     PRODUCT_CONFIGS,
@@ -21,11 +21,11 @@ product_forecast_hour_combinations = [
 
 @pytest.mark.parametrize("region", list(Region))  # type: ignore
 @pytest.mark.parametrize("product", list(Product))  # type: ignore
-def test_load_inventory_df(
+def test_read_inventory_df(
     region: Region,
     product: Product,
 ) -> None:
-    inventory_df = load_inventory_df(
+    inventory_df = read_inventory_df(
         region=region,
         product=product,
     )

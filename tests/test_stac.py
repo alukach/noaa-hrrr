@@ -6,6 +6,7 @@ from stactools.noaa_hrrr.constants import (
     COLLECTION_ID_FORMAT,
     ITEM_ID_FORMAT,
 )
+from stactools.noaa_hrrr.inventory import NotFoundError
 from stactools.noaa_hrrr.metadata import (
     REGION_CONFIGS,
     CloudProvider,
@@ -98,7 +99,7 @@ def test_create_item_collection() -> None:
 
 def test_create_item_forecast_cycle_type() -> None:
     # try making an invalid forecast for a stand forecast cycle
-    with pytest.raises(ValueError):
+    with pytest.raises(NotFoundError):
         _ = stac.create_item(
             product=Product.sfc,
             reference_datetime=datetime(year=2024, month=5, day=1, hour=3),

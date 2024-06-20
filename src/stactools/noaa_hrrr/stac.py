@@ -3,7 +3,6 @@ import multiprocessing as mp
 from datetime import datetime, timedelta
 from typing import Union
 
-import numpy as np
 import pandas as pd
 import pystac
 from pystac import (
@@ -40,7 +39,12 @@ from stactools.noaa_hrrr.constants import (
     VALID_TIME,
     VARIABLE,
 )
-from stactools.noaa_hrrr.inventory import NotFoundError, load_inventory_df, read_idx
+from stactools.noaa_hrrr.inventory import (
+    NotFoundError,
+    load_idx,
+    read_idx,
+    read_inventory_df,
+)
 from stactools.noaa_hrrr.metadata import (
     CLOUD_PROVIDER_CONFIGS,
     PRODUCT_CONFIGS,
@@ -165,10 +169,10 @@ def create_collection(
     product_config = PRODUCT_CONFIGS[product]
     cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
 
-    inventory_df = load_inventory_df(
+    inventory_df = read_inventory_df(
         region=region,
         product=product,
-    ).replace(np.nan, None)
+    )
 
     extent = Extent(
         SpatialExtent([region_config.bbox_4326]),
@@ -403,12 +407,6 @@ def create_item(
         Item: STAC Item object
     """
     region_config = REGION_CONFIGS[region]
-    cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
-    inventory_df = load_inventory_df(
-        region=region,
-        product=product,
-        forecast_hour=forecast_hour,
-    )
 
     # make sure there is data for the reference_datetime
     # (Alaska only runs the model every three hours)
@@ -418,6 +416,67 @@ def create_item(
             f"{cycle_run_hour} is not a valid cycle run hour for {region.value}\n"
             f"Please select one of {' ,'.join(cycle_run_hours)}"
         )
+
+    # read the .idx sidecar file into a dataframe
+    idx_df = read_idx(
+        idx=load_idx(
+            region=region,
+            product=product,
+            cloud_provider=cloud_provider,
+            reference_datetime=reference_datetime,
+            forecast_hour=forecast_hour,
+        ),
+    )
+
+    return create_item_from_idx_df(
+        idx_df=idx_df,
+        region=region,
+        product=product,
+        cloud_provider=cloud_provider,
+        reference_datetime=reference_datetime,
+        forecast_hour=forecast_hour,
+    )
+
+
+def create_item_from_idx_df(
+    idx_df: pd.DataFrame,
+    region: Region,
+    product: Product,
+    cloud_provider: CloudProvider,
+    reference_datetime: datetime,
+    forecast_hour: int,
+) -> Item:
+    """Creates a STAC item for a region x product x cloud provider x reference_datetime
+    (cycle run hour) combination and a provided idx dataframe.
+
+    Args:
+        idx_df (pandas.DataFrame): Dataframe with the contents of the .idx file as read
+            by stactools.noaa_hrrr.inventory.read_idx
+        region (Region): Either Region.conus or Region.Alaska
+        product (Product): The product for this collection, must be one of the members
+            of the Product Enum.
+        cloud_provider (CloudProvider): cloud provider for the assets. Must be a member
+            of the CloudProvider Enum. Each cloud_provider has data available from a
+            different start date.
+        reference_datetime (datetime): The reference datetime for the forecast data,
+            corresponds to 'date' + 'cycle run hour'
+        forecast_hour (int): The forecast hour (FH) for the item.
+            This will set the item's datetime property ('date' + 'cycle run hour' +
+            'forecast hour')
+
+    Returns:
+        Item: STAC Item object
+    """
+    region_config = REGION_CONFIGS[region]
+    cloud_provider_config = CLOUD_PROVIDER_CONFIGS[cloud_provider]
+
+    grib_url = cloud_provider_config.url_base + region_config.format_grib_url(
+        product=product,
+        reference_datetime=reference_datetime,
+        forecast_hour=forecast_hour,
+        idx=False,
+    )
+    idx_url = grib_url + ".idx"
 
     # set up item
     forecast_datetime = reference_datetime + timedelta(hours=forecast_hour)
@@ -447,14 +506,6 @@ def create_item(
         },
     )
 
-    grib_url = cloud_provider_config.url_base + region_config.format_grib_url(
-        product=product,
-        reference_datetime=reference_datetime,
-        forecast_hour=forecast_hour,
-        idx=False,
-    )
-    idx_url = grib_url + ".idx"
-
     item.assets[ItemType.GRIB.value] = ITEM_BASE_ASSETS[product][
         ItemType.GRIB
     ].create_asset(grib_url)
@@ -464,21 +515,6 @@ def create_item(
     ].create_asset(idx_url)
 
     # create an asset for each row in the inventory dataframe
-    idx_df = (
-        read_idx(
-            region=region,
-            product=product,
-            cloud_provider=cloud_provider,
-            reference_datetime=reference_datetime,
-            forecast_hour=forecast_hour,
-        )
-        .merge(
-            inventory_df[[VARIABLE, DESCRIPTION, UNIT]].drop_duplicates(),
-            how="left",
-            on=VARIABLE,
-        )
-        .replace(np.nan, None)
-    )
     grib_asset = item.assets[ItemType.GRIB.value]
     grib_asset.extra_fields[GRIB_LAYERS] = {}
     for _, row in idx_df[
@@ -511,8 +547,6 @@ def create_item(
             **forecast_layer_type.asset_properties(),
         }
 
-    # add render params
-
     return item
 
 
@@ -523,6 +557,7 @@ def create_item_safe(
     reference_datetime: datetime,
     forecast_hour: int,
 ) -> Union[Item, None]:
+    """Try to create an item and raise a warning if it fails"""
     try:
         return create_item(
             region, product, cloud_provider, reference_datetime, forecast_hour
@@ -558,7 +593,7 @@ def create_item_collection(
         reference_date += one_day
 
     print(f"creating {len(tasks)} items")
-    with mp.Pool(8) as pool:
+    with mp.Pool() as pool:
         items = pool.starmap(create_item_safe, tasks)
 
     return ItemCollection(item for item in items if item is not None)
