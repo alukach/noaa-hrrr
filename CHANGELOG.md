@@ -11,7 +11,10 @@ number as needed.
 
 ### Added
 
-- Nothing.
+- Initial package setup
+- Collection creation
+- Item creation
+- `grib:layers` asset property for describing individual layers within a GRIB2 file
 
 ### Deprecated
 
