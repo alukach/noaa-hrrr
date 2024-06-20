@@ -1,15 +1,15 @@
 import pandas as pd
 import pytest
-from stactools.noaa_hrrr.constants import (
-    PRODUCT_CONFIGS,
-    Product,
-    Region,
-)
 from stactools.noaa_hrrr.inventory import (
     DESCRIPTION_COLS,
     INVENTORY_COLS,
     generate_single_inventory_df,
     load_inventory_df,
+)
+from stactools.noaa_hrrr.metadata import (
+    PRODUCT_CONFIGS,
+    Product,
+    Region,
 )
 
 product_forecast_hour_combinations = [

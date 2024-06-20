@@ -25,20 +25,22 @@ import httpx
 import pandas as pd
 from stactools.noaa_hrrr.constants import (
     BYTE_SIZE,
-    CLOUD_PROVIDER_CONFIGS,
-    DATA_DIR,
     DESCRIPTION,
     FORECAST_HOUR,
     FORECAST_VALID,
     GRIB_MESSAGE,
     LEVEL,
-    PRODUCT_CONFIGS,
     REFERENCE_TIME,
-    REGION_CONFIGS,
     START_BYTE,
     UNIT,
     VALID_TIME,
     VARIABLE,
+)
+from stactools.noaa_hrrr.metadata import (
+    CLOUD_PROVIDER_CONFIGS,
+    DATA_DIR,
+    PRODUCT_CONFIGS,
+    REGION_CONFIGS,
     CloudProvider,
     ForecastCycleType,
     ForecastHourSet,

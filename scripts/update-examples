@@ -6,7 +6,7 @@ from pathlib import Path
 
 import stactools.noaa_hrrr.stac
 from pystac import CatalogType
-from stactools.noaa_hrrr.constants import (
+from stactools.noaa_hrrr.metadata import (
     CloudProvider,
     Product,
     Region,
@@ -38,7 +38,6 @@ item = stactools.noaa_hrrr.stac.create_item(
 )
 collection.add_item(item)
 
-collection.update_extent_from_items()
 collection.normalize_hrefs(str(examples))
 # collection.make_all_asset_hrefs_relative()
 if examples.exists():

@@ -5,6 +5,8 @@ from stactools.noaa_hrrr import stac
 from stactools.noaa_hrrr.constants import (
     COLLECTION_ID_FORMAT,
     ITEM_ID_FORMAT,
+)
+from stactools.noaa_hrrr.metadata import (
     REGION_CONFIGS,
     CloudProvider,
     ForecastCycleType,
