@@ -17,6 +17,9 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
+        if [ "${DOCKER}" = "true" ]; then
+            source /opt/conda/bin/activate
+        fi
         ./scripts/update
         ./scripts/test
     fi
