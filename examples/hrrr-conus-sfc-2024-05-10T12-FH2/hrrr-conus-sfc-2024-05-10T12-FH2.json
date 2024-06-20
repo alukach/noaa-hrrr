@@ -88,8 +88,8 @@
           "end_timedelta": 7200.0
         },
         "var_discipline=0_center=7_local_table=1_parmcat=16_parm=201__entire_atmosphere__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 3,
           "start_byte": 448951,
           "byte_size": 298772,
@@ -550,8 +550,8 @@
           "statistic_type": "ave"
         },
         "MSLMA__mean_sea_level__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 41,
           "start_byte": 25882434,
           "byte_size": 610436,
@@ -770,8 +770,8 @@
           "statistic_type": "max"
         },
         "LTNGSD__1_m_above_ground__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 57,
           "start_byte": 32558310,
           "byte_size": 2555,
@@ -782,8 +782,8 @@
           "end_timedelta": 7200.0
         },
         "LTNGSD__2_m_above_ground__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 58,
           "start_byte": 32560865,
           "byte_size": 30378,
@@ -1050,8 +1050,8 @@
           "statistic_type": "max"
         },
         "MAXUW__10_m_above_ground__periodic_max": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 80,
           "start_byte": 54664124,
           "byte_size": 1320277,
@@ -1064,8 +1064,8 @@
           "statistic_type": "max"
         },
         "MAXVW__10_m_above_ground__periodic_max": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 81,
           "start_byte": 55984401,
           "byte_size": 1280441,
@@ -1336,8 +1336,8 @@
           "end_timedelta": 7200.0
         },
         "VEGMIN__surface__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 102,
           "start_byte": 65287896,
           "byte_size": 1116137,
@@ -1348,8 +1348,8 @@
           "end_timedelta": 7200.0
         },
         "VEGMAX__surface__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 103,
           "start_byte": 66404033,
           "byte_size": 876934,
@@ -1468,8 +1468,8 @@
           "end_timedelta": 7200.0
         },
         "TCOLW__entire_atmosphere__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 113,
           "start_byte": 74844797,
           "byte_size": 847844,
@@ -1480,8 +1480,8 @@
           "end_timedelta": 7200.0
         },
         "TCOLI__entire_atmosphere__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 114,
           "start_byte": 75692641,
           "byte_size": 834565,
@@ -2068,8 +2068,8 @@
           "end_timedelta": 7200.0
         },
         "EFHL__surface__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 163,
           "start_byte": 139314458,
           "byte_size": 874680,
@@ -2080,8 +2080,8 @@
           "end_timedelta": 7200.0
         },
         "CANGLE__0-500_m_above_ground__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 164,
           "start_byte": 140189138,
           "byte_size": 2091581,
@@ -2104,8 +2104,8 @@
           "end_timedelta": 7200.0
         },
         "ESP__0-3000_m_above_ground__point_in_time": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 166,
           "start_byte": 143566410,
           "byte_size": 549774,
@@ -2221,5 +2221,5 @@
     52.62870335266728
   ],
   "stac_extensions": [],
-  "collection": "noaa-hrrr-sfc"
+  "collection": "noaa-hrrr-sfc-conus"
 }

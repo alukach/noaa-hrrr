@@ -1,6 +1,6 @@
 {
   "type": "Collection",
-  "id": "noaa-hrrr-sfc",
+  "id": "noaa-hrrr-sfc-conus",
   "stac_version": "1.0.0",
   "description": "The NOAA HRRR is a real-time 3km resolution, hourly updated, cloud-resolving, convection-allowing atmospheric model, initialized by 3km grids with 3km radar assimilation. Radar data is assimilated in the HRRR every 15 min over a 1-hour period adding further detail to that provided by the hourly data assimilation from the 13km radar-enhanced Rapid Refresh (RAP) system. This specific collection represents 2D surface levels for the conus region.",
   "links": [
@@ -9102,8 +9102,8 @@
     "temporal": {
       "interval": [
         [
-          "2024-05-10T12:00:00Z",
-          "2024-05-10T14:00:00Z"
+          "2021-03-21T00:00:00Z",
+          null
         ]
       ]
     }

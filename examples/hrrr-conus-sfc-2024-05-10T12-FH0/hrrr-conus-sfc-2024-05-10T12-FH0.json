@@ -86,8 +86,8 @@
           "forecast_layer_type": "analysis"
         },
         "var_discipline=0_center=7_local_table=1_parmcat=16_parm=201__entire_atmosphere__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 3,
           "start_byte": 377176,
           "byte_size": 268771,
@@ -513,8 +513,8 @@
           "statistic_type": "ave"
         },
         "MSLMA__mean_sea_level__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 41,
           "start_byte": 24189988,
           "byte_size": 623746,
@@ -731,8 +731,8 @@
           "statistic_type": "max"
         },
         "LTNGSD__1_m_above_ground__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 57,
           "start_byte": 25878459,
           "byte_size": 188,
@@ -742,8 +742,8 @@
           "forecast_layer_type": "analysis"
         },
         "LTNGSD__2_m_above_ground__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 58,
           "start_byte": 25878647,
           "byte_size": 53022,
@@ -990,8 +990,8 @@
           "statistic_type": "max"
         },
         "MAXUW__10_m_above_ground__instantaneous": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 80,
           "start_byte": 47948565,
           "byte_size": 1195150,
@@ -1004,8 +1004,8 @@
           "statistic_type": "max"
         },
         "MAXVW__10_m_above_ground__instantaneous": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 81,
           "start_byte": 49143715,
           "byte_size": 1185667,
@@ -1223,8 +1223,8 @@
           "forecast_layer_type": "analysis"
         },
         "VEGMIN__surface__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 99,
           "start_byte": 57142085,
           "byte_size": 1116137,
@@ -1234,8 +1234,8 @@
           "forecast_layer_type": "analysis"
         },
         "VEGMAX__surface__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 100,
           "start_byte": 58258222,
           "byte_size": 876934,
@@ -1344,8 +1344,8 @@
           "forecast_layer_type": "analysis"
         },
         "TCOLW__entire_atmosphere__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 110,
           "start_byte": 64830597,
           "byte_size": 1011101,
@@ -1355,8 +1355,8 @@
           "forecast_layer_type": "analysis"
         },
         "TCOLI__entire_atmosphere__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 111,
           "start_byte": 65841698,
           "byte_size": 665989,
@@ -1894,8 +1894,8 @@
           "forecast_layer_type": "analysis"
         },
         "EFHL__surface__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 160,
           "start_byte": 123716364,
           "byte_size": 749578,
@@ -1905,8 +1905,8 @@
           "forecast_layer_type": "analysis"
         },
         "CANGLE__0-500_m_above_ground__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 161,
           "start_byte": 124465942,
           "byte_size": 2073519,
@@ -1927,8 +1927,8 @@
           "forecast_layer_type": "analysis"
         },
         "ESP__0-3000_m_above_ground__analysis": {
-          "description": NaN,
-          "unit": NaN,
+          "description": null,
+          "unit": null,
           "grib_message": 163,
           "start_byte": 127815345,
           "byte_size": 420946,
@@ -2036,5 +2036,5 @@
     52.62870335266728
   ],
   "stac_extensions": [],
-  "collection": "noaa-hrrr-sfc"
+  "collection": "noaa-hrrr-sfc-conus"
 }
