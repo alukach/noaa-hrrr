@@ -70,7 +70,7 @@ def test_create_item(
         product=product.value,
     )
     assert item.properties["forecast:reference_time"] == reference_datetime.strftime(
-        "%Y-%m-%dT%H:%M:%S"
+        "%Y-%m-%dT%H:%M:%SZ"
     )
     item.validate()
 
