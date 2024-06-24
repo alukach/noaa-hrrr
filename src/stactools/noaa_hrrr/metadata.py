@@ -172,7 +172,10 @@ class ForecastLayerType:
         }
 
         if forecast_str == "anl":
-            return cls(forecast_layer_type="analysis")
+            return cls(
+                forecast_layer_type="point_in_time",
+                end_timedelta=timedelta(hours=0),
+            )
 
         point_in_time_match = re.match(r"(\d+)\s(hour|min) fcst", forecast_str)
         if point_in_time_match:

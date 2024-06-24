@@ -46,1196 +46,6 @@
       "title": "2D Surface Levels",
       "description": "2D Surface Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
       "grib:layers": {
-        "REFC__entire_atmosphere__analysis": {
-          "description": "Composite reflectivity",
-          "unit": "dB",
-          "variable": "REFC",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "RETOP__cloud_top__analysis": {
-          "description": "Echo Top",
-          "unit": "m",
-          "variable": "RETOP",
-          "level": "cloud top",
-          "forecast_layer_type": "analysis"
-        },
-        "var_discipline=0_center=7_local_table=1_parmcat=16_parm=201__entire_atmosphere__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "var discipline=0 center=7 local_table=1 parmcat=16 parm=201",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "VIL__entire_atmosphere__analysis": {
-          "description": "Vertically-Integrated Liquid  Water",
-          "unit": "kg/m^2",
-          "variable": "VIL",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "VIS__surface__analysis": {
-          "description": "Visibility",
-          "unit": "m",
-          "variable": "VIS",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "REFD__1000_m_above_ground__analysis": {
-          "description": "Reflectivity",
-          "unit": "dB",
-          "variable": "REFD",
-          "level": "1000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "REFD__4000_m_above_ground__analysis": {
-          "description": "Reflectivity",
-          "unit": "dB",
-          "variable": "REFD",
-          "level": "4000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "REFD__263_K_level__analysis": {
-          "description": "Reflectivity",
-          "unit": "dB",
-          "variable": "REFD",
-          "level": "263 K level",
-          "forecast_layer_type": "analysis"
-        },
-        "GUST__surface__analysis": {
-          "description": "Wind Speed (Gust)",
-          "unit": "m/s",
-          "variable": "GUST",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__250_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "250 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__250_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "250 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__300_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "300 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__300_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "300 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__500_mb__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "500 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__500_mb__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "500 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "DPT__500_mb__analysis": {
-          "description": "Dew Point Temperature",
-          "unit": "K",
-          "variable": "DPT",
-          "level": "500 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__500_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "500 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__500_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "500 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__700_mb__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "700 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__700_mb__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "700 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "DPT__700_mb__analysis": {
-          "description": "Dew Point Temperature",
-          "unit": "K",
-          "variable": "DPT",
-          "level": "700 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "DZDT__700_mb__analysis": {
-          "description": "Vertical Velocity (Geometric) ",
-          "unit": "m/s",
-          "variable": "DZDT",
-          "level": "700 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__700_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "700 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__700_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "700 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__850_mb__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "850 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__850_mb__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "850 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "DPT__850_mb__analysis": {
-          "description": "Dew Point Temperature",
-          "unit": "K",
-          "variable": "DPT",
-          "level": "850 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__850_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "850 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__850_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "850 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__925_mb__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "925 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "DPT__925_mb__analysis": {
-          "description": "Dew Point Temperature",
-          "unit": "K",
-          "variable": "DPT",
-          "level": "925 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__925_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "925 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__925_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "925 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__1000_mb__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "1000 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "DPT__1000_mb__analysis": {
-          "description": "Dew Point Temperature",
-          "unit": "K",
-          "variable": "DPT",
-          "level": "1000 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__1000_mb__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "1000 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__1000_mb__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "1000 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "MAXUVV__100-1000_mb_above_ground__instantaneous": {
-          "description": "Hourly Maximum of Upward  Vertical Velocity in the  lowest 400hPa",
-          "unit": "m/s",
-          "variable": "MAXUVV",
-          "level": "100-1000 mb above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MAXDVV__100-1000_mb_above_ground__instantaneous": {
-          "description": "Hourly Maximum of Downward  Vertical Velocity in the  lowest 400hPa",
-          "unit": "m/s",
-          "variable": "MAXDVV",
-          "level": "100-1000 mb above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "DZDT__0.5-0.8_sigma_layer__instantaneous": {
-          "description": "Vertical Velocity (Geometric) ",
-          "unit": "m/s",
-          "variable": "DZDT",
-          "level": "0.5-0.8 sigma layer",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MSLMA__mean_sea_level__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "MSLMA",
-          "level": "mean sea level",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__1000_mb__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "1000 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "MAXREF__1000_m_above_ground__instantaneous": {
-          "description": "Hourly Maximum of Simulated  Reflectivity at 1 km AGL",
-          "unit": "dB",
-          "variable": "MAXREF",
-          "level": "1000 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "REFD__263_K_level__instantaneous": {
-          "description": "Reflectivity",
-          "unit": "dB",
-          "variable": "REFD",
-          "level": "263 K level",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MXUPHL__5000-2000_m_above_ground__instantaneous": {
-          "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
-          "unit": "m^2/s^2",
-          "variable": "MXUPHL",
-          "level": "5000-2000 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MNUPHL__5000-2000_m_above_ground__instantaneous": {
-          "description": "Hourly Minimum of Updraft  Helicity",
-          "unit": "m^2/s^2",
-          "variable": "MNUPHL",
-          "level": "5000-2000 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MXUPHL__2000-0_m_above_ground__instantaneous": {
-          "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
-          "unit": "m^2/s^2",
-          "variable": "MXUPHL",
-          "level": "2000-0 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MNUPHL__2000-0_m_above_ground__instantaneous": {
-          "description": "Hourly Minimum of Updraft  Helicity",
-          "unit": "m^2/s^2",
-          "variable": "MNUPHL",
-          "level": "2000-0 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MXUPHL__3000-0_m_above_ground__instantaneous": {
-          "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
-          "unit": "m^2/s^2",
-          "variable": "MXUPHL",
-          "level": "3000-0 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MNUPHL__3000-0_m_above_ground__instantaneous": {
-          "description": "Hourly Minimum of Updraft  Helicity",
-          "unit": "m^2/s^2",
-          "variable": "MNUPHL",
-          "level": "3000-0 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "RELV__2000-0_m_above_ground__instantaneous": {
-          "description": "Relative Vorticity",
-          "unit": "1/s",
-          "variable": "RELV",
-          "level": "2000-0 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "RELV__1000-0_m_above_ground__instantaneous": {
-          "description": "Relative Vorticity",
-          "unit": "1/s",
-          "variable": "RELV",
-          "level": "1000-0 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "HAIL__entire_atmosphere__instantaneous": {
-          "description": "Hail",
-          "unit": "m",
-          "variable": "HAIL",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "instantaneous"
-        },
-        "HAIL__0.1_sigma_level__instantaneous": {
-          "description": "Hail",
-          "unit": "m",
-          "variable": "HAIL",
-          "level": "0.1 sigma level",
-          "forecast_layer_type": "instantaneous"
-        },
-        "HAIL__surface__instantaneous": {
-          "description": "Hail",
-          "unit": "m",
-          "variable": "HAIL",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__instantaneous": {
-          "description": "Total Column Integrate  Graupel",
-          "unit": "kg/m^2",
-          "variable": "TCOLG",
-          "level": "entire atmosphere (considered as a single layer)",
-          "forecast_layer_type": "instantaneous"
-        },
-        "LTNGSD__1_m_above_ground__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "LTNGSD",
-          "level": "1 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "LTNGSD__2_m_above_ground__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "LTNGSD",
-          "level": "2 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "LTNG__entire_atmosphere__analysis": {
-          "description": "Lightning",
-          "unit": "non-dim",
-          "variable": "LTNG",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__80_m_above_ground__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "80 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__80_m_above_ground__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "80 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "PRES__surface__analysis": {
-          "description": "Pressure",
-          "unit": "Pa",
-          "variable": "PRES",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__surface__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__surface__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "ASNOW__surface__instantaneous": {
-          "description": "Total Snowfall",
-          "unit": "m",
-          "variable": "ASNOW",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MSTAV__0_m_underground__analysis": {
-          "description": "Moisture Availability",
-          "unit": "%",
-          "variable": "MSTAV",
-          "level": "0 m underground",
-          "forecast_layer_type": "analysis"
-        },
-        "CNWAT__surface__analysis": {
-          "description": "Plant Canopy Surface Water ",
-          "unit": "kg/m^2",
-          "variable": "CNWAT",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "WEASD__surface__analysis": {
-          "description": "Water Equivalent of  Accumulated Snow Depth ",
-          "unit": "kg/m^2",
-          "variable": "WEASD",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "SNOWC__surface__analysis": {
-          "description": "Snow Cover",
-          "unit": "%",
-          "variable": "SNOWC",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "SNOD__surface__analysis": {
-          "description": "Snow Depth",
-          "unit": "m",
-          "variable": "SNOD",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "TMP__2_m_above_ground__analysis": {
-          "description": "Temperature",
-          "unit": "K",
-          "variable": "TMP",
-          "level": "2 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "POT__2_m_above_ground__analysis": {
-          "description": "Potential Temperature",
-          "unit": "K",
-          "variable": "POT",
-          "level": "2 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "SPFH__2_m_above_ground__analysis": {
-          "description": "Specific Humidity",
-          "unit": "kg/kg",
-          "variable": "SPFH",
-          "level": "2 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "DPT__2_m_above_ground__analysis": {
-          "description": "Dew Point Temperature",
-          "unit": "K",
-          "variable": "DPT",
-          "level": "2 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "RH__2_m_above_ground__analysis": {
-          "description": "Relative Humidity",
-          "unit": "%",
-          "variable": "RH",
-          "level": "2 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "MASSDEN__8_m_above_ground__analysis": {
-          "description": "Mass Density (Concentration) ",
-          "unit": "kg/m^3",
-          "variable": "MASSDEN",
-          "level": "8 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "UGRD__10_m_above_ground__analysis": {
-          "description": "U-Component of Wind",
-          "unit": "m/s",
-          "variable": "UGRD",
-          "level": "10 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VGRD__10_m_above_ground__analysis": {
-          "description": "V-Component of Wind",
-          "unit": "m/s",
-          "variable": "VGRD",
-          "level": "10 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "WIND__10_m_above_ground__instantaneous": {
-          "description": "Wind Speed",
-          "unit": "m/s",
-          "variable": "WIND",
-          "level": "10 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MAXUW__10_m_above_ground__instantaneous": {
-          "description": null,
-          "unit": null,
-          "variable": "MAXUW",
-          "level": "10 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "MAXVW__10_m_above_ground__instantaneous": {
-          "description": null,
-          "unit": null,
-          "variable": "MAXVW",
-          "level": "10 m above ground",
-          "forecast_layer_type": "instantaneous"
-        },
-        "CPOFP__surface__analysis": {
-          "description": "Percent frozen precipitation ",
-          "unit": "%",
-          "variable": "CPOFP",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "PRATE__surface__analysis": {
-          "description": "Precipitation Rate",
-          "unit": "kg/m^2/s",
-          "variable": "PRATE",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "APCP__surface__instantaneous": {
-          "description": "Total Precipitation",
-          "unit": "kg/m^2",
-          "variable": "APCP",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "WEASD__surface__instantaneous": {
-          "description": "Water Equivalent of  Accumulated Snow Depth ",
-          "unit": "kg/m^2",
-          "variable": "WEASD",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "FROZR__surface__instantaneous": {
-          "description": "Frozen Rain",
-          "unit": "kg/m^2",
-          "variable": "FROZR",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "FRZR__surface__instantaneous": {
-          "description": "Freezing Rain",
-          "unit": "kg/m^2",
-          "variable": "FRZR",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "SSRUN__surface__instantaneous": {
-          "description": "Storm Surface Runoff",
-          "unit": "kg/m^2",
-          "variable": "SSRUN",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "BGRUN__surface__instantaneous": {
-          "description": "Baseflow-Groundwater Runoff ",
-          "unit": "kg/m^2",
-          "variable": "BGRUN",
-          "level": "surface",
-          "forecast_layer_type": "instantaneous"
-        },
-        "CSNOW__surface__analysis": {
-          "description": "Categorical Snow",
-          "unit": "-",
-          "variable": "CSNOW",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "CICEP__surface__analysis": {
-          "description": "Categorical Ice Pellets",
-          "unit": "-",
-          "variable": "CICEP",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "CFRZR__surface__analysis": {
-          "description": "Categorical Freezing Rain",
-          "unit": "-",
-          "variable": "CFRZR",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "CRAIN__surface__analysis": {
-          "description": "Categorical Rain",
-          "unit": "-",
-          "variable": "CRAIN",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "SFCR__surface__analysis": {
-          "description": "Surface Roughness",
-          "unit": "m",
-          "variable": "SFCR",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "FRICV__surface__analysis": {
-          "description": "Frictional Velocity",
-          "unit": "m/s",
-          "variable": "FRICV",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "SHTFL__surface__analysis": {
-          "description": "Sensible Heat Net Flux ",
-          "unit": "W/m^2",
-          "variable": "SHTFL",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "LHTFL__surface__analysis": {
-          "description": "Latent Heat Net Flux",
-          "unit": "W/m^2",
-          "variable": "LHTFL",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "VEG__surface__analysis": {
-          "description": "Vegetation",
-          "unit": "%",
-          "variable": "VEG",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "VEGMIN__surface__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "VEGMIN",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "VEGMAX__surface__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "VEGMAX",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "LAI__surface__analysis": {
-          "description": "Leaf Area Index",
-          "unit": "Numeric",
-          "variable": "LAI",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "GFLUX__surface__analysis": {
-          "description": "Ground Heat Flux",
-          "unit": "W/m^2",
-          "variable": "GFLUX",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "VGTYP__surface__analysis": {
-          "description": "Vegetation Type",
-          "unit": "Integer(0-  13)",
-          "variable": "VGTYP",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "LFTX__500-1000_mb__analysis": {
-          "description": "Surface Lifted Index",
-          "unit": "K",
-          "variable": "LFTX",
-          "level": "500-1000 mb",
-          "forecast_layer_type": "analysis"
-        },
-        "CAPE__surface__analysis": {
-          "description": "Convective Available  Potential Energy",
-          "unit": "J/kg",
-          "variable": "CAPE",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "CIN__surface__analysis": {
-          "description": "Convective Inhibition",
-          "unit": "J/kg",
-          "variable": "CIN",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "PWAT__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
-          "description": "Precipitable Water",
-          "unit": "kg/m^2",
-          "variable": "PWAT",
-          "level": "entire atmosphere (considered as a single layer)",
-          "forecast_layer_type": "analysis"
-        },
-        "AOTK__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
-          "description": "Aerosol Optical Thickness ",
-          "unit": "Numeric",
-          "variable": "AOTK",
-          "level": "entire atmosphere (considered as a single layer)",
-          "forecast_layer_type": "analysis"
-        },
-        "COLMD__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
-          "description": "Column-Integrated Mass  Density",
-          "unit": "kg/m^2",
-          "variable": "COLMD",
-          "level": "entire atmosphere (considered as a single layer)",
-          "forecast_layer_type": "analysis"
-        },
-        "TCOLW__entire_atmosphere__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "TCOLW",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "TCOLI__entire_atmosphere__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "TCOLI",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "TCDC__boundary_layer_cloud_layer__analysis": {
-          "description": "Total Cloud Cover",
-          "unit": "%",
-          "variable": "TCDC",
-          "level": "boundary layer cloud layer",
-          "forecast_layer_type": "analysis"
-        },
-        "LCDC__low_cloud_layer__analysis": {
-          "description": "Low Cloud Cover",
-          "unit": "%",
-          "variable": "LCDC",
-          "level": "low cloud layer",
-          "forecast_layer_type": "analysis"
-        },
-        "MCDC__middle_cloud_layer__analysis": {
-          "description": "Medium Cloud Cover",
-          "unit": "%",
-          "variable": "MCDC",
-          "level": "middle cloud layer",
-          "forecast_layer_type": "analysis"
-        },
-        "HCDC__high_cloud_layer__analysis": {
-          "description": "High Cloud Cover",
-          "unit": "%",
-          "variable": "HCDC",
-          "level": "high cloud layer",
-          "forecast_layer_type": "analysis"
-        },
-        "TCDC__entire_atmosphere__analysis": {
-          "description": "Total Cloud Cover",
-          "unit": "%",
-          "variable": "TCDC",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__cloud_ceiling__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "cloud ceiling",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__cloud_base__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "cloud base",
-          "forecast_layer_type": "analysis"
-        },
-        "PRES__cloud_base__analysis": {
-          "description": "Pressure",
-          "unit": "Pa",
-          "variable": "PRES",
-          "level": "cloud base",
-          "forecast_layer_type": "analysis"
-        },
-        "PRES__cloud_top__analysis": {
-          "description": "Pressure",
-          "unit": "Pa",
-          "variable": "PRES",
-          "level": "cloud top",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__cloud_top__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "cloud top",
-          "forecast_layer_type": "analysis"
-        },
-        "ULWRF__top_of_atmosphere__analysis": {
-          "description": "Upward Long-Wave Rad. Flux ",
-          "unit": "W/m^2",
-          "variable": "ULWRF",
-          "level": "top of atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "DSWRF__surface__analysis": {
-          "description": "Downward Short-Wave Radiation  Flux",
-          "unit": "W/m^2",
-          "variable": "DSWRF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "DLWRF__surface__analysis": {
-          "description": "Downward Long-Wave Rad. Flux ",
-          "unit": "W/m^2",
-          "variable": "DLWRF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "USWRF__surface__analysis": {
-          "description": "Upward Short-Wave Radiation  Flux",
-          "unit": "W/m^2",
-          "variable": "USWRF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "ULWRF__surface__analysis": {
-          "description": "Upward Long-Wave Rad. Flux ",
-          "unit": "W/m^2",
-          "variable": "ULWRF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "CFNSF__surface__analysis": {
-          "description": "Cloud Forcing Net Solar Flux ",
-          "unit": "W/m^2",
-          "variable": "CFNSF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "VBDSF__surface__analysis": {
-          "description": "Visible Beam Downward Solar  Flux",
-          "unit": "W/m^2",
-          "variable": "VBDSF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "VDDSF__surface__analysis": {
-          "description": "Visible Diffuse Downward  Solar Flux",
-          "unit": "W/m^2",
-          "variable": "VDDSF",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "USWRF__top_of_atmosphere__analysis": {
-          "description": "Upward Short-Wave Radiation  Flux",
-          "unit": "W/m^2",
-          "variable": "USWRF",
-          "level": "top of atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "HLCY__3000-0_m_above_ground__analysis": {
-          "description": "Storm Relative Helicity ",
-          "unit": "m^2/s^2",
-          "variable": "HLCY",
-          "level": "3000-0 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "HLCY__1000-0_m_above_ground__analysis": {
-          "description": "Storm Relative Helicity ",
-          "unit": "m^2/s^2",
-          "variable": "HLCY",
-          "level": "1000-0 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "USTM__0-6000_m_above_ground__analysis": {
-          "description": "U-Component Storm Motion ",
-          "unit": "m/s",
-          "variable": "USTM",
-          "level": "0-6000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VSTM__0-6000_m_above_ground__analysis": {
-          "description": "V-Component Storm Motion ",
-          "unit": "m/s",
-          "variable": "VSTM",
-          "level": "0-6000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VUCSH__0-1000_m_above_ground__analysis": {
-          "description": "Vertical U-Component Shear ",
-          "unit": "1/s",
-          "variable": "VUCSH",
-          "level": "0-1000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VVCSH__0-1000_m_above_ground__analysis": {
-          "description": "Vertical V-Component Shear ",
-          "unit": "1/s",
-          "variable": "VVCSH",
-          "level": "0-1000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VUCSH__0-6000_m_above_ground__analysis": {
-          "description": "Vertical U-Component Shear ",
-          "unit": "1/s",
-          "variable": "VUCSH",
-          "level": "0-6000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "VVCSH__0-6000_m_above_ground__analysis": {
-          "description": "Vertical V-Component Shear ",
-          "unit": "1/s",
-          "variable": "VVCSH",
-          "level": "0-6000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__0C_isotherm__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "0C isotherm",
-          "forecast_layer_type": "analysis"
-        },
-        "RH__0C_isotherm__analysis": {
-          "description": "Relative Humidity",
-          "unit": "%",
-          "variable": "RH",
-          "level": "0C isotherm",
-          "forecast_layer_type": "analysis"
-        },
-        "PRES__0C_isotherm__analysis": {
-          "description": "Pressure",
-          "unit": "Pa",
-          "variable": "PRES",
-          "level": "0C isotherm",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__highest_tropospheric_freezing_level__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "highest tropospheric freezing level",
-          "forecast_layer_type": "analysis"
-        },
-        "RH__highest_tropospheric_freezing_level__analysis": {
-          "description": "Relative Humidity",
-          "unit": "%",
-          "variable": "RH",
-          "level": "highest tropospheric freezing level",
-          "forecast_layer_type": "analysis"
-        },
-        "PRES__highest_tropospheric_freezing_level__analysis": {
-          "description": "Pressure",
-          "unit": "Pa",
-          "variable": "PRES",
-          "level": "highest tropospheric freezing level",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__263_K_level__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "263 K level",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__253_K_level__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "253 K level",
-          "forecast_layer_type": "analysis"
-        },
-        "4LFTX__180-0_mb_above_ground__analysis": {
-          "description": "Best (4 layer) Lifted Index ",
-          "unit": "K",
-          "variable": "4LFTX",
-          "level": "180-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "CAPE__180-0_mb_above_ground__analysis": {
-          "description": "Convective Available  Potential Energy",
-          "unit": "J/kg",
-          "variable": "CAPE",
-          "level": "180-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "CIN__180-0_mb_above_ground__analysis": {
-          "description": "Convective Inhibition",
-          "unit": "J/kg",
-          "variable": "CIN",
-          "level": "180-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "HPBL__surface__analysis": {
-          "description": "Planetary Boundary Layer  Height",
-          "unit": "m",
-          "variable": "HPBL",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__level_of_adiabatic_condensation_from_sfc__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "level of adiabatic condensation from sfc",
-          "forecast_layer_type": "analysis"
-        },
-        "CAPE__90-0_mb_above_ground__analysis": {
-          "description": "Convective Available  Potential Energy",
-          "unit": "J/kg",
-          "variable": "CAPE",
-          "level": "90-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "CIN__90-0_mb_above_ground__analysis": {
-          "description": "Convective Inhibition",
-          "unit": "J/kg",
-          "variable": "CIN",
-          "level": "90-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "CAPE__255-0_mb_above_ground__analysis": {
-          "description": "Convective Available  Potential Energy",
-          "unit": "J/kg",
-          "variable": "CAPE",
-          "level": "255-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "CIN__255-0_mb_above_ground__analysis": {
-          "description": "Convective Inhibition",
-          "unit": "J/kg",
-          "variable": "CIN",
-          "level": "255-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__equilibrium_level__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "equilibrium level",
-          "forecast_layer_type": "analysis"
-        },
-        "PLPL__255-0_mb_above_ground__analysis": {
-          "description": "Pressure of level from which  parcel was lifted",
-          "unit": "Pa",
-          "variable": "PLPL",
-          "level": "255-0 mb above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "CAPE__0-3000_m_above_ground__analysis": {
-          "description": "Convective Available  Potential Energy",
-          "unit": "J/kg",
-          "variable": "CAPE",
-          "level": "0-3000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "HGT__level_of_free_convection__analysis": {
-          "description": "Geopotential Height",
-          "unit": "gpm",
-          "variable": "HGT",
-          "level": "level of free convection",
-          "forecast_layer_type": "analysis"
-        },
-        "EFHL__surface__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "EFHL",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "CANGLE__0-500_m_above_ground__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "CANGLE",
-          "level": "0-500 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "LAYTH__261_K_level_-_256_K_level__analysis": {
-          "description": "Layer Thickness",
-          "unit": "m",
-          "variable": "LAYTH",
-          "level": "261 K level - 256 K level",
-          "forecast_layer_type": "analysis"
-        },
-        "ESP__0-3000_m_above_ground__analysis": {
-          "description": null,
-          "unit": null,
-          "variable": "ESP",
-          "level": "0-3000 m above ground",
-          "forecast_layer_type": "analysis"
-        },
-        "RHPW__entire_atmosphere__analysis": {
-          "description": "Relative Humidity with  Respect to Precipitable Water ",
-          "unit": "%",
-          "variable": "RHPW",
-          "level": "entire atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "LAND__surface__analysis": {
-          "description": "Land Cover (0=sea, 1=land) ",
-          "unit": "Proportion",
-          "variable": "LAND",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "ICEC__surface__analysis": {
-          "description": "Ice Cover",
-          "unit": "Proportion",
-          "variable": "ICEC",
-          "level": "surface",
-          "forecast_layer_type": "analysis"
-        },
-        "SBT123__top_of_atmosphere__analysis": {
-          "description": "Simulated Brightness  Temperature for GOES 12,  Channel 3",
-          "unit": "K",
-          "variable": "SBT123",
-          "level": "top of atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "SBT124__top_of_atmosphere__analysis": {
-          "description": "Simulated Brightness  Temperature for GOES 12,  Channel 4",
-          "unit": "K",
-          "variable": "SBT124",
-          "level": "top of atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "SBT113__top_of_atmosphere__analysis": {
-          "description": "Simulated Brightness  Temperature for GOES 11,  Channel 3",
-          "unit": "K",
-          "variable": "SBT113",
-          "level": "top of atmosphere",
-          "forecast_layer_type": "analysis"
-        },
-        "SBT114__top_of_atmosphere__analysis": {
-          "description": "Simulated Brightness  Temperature for GOES 11,  Channel 4",
-          "unit": "K",
-          "variable": "SBT114",
-          "level": "top of atmosphere",
-          "forecast_layer_type": "analysis"
-        },
         "REFC__entire_atmosphere__point_in_time": {
           "description": "Composite reflectivity",
           "unit": "dB",
@@ -1495,26 +305,26 @@
           "level": "1000 mb",
           "forecast_layer_type": "point_in_time"
         },
-        "MAXUVV__100-1000_mb_above_ground__periodic_max": {
+        "MAXUVV__100-1000_mb_above_ground__instantaneous": {
           "description": "Hourly Maximum of Upward  Vertical Velocity in the  lowest 400hPa",
           "unit": "m/s",
           "variable": "MAXUVV",
           "level": "100-1000 mb above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MAXDVV__100-1000_mb_above_ground__periodic_max": {
+        "MAXDVV__100-1000_mb_above_ground__instantaneous": {
           "description": "Hourly Maximum of Downward  Vertical Velocity in the  lowest 400hPa",
           "unit": "m/s",
           "variable": "MAXDVV",
           "level": "100-1000 mb above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "DZDT__0.5-0.8_sigma_layer__periodic_ave": {
+        "DZDT__0.5-0.8_sigma_layer__instantaneous": {
           "description": "Vertical Velocity (Geometric) ",
           "unit": "m/s",
           "variable": "DZDT",
           "level": "0.5-0.8 sigma layer",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
         "MSLMA__mean_sea_level__point_in_time": {
           "description": null,
@@ -1530,103 +340,103 @@
           "level": "1000 mb",
           "forecast_layer_type": "point_in_time"
         },
-        "MAXREF__1000_m_above_ground__periodic_max": {
+        "MAXREF__1000_m_above_ground__instantaneous": {
           "description": "Hourly Maximum of Simulated  Reflectivity at 1 km AGL",
           "unit": "dB",
           "variable": "MAXREF",
           "level": "1000 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "REFD__263_K_level__periodic_max": {
+        "REFD__263_K_level__instantaneous": {
           "description": "Reflectivity",
           "unit": "dB",
           "variable": "REFD",
           "level": "263 K level",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MXUPHL__5000-2000_m_above_ground__periodic_max": {
+        "MXUPHL__5000-2000_m_above_ground__instantaneous": {
           "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
           "unit": "m^2/s^2",
           "variable": "MXUPHL",
           "level": "5000-2000 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MNUPHL__5000-2000_m_above_ground__periodic_min": {
+        "MNUPHL__5000-2000_m_above_ground__instantaneous": {
           "description": "Hourly Minimum of Updraft  Helicity",
           "unit": "m^2/s^2",
           "variable": "MNUPHL",
           "level": "5000-2000 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MXUPHL__2000-0_m_above_ground__periodic_max": {
+        "MXUPHL__2000-0_m_above_ground__instantaneous": {
           "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
           "unit": "m^2/s^2",
           "variable": "MXUPHL",
           "level": "2000-0 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MNUPHL__2000-0_m_above_ground__periodic_min": {
+        "MNUPHL__2000-0_m_above_ground__instantaneous": {
           "description": "Hourly Minimum of Updraft  Helicity",
           "unit": "m^2/s^2",
           "variable": "MNUPHL",
           "level": "2000-0 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MXUPHL__3000-0_m_above_ground__periodic_max": {
+        "MXUPHL__3000-0_m_above_ground__instantaneous": {
           "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
           "unit": "m^2/s^2",
           "variable": "MXUPHL",
           "level": "3000-0 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MNUPHL__3000-0_m_above_ground__periodic_min": {
+        "MNUPHL__3000-0_m_above_ground__instantaneous": {
           "description": "Hourly Minimum of Updraft  Helicity",
           "unit": "m^2/s^2",
           "variable": "MNUPHL",
           "level": "3000-0 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "RELV__2000-0_m_above_ground__periodic_max": {
+        "RELV__2000-0_m_above_ground__instantaneous": {
           "description": "Relative Vorticity",
           "unit": "1/s",
           "variable": "RELV",
           "level": "2000-0 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "RELV__1000-0_m_above_ground__periodic_max": {
+        "RELV__1000-0_m_above_ground__instantaneous": {
           "description": "Relative Vorticity",
           "unit": "1/s",
           "variable": "RELV",
           "level": "1000-0 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "HAIL__entire_atmosphere__periodic_max": {
+        "HAIL__entire_atmosphere__instantaneous": {
           "description": "Hail",
           "unit": "m",
           "variable": "HAIL",
           "level": "entire atmosphere",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "HAIL__0.1_sigma_level__periodic_max": {
+        "HAIL__0.1_sigma_level__instantaneous": {
           "description": "Hail",
           "unit": "m",
           "variable": "HAIL",
           "level": "0.1 sigma level",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "HAIL__surface__periodic_max": {
+        "HAIL__surface__instantaneous": {
           "description": "Hail",
           "unit": "m",
           "variable": "HAIL",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__periodic_max": {
+        "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__instantaneous": {
           "description": "Total Column Integrate  Graupel",
           "unit": "kg/m^2",
           "variable": "TCOLG",
           "level": "entire atmosphere (considered as a single layer)",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
         "LTNGSD__1_m_above_ground__point_in_time": {
           "description": null,
@@ -1684,12 +494,12 @@
           "level": "surface",
           "forecast_layer_type": "point_in_time"
         },
-        "ASNOW__surface__periodic_acc": {
+        "ASNOW__surface__instantaneous": {
           "description": "Total Snowfall",
           "unit": "m",
           "variable": "ASNOW",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
         "MSTAV__0_m_underground__point_in_time": {
           "description": "Moisture Availability",
@@ -1782,26 +592,26 @@
           "level": "10 m above ground",
           "forecast_layer_type": "point_in_time"
         },
-        "WIND__10_m_above_ground__periodic_max": {
+        "WIND__10_m_above_ground__instantaneous": {
           "description": "Wind Speed",
           "unit": "m/s",
           "variable": "WIND",
           "level": "10 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MAXUW__10_m_above_ground__periodic_max": {
+        "MAXUW__10_m_above_ground__instantaneous": {
           "description": null,
           "unit": null,
           "variable": "MAXUW",
           "level": "10 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "MAXVW__10_m_above_ground__periodic_max": {
+        "MAXVW__10_m_above_ground__instantaneous": {
           "description": null,
           "unit": null,
           "variable": "MAXVW",
           "level": "10 m above ground",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
         "CPOFP__surface__point_in_time": {
           "description": "Percent frozen precipitation ",
@@ -1817,47 +627,47 @@
           "level": "surface",
           "forecast_layer_type": "point_in_time"
         },
-        "APCP__surface__periodic_acc": {
+        "APCP__surface__instantaneous": {
           "description": "Total Precipitation",
           "unit": "kg/m^2",
           "variable": "APCP",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "WEASD__surface__periodic_acc": {
+        "WEASD__surface__instantaneous": {
           "description": "Water Equivalent of  Accumulated Snow Depth ",
           "unit": "kg/m^2",
           "variable": "WEASD",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "FROZR__surface__periodic_acc": {
+        "FROZR__surface__instantaneous": {
           "description": "Frozen Rain",
           "unit": "kg/m^2",
           "variable": "FROZR",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "FRZR__surface__periodic_acc": {
+        "FRZR__surface__instantaneous": {
           "description": "Freezing Rain",
           "unit": "kg/m^2",
           "variable": "FRZR",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "SSRUN__surface__periodic_acc": {
+        "SSRUN__surface__instantaneous": {
           "description": "Storm Surface Runoff",
           "unit": "kg/m^2",
           "variable": "SSRUN",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
-        "BGRUN__surface__periodic_acc": {
+        "BGRUN__surface__instantaneous": {
           "description": "Baseflow-Groundwater Runoff ",
           "unit": "kg/m^2",
           "variable": "BGRUN",
           "level": "surface",
-          "forecast_layer_type": "periodic_summary"
+          "forecast_layer_type": "instantaneous"
         },
         "CSNOW__surface__point_in_time": {
           "description": "Categorical Snow",
@@ -2425,6 +1235,195 @@
           "variable": "SBT114",
           "level": "top of atmosphere",
           "forecast_layer_type": "point_in_time"
+        },
+        "MAXUVV__100-1000_mb_above_ground__periodic_max": {
+          "description": "Hourly Maximum of Upward  Vertical Velocity in the  lowest 400hPa",
+          "unit": "m/s",
+          "variable": "MAXUVV",
+          "level": "100-1000 mb above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MAXDVV__100-1000_mb_above_ground__periodic_max": {
+          "description": "Hourly Maximum of Downward  Vertical Velocity in the  lowest 400hPa",
+          "unit": "m/s",
+          "variable": "MAXDVV",
+          "level": "100-1000 mb above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "DZDT__0.5-0.8_sigma_layer__periodic_ave": {
+          "description": "Vertical Velocity (Geometric) ",
+          "unit": "m/s",
+          "variable": "DZDT",
+          "level": "0.5-0.8 sigma layer",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MAXREF__1000_m_above_ground__periodic_max": {
+          "description": "Hourly Maximum of Simulated  Reflectivity at 1 km AGL",
+          "unit": "dB",
+          "variable": "MAXREF",
+          "level": "1000 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "REFD__263_K_level__periodic_max": {
+          "description": "Reflectivity",
+          "unit": "dB",
+          "variable": "REFD",
+          "level": "263 K level",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MXUPHL__5000-2000_m_above_ground__periodic_max": {
+          "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
+          "unit": "m^2/s^2",
+          "variable": "MXUPHL",
+          "level": "5000-2000 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MNUPHL__5000-2000_m_above_ground__periodic_min": {
+          "description": "Hourly Minimum of Updraft  Helicity",
+          "unit": "m^2/s^2",
+          "variable": "MNUPHL",
+          "level": "5000-2000 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MXUPHL__2000-0_m_above_ground__periodic_max": {
+          "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
+          "unit": "m^2/s^2",
+          "variable": "MXUPHL",
+          "level": "2000-0 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MNUPHL__2000-0_m_above_ground__periodic_min": {
+          "description": "Hourly Minimum of Updraft  Helicity",
+          "unit": "m^2/s^2",
+          "variable": "MNUPHL",
+          "level": "2000-0 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MXUPHL__3000-0_m_above_ground__periodic_max": {
+          "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
+          "unit": "m^2/s^2",
+          "variable": "MXUPHL",
+          "level": "3000-0 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MNUPHL__3000-0_m_above_ground__periodic_min": {
+          "description": "Hourly Minimum of Updraft  Helicity",
+          "unit": "m^2/s^2",
+          "variable": "MNUPHL",
+          "level": "3000-0 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "RELV__2000-0_m_above_ground__periodic_max": {
+          "description": "Relative Vorticity",
+          "unit": "1/s",
+          "variable": "RELV",
+          "level": "2000-0 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "RELV__1000-0_m_above_ground__periodic_max": {
+          "description": "Relative Vorticity",
+          "unit": "1/s",
+          "variable": "RELV",
+          "level": "1000-0 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "HAIL__entire_atmosphere__periodic_max": {
+          "description": "Hail",
+          "unit": "m",
+          "variable": "HAIL",
+          "level": "entire atmosphere",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "HAIL__0.1_sigma_level__periodic_max": {
+          "description": "Hail",
+          "unit": "m",
+          "variable": "HAIL",
+          "level": "0.1 sigma level",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "HAIL__surface__periodic_max": {
+          "description": "Hail",
+          "unit": "m",
+          "variable": "HAIL",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__periodic_max": {
+          "description": "Total Column Integrate  Graupel",
+          "unit": "kg/m^2",
+          "variable": "TCOLG",
+          "level": "entire atmosphere (considered as a single layer)",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "ASNOW__surface__periodic_acc": {
+          "description": "Total Snowfall",
+          "unit": "m",
+          "variable": "ASNOW",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "WIND__10_m_above_ground__periodic_max": {
+          "description": "Wind Speed",
+          "unit": "m/s",
+          "variable": "WIND",
+          "level": "10 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MAXUW__10_m_above_ground__periodic_max": {
+          "description": null,
+          "unit": null,
+          "variable": "MAXUW",
+          "level": "10 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "MAXVW__10_m_above_ground__periodic_max": {
+          "description": null,
+          "unit": null,
+          "variable": "MAXVW",
+          "level": "10 m above ground",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "APCP__surface__periodic_acc": {
+          "description": "Total Precipitation",
+          "unit": "kg/m^2",
+          "variable": "APCP",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "WEASD__surface__periodic_acc": {
+          "description": "Water Equivalent of  Accumulated Snow Depth ",
+          "unit": "kg/m^2",
+          "variable": "WEASD",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "FROZR__surface__periodic_acc": {
+          "description": "Frozen Rain",
+          "unit": "kg/m^2",
+          "variable": "FROZR",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "FRZR__surface__periodic_acc": {
+          "description": "Freezing Rain",
+          "unit": "kg/m^2",
+          "variable": "FRZR",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "SSRUN__surface__periodic_acc": {
+          "description": "Storm Surface Runoff",
+          "unit": "kg/m^2",
+          "variable": "SSRUN",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
+        },
+        "BGRUN__surface__periodic_acc": {
+          "description": "Baseflow-Groundwater Runoff ",
+          "unit": "kg/m^2",
+          "variable": "BGRUN",
+          "level": "surface",
+          "forecast_layer_type": "periodic_summary"
         },
         "ASNOW__surface__cumulative_acc": {
           "description": "Total Snowfall",
@@ -9110,17 +8109,6 @@
       ],
       "resampling": "nearest"
     },
-    "DSWRF__surface__analysis": {
-      "title": "Downward Short-Wave Radiation Flux (W/m2)",
-      "colormap_name": "rainbow",
-      "rescale": [
-        [
-          0,
-          800
-        ]
-      ],
-      "resampling": "nearest"
-    },
     "DSWRF__surface__point_in_time": {
       "title": "Downward Short-Wave Radiation Flux (W/m2)",
       "colormap_name": "rainbow",
@@ -9128,180 +8116,6 @@
         [
           0,
           800
-        ]
-      ],
-      "resampling": "nearest"
-    },
-    "REFC__entire_atmosphere__analysis": {
-      "title": "Composite reflectivity (dB)",
-      "colormap": [
-        [
-          [
-            5,
-            10
-          ],
-          [
-            0,
-            236,
-            236,
-            255
-          ]
-        ],
-        [
-          [
-            10,
-            15
-          ],
-          [
-            1,
-            160,
-            246,
-            255
-          ]
-        ],
-        [
-          [
-            15,
-            20
-          ],
-          [
-            0,
-            0,
-            246,
-            255
-          ]
-        ],
-        [
-          [
-            20,
-            25
-          ],
-          [
-            0,
-            255,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            25,
-            30
-          ],
-          [
-            0,
-            200,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            30,
-            35
-          ],
-          [
-            0,
-            144,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            35,
-            40
-          ],
-          [
-            255,
-            255,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            40,
-            45
-          ],
-          [
-            231,
-            192,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            45,
-            50
-          ],
-          [
-            255,
-            144,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            50,
-            55
-          ],
-          [
-            255,
-            0,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            55,
-            60
-          ],
-          [
-            214,
-            0,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            60,
-            65
-          ],
-          [
-            192,
-            0,
-            0,
-            255
-          ]
-        ],
-        [
-          [
-            65,
-            70
-          ],
-          [
-            255,
-            0,
-            255,
-            255
-          ]
-        ],
-        [
-          [
-            70,
-            75
-          ],
-          [
-            153,
-            85,
-            201,
-            255
-          ]
         ]
       ],
       "resampling": "nearest"
