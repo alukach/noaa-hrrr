@@ -197,7 +197,8 @@ class ForecastLayerType:
             statistic_type = summary_match.group(4)
 
             if start == end:
-                forecast_layer_type = "instantaneous"
+                # special case for FH0, e.g. 0-0 day max
+                forecast_layer_type = "periodic_summary"
             elif (start == 0) & (start < end):
                 forecast_layer_type = (
                     "periodic_summary"
