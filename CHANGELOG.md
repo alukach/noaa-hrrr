@@ -9,6 +9,12 @@ number as needed.
 
 ## [Unreleased]
 
+- Nothing.
+
+[Unreleased]: <https://github.com/stactools-packages/noaa-hrrr/tree/main/>
+
+## [0.1.0] - 2024-06-25
+
 ### Added
 
 - Initial package setup
@@ -28,4 +34,4 @@ number as needed.
 
 - Nothing.
 
-[Unreleased]: <https://github.com/stactools-packages/noaa-hrrr/tree/main/>
+[0.1.0]: <https://github.com/developmentseed/noaa-hrrr/releases/tag/0.1.0>
