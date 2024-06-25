@@ -172,7 +172,10 @@ class ForecastLayerType:
         }
 
         if forecast_str == "anl":
-            return cls(forecast_layer_type="analysis")
+            return cls(
+                forecast_layer_type="point_in_time",
+                end_timedelta=timedelta(hours=0),
+            )
 
         point_in_time_match = re.match(r"(\d+)\s(hour|min) fcst", forecast_str)
         if point_in_time_match:
@@ -194,7 +197,8 @@ class ForecastLayerType:
             statistic_type = summary_match.group(4)
 
             if start == end:
-                forecast_layer_type = "instantaneous"
+                # special case for FH0, e.g. 0-0 day max
+                forecast_layer_type = "periodic_summary"
             elif (start == 0) & (start < end):
                 forecast_layer_type = (
                     "periodic_summary"

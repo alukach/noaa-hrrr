@@ -63,7 +63,7 @@
       "title": "2D Surface Levels",
       "description": "2D Surface Level forecast data as a grib2 file. Subsets of the data can be loaded using the provided byte range.",
       "grib:layers": {
-        "REFC__entire_atmosphere__analysis": {
+        "REFC__entire_atmosphere__point_in_time": {
           "description": "Composite reflectivity",
           "unit": "dB",
           "grib_message": 1,
@@ -72,9 +72,10 @@
           "variable": "REFC",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "RETOP__cloud_top__analysis": {
+        "RETOP__cloud_top__point_in_time": {
           "description": "Echo Top",
           "unit": "m",
           "grib_message": 2,
@@ -83,9 +84,10 @@
           "variable": "RETOP",
           "level": "cloud top",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "var_discipline=0_center=7_local_table=1_parmcat=16_parm=201__entire_atmosphere__analysis": {
+        "var_discipline=0_center=7_local_table=1_parmcat=16_parm=201__entire_atmosphere__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 3,
@@ -94,9 +96,10 @@
           "variable": "var discipline=0 center=7 local_table=1 parmcat=16 parm=201",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VIL__entire_atmosphere__analysis": {
+        "VIL__entire_atmosphere__point_in_time": {
           "description": "Vertically-Integrated Liquid  Water",
           "unit": "kg/m^2",
           "grib_message": 4,
@@ -105,9 +108,10 @@
           "variable": "VIL",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VIS__surface__analysis": {
+        "VIS__surface__point_in_time": {
           "description": "Visibility",
           "unit": "m",
           "grib_message": 5,
@@ -116,9 +120,10 @@
           "variable": "VIS",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "REFD__1000_m_above_ground__analysis": {
+        "REFD__1000_m_above_ground__point_in_time": {
           "description": "Reflectivity",
           "unit": "dB",
           "grib_message": 6,
@@ -127,9 +132,10 @@
           "variable": "REFD",
           "level": "1000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "REFD__4000_m_above_ground__analysis": {
+        "REFD__4000_m_above_ground__point_in_time": {
           "description": "Reflectivity",
           "unit": "dB",
           "grib_message": 7,
@@ -138,9 +144,10 @@
           "variable": "REFD",
           "level": "4000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "REFD__263_K_level__analysis": {
+        "REFD__263_K_level__point_in_time": {
           "description": "Reflectivity",
           "unit": "dB",
           "grib_message": 8,
@@ -149,9 +156,10 @@
           "variable": "REFD",
           "level": "263 K level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "GUST__surface__analysis": {
+        "GUST__surface__point_in_time": {
           "description": "Wind Speed (Gust)",
           "unit": "m/s",
           "grib_message": 9,
@@ -160,9 +168,10 @@
           "variable": "GUST",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__250_mb__analysis": {
+        "UGRD__250_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 10,
@@ -171,9 +180,10 @@
           "variable": "UGRD",
           "level": "250 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__250_mb__analysis": {
+        "VGRD__250_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 11,
@@ -182,9 +192,10 @@
           "variable": "VGRD",
           "level": "250 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__300_mb__analysis": {
+        "UGRD__300_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 12,
@@ -193,9 +204,10 @@
           "variable": "UGRD",
           "level": "300 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__300_mb__analysis": {
+        "VGRD__300_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 13,
@@ -204,9 +216,10 @@
           "variable": "VGRD",
           "level": "300 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__500_mb__analysis": {
+        "HGT__500_mb__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 14,
@@ -215,9 +228,10 @@
           "variable": "HGT",
           "level": "500 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__500_mb__analysis": {
+        "TMP__500_mb__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 15,
@@ -226,9 +240,10 @@
           "variable": "TMP",
           "level": "500 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DPT__500_mb__analysis": {
+        "DPT__500_mb__point_in_time": {
           "description": "Dew Point Temperature",
           "unit": "K",
           "grib_message": 16,
@@ -237,9 +252,10 @@
           "variable": "DPT",
           "level": "500 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__500_mb__analysis": {
+        "UGRD__500_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 17,
@@ -248,9 +264,10 @@
           "variable": "UGRD",
           "level": "500 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__500_mb__analysis": {
+        "VGRD__500_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 18,
@@ -259,9 +276,10 @@
           "variable": "VGRD",
           "level": "500 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__700_mb__analysis": {
+        "HGT__700_mb__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 19,
@@ -270,9 +288,10 @@
           "variable": "HGT",
           "level": "700 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__700_mb__analysis": {
+        "TMP__700_mb__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 20,
@@ -281,9 +300,10 @@
           "variable": "TMP",
           "level": "700 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DPT__700_mb__analysis": {
+        "DPT__700_mb__point_in_time": {
           "description": "Dew Point Temperature",
           "unit": "K",
           "grib_message": 21,
@@ -292,9 +312,10 @@
           "variable": "DPT",
           "level": "700 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DZDT__700_mb__analysis": {
+        "DZDT__700_mb__point_in_time": {
           "description": "Vertical Velocity (Geometric) ",
           "unit": "m/s",
           "grib_message": 22,
@@ -303,9 +324,10 @@
           "variable": "DZDT",
           "level": "700 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__700_mb__analysis": {
+        "UGRD__700_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 23,
@@ -314,9 +336,10 @@
           "variable": "UGRD",
           "level": "700 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__700_mb__analysis": {
+        "VGRD__700_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 24,
@@ -325,9 +348,10 @@
           "variable": "VGRD",
           "level": "700 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__850_mb__analysis": {
+        "HGT__850_mb__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 25,
@@ -336,9 +360,10 @@
           "variable": "HGT",
           "level": "850 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__850_mb__analysis": {
+        "TMP__850_mb__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 26,
@@ -347,9 +372,10 @@
           "variable": "TMP",
           "level": "850 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DPT__850_mb__analysis": {
+        "DPT__850_mb__point_in_time": {
           "description": "Dew Point Temperature",
           "unit": "K",
           "grib_message": 27,
@@ -358,9 +384,10 @@
           "variable": "DPT",
           "level": "850 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__850_mb__analysis": {
+        "UGRD__850_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 28,
@@ -369,9 +396,10 @@
           "variable": "UGRD",
           "level": "850 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__850_mb__analysis": {
+        "VGRD__850_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 29,
@@ -380,9 +408,10 @@
           "variable": "VGRD",
           "level": "850 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__925_mb__analysis": {
+        "TMP__925_mb__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 30,
@@ -391,9 +420,10 @@
           "variable": "TMP",
           "level": "925 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DPT__925_mb__analysis": {
+        "DPT__925_mb__point_in_time": {
           "description": "Dew Point Temperature",
           "unit": "K",
           "grib_message": 31,
@@ -402,9 +432,10 @@
           "variable": "DPT",
           "level": "925 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__925_mb__analysis": {
+        "UGRD__925_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 32,
@@ -413,9 +444,10 @@
           "variable": "UGRD",
           "level": "925 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__925_mb__analysis": {
+        "VGRD__925_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 33,
@@ -424,9 +456,10 @@
           "variable": "VGRD",
           "level": "925 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__1000_mb__analysis": {
+        "TMP__1000_mb__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 34,
@@ -435,9 +468,10 @@
           "variable": "TMP",
           "level": "1000 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DPT__1000_mb__analysis": {
+        "DPT__1000_mb__point_in_time": {
           "description": "Dew Point Temperature",
           "unit": "K",
           "grib_message": 35,
@@ -446,9 +480,10 @@
           "variable": "DPT",
           "level": "1000 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__1000_mb__analysis": {
+        "UGRD__1000_mb__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 36,
@@ -457,9 +492,10 @@
           "variable": "UGRD",
           "level": "1000 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__1000_mb__analysis": {
+        "VGRD__1000_mb__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 37,
@@ -468,9 +504,10 @@
           "variable": "VGRD",
           "level": "1000 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "MAXUVV__100-1000_mb_above_ground__instantaneous": {
+        "MAXUVV__100-1000_mb_above_ground__periodic_max": {
           "description": "Hourly Maximum of Upward  Vertical Velocity in the  lowest 400hPa",
           "unit": "m/s",
           "grib_message": 38,
@@ -479,12 +516,12 @@
           "variable": "MAXUVV",
           "level": "100-1000 mb above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MAXDVV__100-1000_mb_above_ground__instantaneous": {
+        "MAXDVV__100-1000_mb_above_ground__periodic_max": {
           "description": "Hourly Maximum of Downward  Vertical Velocity in the  lowest 400hPa",
           "unit": "m/s",
           "grib_message": 39,
@@ -493,12 +530,12 @@
           "variable": "MAXDVV",
           "level": "100-1000 mb above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "DZDT__0.5-0.8_sigma_layer__instantaneous": {
+        "DZDT__0.5-0.8_sigma_layer__periodic_ave": {
           "description": "Vertical Velocity (Geometric) ",
           "unit": "m/s",
           "grib_message": 40,
@@ -507,12 +544,12 @@
           "variable": "DZDT",
           "level": "0.5-0.8 sigma layer",
           "forecast_valid": "0-0 day ave fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "ave"
         },
-        "MSLMA__mean_sea_level__analysis": {
+        "MSLMA__mean_sea_level__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 41,
@@ -521,9 +558,10 @@
           "variable": "MSLMA",
           "level": "mean sea level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__1000_mb__analysis": {
+        "HGT__1000_mb__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 42,
@@ -532,9 +570,10 @@
           "variable": "HGT",
           "level": "1000 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "MAXREF__1000_m_above_ground__instantaneous": {
+        "MAXREF__1000_m_above_ground__periodic_max": {
           "description": "Hourly Maximum of Simulated  Reflectivity at 1 km AGL",
           "unit": "dB",
           "grib_message": 43,
@@ -543,12 +582,12 @@
           "variable": "MAXREF",
           "level": "1000 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "REFD__263_K_level__instantaneous": {
+        "REFD__263_K_level__periodic_max": {
           "description": "Reflectivity",
           "unit": "dB",
           "grib_message": 44,
@@ -557,12 +596,12 @@
           "variable": "REFD",
           "level": "263 K level",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MXUPHL__5000-2000_m_above_ground__instantaneous": {
+        "MXUPHL__5000-2000_m_above_ground__periodic_max": {
           "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
           "unit": "m^2/s^2",
           "grib_message": 45,
@@ -571,12 +610,12 @@
           "variable": "MXUPHL",
           "level": "5000-2000 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MNUPHL__5000-2000_m_above_ground__instantaneous": {
+        "MNUPHL__5000-2000_m_above_ground__periodic_min": {
           "description": "Hourly Minimum of Updraft  Helicity",
           "unit": "m^2/s^2",
           "grib_message": 46,
@@ -585,12 +624,12 @@
           "variable": "MNUPHL",
           "level": "5000-2000 m above ground",
           "forecast_valid": "0-0 day min fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "min"
         },
-        "MXUPHL__2000-0_m_above_ground__instantaneous": {
+        "MXUPHL__2000-0_m_above_ground__periodic_max": {
           "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
           "unit": "m^2/s^2",
           "grib_message": 47,
@@ -599,12 +638,12 @@
           "variable": "MXUPHL",
           "level": "2000-0 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MNUPHL__2000-0_m_above_ground__instantaneous": {
+        "MNUPHL__2000-0_m_above_ground__periodic_min": {
           "description": "Hourly Minimum of Updraft  Helicity",
           "unit": "m^2/s^2",
           "grib_message": 48,
@@ -613,12 +652,12 @@
           "variable": "MNUPHL",
           "level": "2000-0 m above ground",
           "forecast_valid": "0-0 day min fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "min"
         },
-        "MXUPHL__3000-0_m_above_ground__instantaneous": {
+        "MXUPHL__3000-0_m_above_ground__periodic_max": {
           "description": "Hourly Maximum of Updraft  Helicity over Layer 2km to 5  km AGL",
           "unit": "m^2/s^2",
           "grib_message": 49,
@@ -627,12 +666,12 @@
           "variable": "MXUPHL",
           "level": "3000-0 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MNUPHL__3000-0_m_above_ground__instantaneous": {
+        "MNUPHL__3000-0_m_above_ground__periodic_min": {
           "description": "Hourly Minimum of Updraft  Helicity",
           "unit": "m^2/s^2",
           "grib_message": 50,
@@ -641,12 +680,12 @@
           "variable": "MNUPHL",
           "level": "3000-0 m above ground",
           "forecast_valid": "0-0 day min fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "min"
         },
-        "RELV__2000-0_m_above_ground__instantaneous": {
+        "RELV__2000-0_m_above_ground__periodic_max": {
           "description": "Relative Vorticity",
           "unit": "1/s",
           "grib_message": 51,
@@ -655,12 +694,12 @@
           "variable": "RELV",
           "level": "2000-0 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "RELV__1000-0_m_above_ground__instantaneous": {
+        "RELV__1000-0_m_above_ground__periodic_max": {
           "description": "Relative Vorticity",
           "unit": "1/s",
           "grib_message": 52,
@@ -669,12 +708,12 @@
           "variable": "RELV",
           "level": "1000-0 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "HAIL__entire_atmosphere__instantaneous": {
+        "HAIL__entire_atmosphere__periodic_max": {
           "description": "Hail",
           "unit": "m",
           "grib_message": 53,
@@ -683,12 +722,12 @@
           "variable": "HAIL",
           "level": "entire atmosphere",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "HAIL__0.1_sigma_level__instantaneous": {
+        "HAIL__0.1_sigma_level__periodic_max": {
           "description": "Hail",
           "unit": "m",
           "grib_message": 54,
@@ -697,12 +736,12 @@
           "variable": "HAIL",
           "level": "0.1 sigma level",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "HAIL__surface__instantaneous": {
+        "HAIL__surface__periodic_max": {
           "description": "Hail",
           "unit": "m",
           "grib_message": 55,
@@ -711,12 +750,12 @@
           "variable": "HAIL",
           "level": "surface",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__instantaneous": {
+        "TCOLG__entire_atmosphere_(considered_as_a_single_layer)__periodic_max": {
           "description": "Total Column Integrate  Graupel",
           "unit": "kg/m^2",
           "grib_message": 56,
@@ -725,12 +764,12 @@
           "variable": "TCOLG",
           "level": "entire atmosphere (considered as a single layer)",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "LTNGSD__1_m_above_ground__analysis": {
+        "LTNGSD__1_m_above_ground__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 57,
@@ -739,9 +778,10 @@
           "variable": "LTNGSD",
           "level": "1 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LTNGSD__2_m_above_ground__analysis": {
+        "LTNGSD__2_m_above_ground__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 58,
@@ -750,9 +790,10 @@
           "variable": "LTNGSD",
           "level": "2 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LTNG__entire_atmosphere__analysis": {
+        "LTNG__entire_atmosphere__point_in_time": {
           "description": "Lightning",
           "unit": "non-dim",
           "grib_message": 59,
@@ -761,9 +802,10 @@
           "variable": "LTNG",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__80_m_above_ground__analysis": {
+        "UGRD__80_m_above_ground__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 60,
@@ -772,9 +814,10 @@
           "variable": "UGRD",
           "level": "80 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__80_m_above_ground__analysis": {
+        "VGRD__80_m_above_ground__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 61,
@@ -783,9 +826,10 @@
           "variable": "VGRD",
           "level": "80 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PRES__surface__analysis": {
+        "PRES__surface__point_in_time": {
           "description": "Pressure",
           "unit": "Pa",
           "grib_message": 62,
@@ -794,9 +838,10 @@
           "variable": "PRES",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__surface__analysis": {
+        "HGT__surface__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 63,
@@ -805,9 +850,10 @@
           "variable": "HGT",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__surface__analysis": {
+        "TMP__surface__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 64,
@@ -816,9 +862,10 @@
           "variable": "TMP",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "ASNOW__surface__instantaneous": {
+        "ASNOW__surface__periodic_acc": {
           "description": "Total Snowfall",
           "unit": "m",
           "grib_message": 65,
@@ -827,12 +874,12 @@
           "variable": "ASNOW",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "MSTAV__0_m_underground__analysis": {
+        "MSTAV__0_m_underground__point_in_time": {
           "description": "Moisture Availability",
           "unit": "%",
           "grib_message": 66,
@@ -841,9 +888,10 @@
           "variable": "MSTAV",
           "level": "0 m underground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CNWAT__surface__analysis": {
+        "CNWAT__surface__point_in_time": {
           "description": "Plant Canopy Surface Water ",
           "unit": "kg/m^2",
           "grib_message": 67,
@@ -852,9 +900,10 @@
           "variable": "CNWAT",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "WEASD__surface__analysis": {
+        "WEASD__surface__point_in_time": {
           "description": "Water Equivalent of  Accumulated Snow Depth ",
           "unit": "kg/m^2",
           "grib_message": 68,
@@ -863,9 +912,10 @@
           "variable": "WEASD",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SNOWC__surface__analysis": {
+        "SNOWC__surface__point_in_time": {
           "description": "Snow Cover",
           "unit": "%",
           "grib_message": 69,
@@ -874,9 +924,10 @@
           "variable": "SNOWC",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SNOD__surface__analysis": {
+        "SNOD__surface__point_in_time": {
           "description": "Snow Depth",
           "unit": "m",
           "grib_message": 70,
@@ -885,9 +936,10 @@
           "variable": "SNOD",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TMP__2_m_above_ground__analysis": {
+        "TMP__2_m_above_ground__point_in_time": {
           "description": "Temperature",
           "unit": "K",
           "grib_message": 71,
@@ -896,9 +948,10 @@
           "variable": "TMP",
           "level": "2 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "POT__2_m_above_ground__analysis": {
+        "POT__2_m_above_ground__point_in_time": {
           "description": "Potential Temperature",
           "unit": "K",
           "grib_message": 72,
@@ -907,9 +960,10 @@
           "variable": "POT",
           "level": "2 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SPFH__2_m_above_ground__analysis": {
+        "SPFH__2_m_above_ground__point_in_time": {
           "description": "Specific Humidity",
           "unit": "kg/kg",
           "grib_message": 73,
@@ -918,9 +972,10 @@
           "variable": "SPFH",
           "level": "2 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DPT__2_m_above_ground__analysis": {
+        "DPT__2_m_above_ground__point_in_time": {
           "description": "Dew Point Temperature",
           "unit": "K",
           "grib_message": 74,
@@ -929,9 +984,10 @@
           "variable": "DPT",
           "level": "2 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "RH__2_m_above_ground__analysis": {
+        "RH__2_m_above_ground__point_in_time": {
           "description": "Relative Humidity",
           "unit": "%",
           "grib_message": 75,
@@ -940,9 +996,10 @@
           "variable": "RH",
           "level": "2 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "MASSDEN__8_m_above_ground__analysis": {
+        "MASSDEN__8_m_above_ground__point_in_time": {
           "description": "Mass Density (Concentration) ",
           "unit": "kg/m^3",
           "grib_message": 76,
@@ -951,9 +1008,10 @@
           "variable": "MASSDEN",
           "level": "8 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "UGRD__10_m_above_ground__analysis": {
+        "UGRD__10_m_above_ground__point_in_time": {
           "description": "U-Component of Wind",
           "unit": "m/s",
           "grib_message": 77,
@@ -962,9 +1020,10 @@
           "variable": "UGRD",
           "level": "10 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGRD__10_m_above_ground__analysis": {
+        "VGRD__10_m_above_ground__point_in_time": {
           "description": "V-Component of Wind",
           "unit": "m/s",
           "grib_message": 78,
@@ -973,9 +1032,10 @@
           "variable": "VGRD",
           "level": "10 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "WIND__10_m_above_ground__instantaneous": {
+        "WIND__10_m_above_ground__periodic_max": {
           "description": "Wind Speed",
           "unit": "m/s",
           "grib_message": 79,
@@ -984,12 +1044,12 @@
           "variable": "WIND",
           "level": "10 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MAXUW__10_m_above_ground__instantaneous": {
+        "MAXUW__10_m_above_ground__periodic_max": {
           "description": null,
           "unit": null,
           "grib_message": 80,
@@ -998,12 +1058,12 @@
           "variable": "MAXUW",
           "level": "10 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "MAXVW__10_m_above_ground__instantaneous": {
+        "MAXVW__10_m_above_ground__periodic_max": {
           "description": null,
           "unit": null,
           "grib_message": 81,
@@ -1012,12 +1072,12 @@
           "variable": "MAXVW",
           "level": "10 m above ground",
           "forecast_valid": "0-0 day max fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "max"
         },
-        "CPOFP__surface__analysis": {
+        "CPOFP__surface__point_in_time": {
           "description": "Percent frozen precipitation ",
           "unit": "%",
           "grib_message": 82,
@@ -1026,9 +1086,10 @@
           "variable": "CPOFP",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PRATE__surface__analysis": {
+        "PRATE__surface__point_in_time": {
           "description": "Precipitation Rate",
           "unit": "kg/m^2/s",
           "grib_message": 83,
@@ -1037,9 +1098,10 @@
           "variable": "PRATE",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "APCP__surface__instantaneous": {
+        "APCP__surface__periodic_acc": {
           "description": "Total Precipitation",
           "unit": "kg/m^2",
           "grib_message": 84,
@@ -1048,12 +1110,12 @@
           "variable": "APCP",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "WEASD__surface__instantaneous": {
+        "WEASD__surface__periodic_acc": {
           "description": "Water Equivalent of  Accumulated Snow Depth ",
           "unit": "kg/m^2",
           "grib_message": 85,
@@ -1062,12 +1124,12 @@
           "variable": "WEASD",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "FROZR__surface__instantaneous": {
+        "FROZR__surface__periodic_acc": {
           "description": "Frozen Rain",
           "unit": "kg/m^2",
           "grib_message": 86,
@@ -1076,12 +1138,12 @@
           "variable": "FROZR",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "FRZR__surface__instantaneous": {
+        "FRZR__surface__periodic_acc": {
           "description": "Freezing Rain",
           "unit": "kg/m^2",
           "grib_message": 87,
@@ -1090,12 +1152,12 @@
           "variable": "FRZR",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "SSRUN__surface__instantaneous": {
+        "SSRUN__surface__periodic_acc": {
           "description": "Storm Surface Runoff",
           "unit": "kg/m^2",
           "grib_message": 88,
@@ -1104,12 +1166,12 @@
           "variable": "SSRUN",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "BGRUN__surface__instantaneous": {
+        "BGRUN__surface__periodic_acc": {
           "description": "Baseflow-Groundwater Runoff ",
           "unit": "kg/m^2",
           "grib_message": 89,
@@ -1118,12 +1180,12 @@
           "variable": "BGRUN",
           "level": "surface",
           "forecast_valid": "0-0 day acc fcst",
-          "forecast_layer_type": "instantaneous",
+          "forecast_layer_type": "periodic_summary",
           "start_timedelta": 0.0,
           "end_timedelta": 0.0,
           "statistic_type": "acc"
         },
-        "CSNOW__surface__analysis": {
+        "CSNOW__surface__point_in_time": {
           "description": "Categorical Snow",
           "unit": "-",
           "grib_message": 90,
@@ -1132,9 +1194,10 @@
           "variable": "CSNOW",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CICEP__surface__analysis": {
+        "CICEP__surface__point_in_time": {
           "description": "Categorical Ice Pellets",
           "unit": "-",
           "grib_message": 91,
@@ -1143,9 +1206,10 @@
           "variable": "CICEP",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CFRZR__surface__analysis": {
+        "CFRZR__surface__point_in_time": {
           "description": "Categorical Freezing Rain",
           "unit": "-",
           "grib_message": 92,
@@ -1154,9 +1218,10 @@
           "variable": "CFRZR",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CRAIN__surface__analysis": {
+        "CRAIN__surface__point_in_time": {
           "description": "Categorical Rain",
           "unit": "-",
           "grib_message": 93,
@@ -1165,9 +1230,10 @@
           "variable": "CRAIN",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SFCR__surface__analysis": {
+        "SFCR__surface__point_in_time": {
           "description": "Surface Roughness",
           "unit": "m",
           "grib_message": 94,
@@ -1176,9 +1242,10 @@
           "variable": "SFCR",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "FRICV__surface__analysis": {
+        "FRICV__surface__point_in_time": {
           "description": "Frictional Velocity",
           "unit": "m/s",
           "grib_message": 95,
@@ -1187,9 +1254,10 @@
           "variable": "FRICV",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SHTFL__surface__analysis": {
+        "SHTFL__surface__point_in_time": {
           "description": "Sensible Heat Net Flux ",
           "unit": "W/m^2",
           "grib_message": 96,
@@ -1198,9 +1266,10 @@
           "variable": "SHTFL",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LHTFL__surface__analysis": {
+        "LHTFL__surface__point_in_time": {
           "description": "Latent Heat Net Flux",
           "unit": "W/m^2",
           "grib_message": 97,
@@ -1209,9 +1278,10 @@
           "variable": "LHTFL",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VEG__surface__analysis": {
+        "VEG__surface__point_in_time": {
           "description": "Vegetation",
           "unit": "%",
           "grib_message": 98,
@@ -1220,9 +1290,10 @@
           "variable": "VEG",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VEGMIN__surface__analysis": {
+        "VEGMIN__surface__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 99,
@@ -1231,9 +1302,10 @@
           "variable": "VEGMIN",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VEGMAX__surface__analysis": {
+        "VEGMAX__surface__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 100,
@@ -1242,9 +1314,10 @@
           "variable": "VEGMAX",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LAI__surface__analysis": {
+        "LAI__surface__point_in_time": {
           "description": "Leaf Area Index",
           "unit": "Numeric",
           "grib_message": 101,
@@ -1253,9 +1326,10 @@
           "variable": "LAI",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "GFLUX__surface__analysis": {
+        "GFLUX__surface__point_in_time": {
           "description": "Ground Heat Flux",
           "unit": "W/m^2",
           "grib_message": 102,
@@ -1264,9 +1338,10 @@
           "variable": "GFLUX",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VGTYP__surface__analysis": {
+        "VGTYP__surface__point_in_time": {
           "description": "Vegetation Type",
           "unit": "Integer(0-  13)",
           "grib_message": 103,
@@ -1275,9 +1350,10 @@
           "variable": "VGTYP",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LFTX__500-1000_mb__analysis": {
+        "LFTX__500-1000_mb__point_in_time": {
           "description": "Surface Lifted Index",
           "unit": "K",
           "grib_message": 104,
@@ -1286,9 +1362,10 @@
           "variable": "LFTX",
           "level": "500-1000 mb",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CAPE__surface__analysis": {
+        "CAPE__surface__point_in_time": {
           "description": "Convective Available  Potential Energy",
           "unit": "J/kg",
           "grib_message": 105,
@@ -1297,9 +1374,10 @@
           "variable": "CAPE",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CIN__surface__analysis": {
+        "CIN__surface__point_in_time": {
           "description": "Convective Inhibition",
           "unit": "J/kg",
           "grib_message": 106,
@@ -1308,9 +1386,10 @@
           "variable": "CIN",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PWAT__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
+        "PWAT__entire_atmosphere_(considered_as_a_single_layer)__point_in_time": {
           "description": "Precipitable Water",
           "unit": "kg/m^2",
           "grib_message": 107,
@@ -1319,9 +1398,10 @@
           "variable": "PWAT",
           "level": "entire atmosphere (considered as a single layer)",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "AOTK__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
+        "AOTK__entire_atmosphere_(considered_as_a_single_layer)__point_in_time": {
           "description": "Aerosol Optical Thickness ",
           "unit": "Numeric",
           "grib_message": 108,
@@ -1330,9 +1410,10 @@
           "variable": "AOTK",
           "level": "entire atmosphere (considered as a single layer)",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "COLMD__entire_atmosphere_(considered_as_a_single_layer)__analysis": {
+        "COLMD__entire_atmosphere_(considered_as_a_single_layer)__point_in_time": {
           "description": "Column-Integrated Mass  Density",
           "unit": "kg/m^2",
           "grib_message": 109,
@@ -1341,9 +1422,10 @@
           "variable": "COLMD",
           "level": "entire atmosphere (considered as a single layer)",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TCOLW__entire_atmosphere__analysis": {
+        "TCOLW__entire_atmosphere__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 110,
@@ -1352,9 +1434,10 @@
           "variable": "TCOLW",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TCOLI__entire_atmosphere__analysis": {
+        "TCOLI__entire_atmosphere__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 111,
@@ -1363,9 +1446,10 @@
           "variable": "TCOLI",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TCDC__boundary_layer_cloud_layer__analysis": {
+        "TCDC__boundary_layer_cloud_layer__point_in_time": {
           "description": "Total Cloud Cover",
           "unit": "%",
           "grib_message": 112,
@@ -1374,9 +1458,10 @@
           "variable": "TCDC",
           "level": "boundary layer cloud layer",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LCDC__low_cloud_layer__analysis": {
+        "LCDC__low_cloud_layer__point_in_time": {
           "description": "Low Cloud Cover",
           "unit": "%",
           "grib_message": 113,
@@ -1385,9 +1470,10 @@
           "variable": "LCDC",
           "level": "low cloud layer",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "MCDC__middle_cloud_layer__analysis": {
+        "MCDC__middle_cloud_layer__point_in_time": {
           "description": "Medium Cloud Cover",
           "unit": "%",
           "grib_message": 114,
@@ -1396,9 +1482,10 @@
           "variable": "MCDC",
           "level": "middle cloud layer",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HCDC__high_cloud_layer__analysis": {
+        "HCDC__high_cloud_layer__point_in_time": {
           "description": "High Cloud Cover",
           "unit": "%",
           "grib_message": 115,
@@ -1407,9 +1494,10 @@
           "variable": "HCDC",
           "level": "high cloud layer",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "TCDC__entire_atmosphere__analysis": {
+        "TCDC__entire_atmosphere__point_in_time": {
           "description": "Total Cloud Cover",
           "unit": "%",
           "grib_message": 116,
@@ -1418,9 +1506,10 @@
           "variable": "TCDC",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__cloud_ceiling__analysis": {
+        "HGT__cloud_ceiling__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 117,
@@ -1429,9 +1518,10 @@
           "variable": "HGT",
           "level": "cloud ceiling",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__cloud_base__analysis": {
+        "HGT__cloud_base__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 118,
@@ -1440,9 +1530,10 @@
           "variable": "HGT",
           "level": "cloud base",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PRES__cloud_base__analysis": {
+        "PRES__cloud_base__point_in_time": {
           "description": "Pressure",
           "unit": "Pa",
           "grib_message": 119,
@@ -1451,9 +1542,10 @@
           "variable": "PRES",
           "level": "cloud base",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PRES__cloud_top__analysis": {
+        "PRES__cloud_top__point_in_time": {
           "description": "Pressure",
           "unit": "Pa",
           "grib_message": 120,
@@ -1462,9 +1554,10 @@
           "variable": "PRES",
           "level": "cloud top",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__cloud_top__analysis": {
+        "HGT__cloud_top__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 121,
@@ -1473,9 +1566,10 @@
           "variable": "HGT",
           "level": "cloud top",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "ULWRF__top_of_atmosphere__analysis": {
+        "ULWRF__top_of_atmosphere__point_in_time": {
           "description": "Upward Long-Wave Rad. Flux ",
           "unit": "W/m^2",
           "grib_message": 122,
@@ -1484,9 +1578,10 @@
           "variable": "ULWRF",
           "level": "top of atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DSWRF__surface__analysis": {
+        "DSWRF__surface__point_in_time": {
           "description": "Downward Short-Wave Radiation  Flux",
           "unit": "W/m^2",
           "grib_message": 123,
@@ -1495,9 +1590,10 @@
           "variable": "DSWRF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "DLWRF__surface__analysis": {
+        "DLWRF__surface__point_in_time": {
           "description": "Downward Long-Wave Rad. Flux ",
           "unit": "W/m^2",
           "grib_message": 124,
@@ -1506,9 +1602,10 @@
           "variable": "DLWRF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "USWRF__surface__analysis": {
+        "USWRF__surface__point_in_time": {
           "description": "Upward Short-Wave Radiation  Flux",
           "unit": "W/m^2",
           "grib_message": 125,
@@ -1517,9 +1614,10 @@
           "variable": "USWRF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "ULWRF__surface__analysis": {
+        "ULWRF__surface__point_in_time": {
           "description": "Upward Long-Wave Rad. Flux ",
           "unit": "W/m^2",
           "grib_message": 126,
@@ -1528,9 +1626,10 @@
           "variable": "ULWRF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CFNSF__surface__analysis": {
+        "CFNSF__surface__point_in_time": {
           "description": "Cloud Forcing Net Solar Flux ",
           "unit": "W/m^2",
           "grib_message": 127,
@@ -1539,9 +1638,10 @@
           "variable": "CFNSF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VBDSF__surface__analysis": {
+        "VBDSF__surface__point_in_time": {
           "description": "Visible Beam Downward Solar  Flux",
           "unit": "W/m^2",
           "grib_message": 128,
@@ -1550,9 +1650,10 @@
           "variable": "VBDSF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VDDSF__surface__analysis": {
+        "VDDSF__surface__point_in_time": {
           "description": "Visible Diffuse Downward  Solar Flux",
           "unit": "W/m^2",
           "grib_message": 129,
@@ -1561,9 +1662,10 @@
           "variable": "VDDSF",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "USWRF__top_of_atmosphere__analysis": {
+        "USWRF__top_of_atmosphere__point_in_time": {
           "description": "Upward Short-Wave Radiation  Flux",
           "unit": "W/m^2",
           "grib_message": 130,
@@ -1572,9 +1674,10 @@
           "variable": "USWRF",
           "level": "top of atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HLCY__3000-0_m_above_ground__analysis": {
+        "HLCY__3000-0_m_above_ground__point_in_time": {
           "description": "Storm Relative Helicity ",
           "unit": "m^2/s^2",
           "grib_message": 131,
@@ -1583,9 +1686,10 @@
           "variable": "HLCY",
           "level": "3000-0 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HLCY__1000-0_m_above_ground__analysis": {
+        "HLCY__1000-0_m_above_ground__point_in_time": {
           "description": "Storm Relative Helicity ",
           "unit": "m^2/s^2",
           "grib_message": 132,
@@ -1594,9 +1698,10 @@
           "variable": "HLCY",
           "level": "1000-0 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "USTM__0-6000_m_above_ground__analysis": {
+        "USTM__0-6000_m_above_ground__point_in_time": {
           "description": "U-Component Storm Motion ",
           "unit": "m/s",
           "grib_message": 133,
@@ -1605,9 +1710,10 @@
           "variable": "USTM",
           "level": "0-6000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VSTM__0-6000_m_above_ground__analysis": {
+        "VSTM__0-6000_m_above_ground__point_in_time": {
           "description": "V-Component Storm Motion ",
           "unit": "m/s",
           "grib_message": 134,
@@ -1616,9 +1722,10 @@
           "variable": "VSTM",
           "level": "0-6000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VUCSH__0-1000_m_above_ground__analysis": {
+        "VUCSH__0-1000_m_above_ground__point_in_time": {
           "description": "Vertical U-Component Shear ",
           "unit": "1/s",
           "grib_message": 135,
@@ -1627,9 +1734,10 @@
           "variable": "VUCSH",
           "level": "0-1000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VVCSH__0-1000_m_above_ground__analysis": {
+        "VVCSH__0-1000_m_above_ground__point_in_time": {
           "description": "Vertical V-Component Shear ",
           "unit": "1/s",
           "grib_message": 136,
@@ -1638,9 +1746,10 @@
           "variable": "VVCSH",
           "level": "0-1000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VUCSH__0-6000_m_above_ground__analysis": {
+        "VUCSH__0-6000_m_above_ground__point_in_time": {
           "description": "Vertical U-Component Shear ",
           "unit": "1/s",
           "grib_message": 137,
@@ -1649,9 +1758,10 @@
           "variable": "VUCSH",
           "level": "0-6000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "VVCSH__0-6000_m_above_ground__analysis": {
+        "VVCSH__0-6000_m_above_ground__point_in_time": {
           "description": "Vertical V-Component Shear ",
           "unit": "1/s",
           "grib_message": 138,
@@ -1660,9 +1770,10 @@
           "variable": "VVCSH",
           "level": "0-6000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__0C_isotherm__analysis": {
+        "HGT__0C_isotherm__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 139,
@@ -1671,9 +1782,10 @@
           "variable": "HGT",
           "level": "0C isotherm",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "RH__0C_isotherm__analysis": {
+        "RH__0C_isotherm__point_in_time": {
           "description": "Relative Humidity",
           "unit": "%",
           "grib_message": 140,
@@ -1682,9 +1794,10 @@
           "variable": "RH",
           "level": "0C isotherm",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PRES__0C_isotherm__analysis": {
+        "PRES__0C_isotherm__point_in_time": {
           "description": "Pressure",
           "unit": "Pa",
           "grib_message": 141,
@@ -1693,9 +1806,10 @@
           "variable": "PRES",
           "level": "0C isotherm",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__highest_tropospheric_freezing_level__analysis": {
+        "HGT__highest_tropospheric_freezing_level__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 142,
@@ -1704,9 +1818,10 @@
           "variable": "HGT",
           "level": "highest tropospheric freezing level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "RH__highest_tropospheric_freezing_level__analysis": {
+        "RH__highest_tropospheric_freezing_level__point_in_time": {
           "description": "Relative Humidity",
           "unit": "%",
           "grib_message": 143,
@@ -1715,9 +1830,10 @@
           "variable": "RH",
           "level": "highest tropospheric freezing level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PRES__highest_tropospheric_freezing_level__analysis": {
+        "PRES__highest_tropospheric_freezing_level__point_in_time": {
           "description": "Pressure",
           "unit": "Pa",
           "grib_message": 144,
@@ -1726,9 +1842,10 @@
           "variable": "PRES",
           "level": "highest tropospheric freezing level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__263_K_level__analysis": {
+        "HGT__263_K_level__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 145,
@@ -1737,9 +1854,10 @@
           "variable": "HGT",
           "level": "263 K level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__253_K_level__analysis": {
+        "HGT__253_K_level__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 146,
@@ -1748,9 +1866,10 @@
           "variable": "HGT",
           "level": "253 K level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "4LFTX__180-0_mb_above_ground__analysis": {
+        "4LFTX__180-0_mb_above_ground__point_in_time": {
           "description": "Best (4 layer) Lifted Index ",
           "unit": "K",
           "grib_message": 147,
@@ -1759,9 +1878,10 @@
           "variable": "4LFTX",
           "level": "180-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CAPE__180-0_mb_above_ground__analysis": {
+        "CAPE__180-0_mb_above_ground__point_in_time": {
           "description": "Convective Available  Potential Energy",
           "unit": "J/kg",
           "grib_message": 148,
@@ -1770,9 +1890,10 @@
           "variable": "CAPE",
           "level": "180-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CIN__180-0_mb_above_ground__analysis": {
+        "CIN__180-0_mb_above_ground__point_in_time": {
           "description": "Convective Inhibition",
           "unit": "J/kg",
           "grib_message": 149,
@@ -1781,9 +1902,10 @@
           "variable": "CIN",
           "level": "180-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HPBL__surface__analysis": {
+        "HPBL__surface__point_in_time": {
           "description": "Planetary Boundary Layer  Height",
           "unit": "m",
           "grib_message": 150,
@@ -1792,9 +1914,10 @@
           "variable": "HPBL",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__level_of_adiabatic_condensation_from_sfc__analysis": {
+        "HGT__level_of_adiabatic_condensation_from_sfc__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 151,
@@ -1803,9 +1926,10 @@
           "variable": "HGT",
           "level": "level of adiabatic condensation from sfc",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CAPE__90-0_mb_above_ground__analysis": {
+        "CAPE__90-0_mb_above_ground__point_in_time": {
           "description": "Convective Available  Potential Energy",
           "unit": "J/kg",
           "grib_message": 152,
@@ -1814,9 +1938,10 @@
           "variable": "CAPE",
           "level": "90-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CIN__90-0_mb_above_ground__analysis": {
+        "CIN__90-0_mb_above_ground__point_in_time": {
           "description": "Convective Inhibition",
           "unit": "J/kg",
           "grib_message": 153,
@@ -1825,9 +1950,10 @@
           "variable": "CIN",
           "level": "90-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CAPE__255-0_mb_above_ground__analysis": {
+        "CAPE__255-0_mb_above_ground__point_in_time": {
           "description": "Convective Available  Potential Energy",
           "unit": "J/kg",
           "grib_message": 154,
@@ -1836,9 +1962,10 @@
           "variable": "CAPE",
           "level": "255-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CIN__255-0_mb_above_ground__analysis": {
+        "CIN__255-0_mb_above_ground__point_in_time": {
           "description": "Convective Inhibition",
           "unit": "J/kg",
           "grib_message": 155,
@@ -1847,9 +1974,10 @@
           "variable": "CIN",
           "level": "255-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__equilibrium_level__analysis": {
+        "HGT__equilibrium_level__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 156,
@@ -1858,9 +1986,10 @@
           "variable": "HGT",
           "level": "equilibrium level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "PLPL__255-0_mb_above_ground__analysis": {
+        "PLPL__255-0_mb_above_ground__point_in_time": {
           "description": "Pressure of level from which  parcel was lifted",
           "unit": "Pa",
           "grib_message": 157,
@@ -1869,9 +1998,10 @@
           "variable": "PLPL",
           "level": "255-0 mb above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CAPE__0-3000_m_above_ground__analysis": {
+        "CAPE__0-3000_m_above_ground__point_in_time": {
           "description": "Convective Available  Potential Energy",
           "unit": "J/kg",
           "grib_message": 158,
@@ -1880,9 +2010,10 @@
           "variable": "CAPE",
           "level": "0-3000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "HGT__level_of_free_convection__analysis": {
+        "HGT__level_of_free_convection__point_in_time": {
           "description": "Geopotential Height",
           "unit": "gpm",
           "grib_message": 159,
@@ -1891,9 +2022,10 @@
           "variable": "HGT",
           "level": "level of free convection",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "EFHL__surface__analysis": {
+        "EFHL__surface__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 160,
@@ -1902,9 +2034,10 @@
           "variable": "EFHL",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "CANGLE__0-500_m_above_ground__analysis": {
+        "CANGLE__0-500_m_above_ground__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 161,
@@ -1913,9 +2046,10 @@
           "variable": "CANGLE",
           "level": "0-500 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LAYTH__261_K_level_-_256_K_level__analysis": {
+        "LAYTH__261_K_level_-_256_K_level__point_in_time": {
           "description": "Layer Thickness",
           "unit": "m",
           "grib_message": 162,
@@ -1924,9 +2058,10 @@
           "variable": "LAYTH",
           "level": "261 K level - 256 K level",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "ESP__0-3000_m_above_ground__analysis": {
+        "ESP__0-3000_m_above_ground__point_in_time": {
           "description": null,
           "unit": null,
           "grib_message": 163,
@@ -1935,9 +2070,10 @@
           "variable": "ESP",
           "level": "0-3000 m above ground",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "RHPW__entire_atmosphere__analysis": {
+        "RHPW__entire_atmosphere__point_in_time": {
           "description": "Relative Humidity with  Respect to Precipitable Water ",
           "unit": "%",
           "grib_message": 164,
@@ -1946,9 +2082,10 @@
           "variable": "RHPW",
           "level": "entire atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "LAND__surface__analysis": {
+        "LAND__surface__point_in_time": {
           "description": "Land Cover (0=sea, 1=land) ",
           "unit": "Proportion",
           "grib_message": 165,
@@ -1957,9 +2094,10 @@
           "variable": "LAND",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "ICEC__surface__analysis": {
+        "ICEC__surface__point_in_time": {
           "description": "Ice Cover",
           "unit": "Proportion",
           "grib_message": 166,
@@ -1968,9 +2106,10 @@
           "variable": "ICEC",
           "level": "surface",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SBT123__top_of_atmosphere__analysis": {
+        "SBT123__top_of_atmosphere__point_in_time": {
           "description": "Simulated Brightness  Temperature for GOES 12,  Channel 3",
           "unit": "K",
           "grib_message": 167,
@@ -1979,9 +2118,10 @@
           "variable": "SBT123",
           "level": "top of atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SBT124__top_of_atmosphere__analysis": {
+        "SBT124__top_of_atmosphere__point_in_time": {
           "description": "Simulated Brightness  Temperature for GOES 12,  Channel 4",
           "unit": "K",
           "grib_message": 168,
@@ -1990,9 +2130,10 @@
           "variable": "SBT124",
           "level": "top of atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SBT113__top_of_atmosphere__analysis": {
+        "SBT113__top_of_atmosphere__point_in_time": {
           "description": "Simulated Brightness  Temperature for GOES 11,  Channel 3",
           "unit": "K",
           "grib_message": 169,
@@ -2001,9 +2142,10 @@
           "variable": "SBT113",
           "level": "top of atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         },
-        "SBT114__top_of_atmosphere__analysis": {
+        "SBT114__top_of_atmosphere__point_in_time": {
           "description": "Simulated Brightness  Temperature for GOES 11,  Channel 4",
           "unit": "K",
           "grib_message": 170,
@@ -2012,7 +2154,8 @@
           "variable": "SBT114",
           "level": "top of atmosphere",
           "forecast_valid": "anl",
-          "forecast_layer_type": "analysis"
+          "forecast_layer_type": "point_in_time",
+          "end_timedelta": 0.0
         }
       },
       "roles": [
