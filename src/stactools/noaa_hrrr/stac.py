@@ -27,6 +27,7 @@ from stactools.noaa_hrrr.constants import (
     BYTE_SIZE,
     COLLECTION_ID_FORMAT,
     DESCRIPTION,
+    FORECAST_TYPE,
     FORECAST_VALID,
     GRIB_LAYERS,
     GRIB_MESSAGE,
@@ -366,13 +367,24 @@ def create_collection(
                     "values": list(sorted(set(inventory_df[LEVEL].unique()))),
                 }
             ),
-            FORECAST_VALID: Dimension(
+            FORECAST_TYPE: Dimension(
                 properties={
                     "type": DimensionType.TEMPORAL,
                     "description": (
-                        "The time horizon for which the forecast is applicable."
+                        "Either point-in-time, periodic summary, or cumulative summary."
                     ),
-                    "values": list(sorted(set(inventory_df[FORECAST_VALID].unique()))),
+                    "values": list(
+                        set(
+                            [
+                                ForecastLayerType.from_str(
+                                    forecast_valid
+                                ).forecast_layer_type
+                                for forecast_valid in inventory_df[
+                                    FORECAST_VALID
+                                ].unique()
+                            ]
+                        )
+                    ),
                 }
             ),
         },
@@ -385,7 +397,7 @@ def create_collection(
                         REFERENCE_TIME,
                         VALID_TIME,
                         LEVEL,
-                        FORECAST_VALID,
+                        FORECAST_TYPE,
                     ],
                     type=VariableType.DATA,
                     description=description,
@@ -394,7 +406,16 @@ def create_collection(
                     # domain where this variable has data
                     dimension_domains={
                         LEVEL: list(group[LEVEL].unique()),
-                        FORECAST_VALID: list(group[FORECAST_VALID].unique()),
+                        FORECAST_TYPE: list(
+                            set(
+                                [
+                                    ForecastLayerType.from_str(
+                                        forecast_valid
+                                    ).forecast_layer_type
+                                    for forecast_valid in group[FORECAST_VALID].unique()
+                                ]
+                            )
+                        ),
                     },
                 )
             )
