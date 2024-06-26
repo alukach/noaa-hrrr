@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from enum import Enum
 from pathlib import Path
-from typing import Any, Generator, List, Optional, Type, TypeVar, Union
+from typing import Any, Generator, List, Optional, Type, TypedDict, TypeVar, Union
 
 from parse import Result, parse
 from rasterio.crs import CRS
@@ -407,9 +407,17 @@ class ItemType(StrEnum):
     INDEX = "index"
 
 
+class ParsedHref(TypedDict):
+    region: Region
+    product: Product
+    cloud_provider: CloudProvider
+    reference_datetime: datetime
+    forecast_hour: int
+
+
 def parse_href(
     href: str,
-) -> Union[dict[str, Union[Region, Product, CloudProvider, datetime, int]], None]:
+) -> Union[ParsedHref, None]:
     """Parse an href to get region, product, cloud_provider, product,
     reference_datetime, and forecast hour
     """

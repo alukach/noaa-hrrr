@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from stactools.noaa_hrrr import metadata
+from stactools.noaa_hrrr.stac import create_item
 
 
 def test_parse_href() -> None:
@@ -17,6 +18,9 @@ def test_parse_href() -> None:
     )
     assert parsed_result["forecast_hour"] == 6
 
+    # create an item
+    _ = create_item(**parsed_result)
+
     # azure
     parsed_result = metadata.parse_href(
         "https://noaahrrr.blob.core.windows.net/hrrr/hrrr.20240510/conus/hrrr.t12z.wrfsfcf00.grib2"
@@ -29,6 +33,9 @@ def test_parse_href() -> None:
         year=2024, month=5, day=10, hour=12
     )
     assert parsed_result["forecast_hour"] == 0
+
+    # create an item
+    _ = create_item(**parsed_result)
 
     # try a bad url
     assert not metadata.parse_href(
