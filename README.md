@@ -29,7 +29,7 @@ which cloud provider you want to use for the `grib` and `index` hrefs using the
 
 ## Background
 
-The NOAA HRRR data ([NOAA product page](https://www.nco.ncep.noaa.gov/pmb/products/hrrr/#CO))
+The [NOAA HRRR dataset](https://www.nco.ncep.noaa.gov/pmb/products/hrrr/#CO))
 is a continuously updated atmospheric forecast data product.
 
 ### Data structure
