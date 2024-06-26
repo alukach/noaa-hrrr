@@ -18,12 +18,99 @@
 - [Browse the example in human-readable form](https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/stactools-packages/noaa-hrrr/main/examples/collection.json)
 - [Browse a notebook demonstrating the example item and collection](https://github.com/stactools-packages/noaa-hrrr/tree/main/docs/example.ipynb)
 
-A short description of the package and its usage.
+![wind speed forecast from 2024-05-10T12:00:00Z for 2024-05-10T14:00:00Z](./noaa_hrrr_wind_speed.png)
+
+This package can be used to generate STAC metadata for the NOAA High Resolution Rapid
+Refresh (HRRR) atmospheric forecast dataset.
+
+The data are uploaded to cloud storage in AWS, Azure, and Google so you can pick
+which cloud provider you want to use for the `grib` and `index` hrefs using the
+`cloud_provider` argument to the functions in `stactools.noaa_hrrr.stac`.
+
+## Background
+
+The NOAA HRRR data ([NOAA product page](https://www.nco.ncep.noaa.gov/pmb/products/hrrr/#CO))
+is a continuously updated atmospheric forecast data product.
+
+### Data structure
+
+- There are two regions: CONUS and Alaska
+- Every hour, new hourly forecasts are generated for many atmospheric attributes
+  for each region
+  - All hours (`00-23`) get an 18-hour forecast in the `conus` region
+  - Forecasts are generated every three hours (`00`, `03`, `06`, etc) in the
+    `alaska` region
+  - On hours `00`, `06`, `12`, `18` a 48-hour forecast is generated
+  - One of the products (`subh`) gets 15 minute forecasts (four per hour per
+    attribute), but the sub-hourly forecasts are stored as layers within a
+    single GRIB2 file for the forecast hour rather than in separate files.
+- The forecasts are broken up into 4 products (`sfc`, `prs`, `nat`, `subh`),  
+- Each GRIB2 file has hundreds to thousands of variables
+- Each .grib2 file is accompanied by a .grib2.idx which has variable-level
+  metadata including the starting byte for the data in that variable (useful
+  for making range requests instead of reading the entire file) and some
+  other descriptive metadata
+
+### Summary of Considerations for Organizing STAC Metadata
+
+After extensive discussions, we decided to organize the STAC metadata with
+the following structure:
+
+1. **Collections**: Separate collections for each region-product combination
+    - regions: `conus` and `alaska`
+    - products: `sfc`, `prs`, `nat`, and `subh`
+
+2. **Items**: Each GRIB file in the archive is represented as an item with two assets:
+    - `"grib"`: Contains the actual data.
+    - `"index"`: The .grib2.idx sidecar file.
+
+   Each GRIB file contains the forecasts for all of a product's variables for a
+   particular forecast hour from a reference time, so you need to combine data
+   from multiple items to construct a time series for a forecast.
+
+3. **`grib:layers`**: Within each `"grib"` asset, a `grib:layers` property details
+   each layer's information, including description, units, and byte ranges.
+   This enables applications to access specific parts of the GRIB2 files without
+   downloading the entire file.
+
+    - We intend to propose a `GRIB` STAC extension with the `grib:layers` property
+      for storing byte-ranges after testing this specification out on other GRIB2
+      datasets.
+    - The layer-level metadata is worth storing in STAC because you can construct
+      URIs for specific layers that GDAL can read using either `/vsisubfile` or
+      `vrt://`:
+      - `/vsisubfile/{start_byte}_{byte_size},/vsicurl/{grib_href}`
+      - `vrt:///vsicurl/{grib_href}?bands={grib_message}`, where `grib_message` is
+        the index of the layer within the GRIB2 file.
+        - under the hood, GDAL's `vrt` driver is reading the sidecar .grib2.idx file
+            and translating it into a `/vsisubfile` URI.
+
+### Advantages
+
+- Applications can use `grib:layers` to create layer-specific data sets, facilitating
+efficient data handling.
+- Splitting by region and product allows defining coherent collection-level datacube
+metadata, enhancing accessibility.
+
+### Disadvantages
+
+- Storing layer-level metadata like byte ranges in the STAC metadata bloats the STAC
+  items because there are hundreds to thousands of layers in each GRIB2 file.
+
+For more details, please refer to the related [issue discussion](https://github.com/developmentseed/noaa-hrrr/issues/1)
+and pull requests [#3](https://github.com/developmentseed/noaa-hrrr/pull/3) and
+[#6](https://github.com/developmentseed/noaa-hrrr/pull/6).
 
 ## STAC examples
 
 - [Collection](examples/collection.json)
-- [Item](examples/item/item.json)
+- [Item](examples/hrrr-conus-sfc-2024-05-10T12-FH0/hrrr-conus-sfc-2024-05-10T12-FH0.json)
+
+## Python usage example
+
+- Check out the [example notebook](./docs/example.ipynb) for examples of how to
+  create STAC metadata and how to use STAC items with `grib:layers` metadata to
+  load the data into xarray.
 
 ## Installation
 

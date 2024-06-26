@@ -3,7 +3,7 @@
 
 repos:
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.9.2
+    rev: v0.13.0
     hooks:
       - id: markdownlint-cli2
         language_version: "18.17.1"
@@ -11,7 +11,7 @@ repos:
     rev: v2.2.5
     hooks:
       - id: codespell
-        args: [--ignore-words=.codespellignore]
+        args: [--ignore-words=.codespellignore, --exclude-file=docs/example.ipynb]
         types_or: [jupyter, markdown, python, shell]
   - repo: https://github.com/psf/black
     rev: 23.9.1
