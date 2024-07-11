@@ -11,7 +11,7 @@
 - STAC extensions used:
   - [forecast](https://github.com/stac-extensions/forecast)
   - [item-assets](https://github.com/stac-extensions/item-assets)
-  - [datacube](https://github.com/stac-extensions/datacube) (coming soon)
+  - [datacube](https://github.com/stac-extensions/datacube)
 - Extra fields:
   - `noaa-hrrr:forecast_cycle_type`: either standard (18-hour) or extended (48-hour)
   - `noaa-hrrr:region`: either `conus` or `alaska`
@@ -29,7 +29,7 @@ which cloud provider you want to use for the `grib` and `index` hrefs using the
 
 ## Background
 
-The [NOAA HRRR dataset](https://www.nco.ncep.noaa.gov/pmb/products/hrrr/#CO))
+The [NOAA HRRR dataset](https://www.nco.ncep.noaa.gov/pmb/products/hrrr/#CO)
 is a continuously updated atmospheric forecast data product.
 
 ### Data structure
