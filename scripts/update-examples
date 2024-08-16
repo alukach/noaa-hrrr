@@ -4,8 +4,9 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 
-import stactools.noaa_hrrr.stac
 from pystac import CatalogType
+
+import stactools.noaa_hrrr.stac
 from stactools.noaa_hrrr.metadata import (
     CloudProvider,
     Product,

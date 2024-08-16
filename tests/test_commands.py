@@ -4,6 +4,7 @@ import pytest
 from click import Group
 from click.testing import CliRunner
 from pystac import Collection, Item
+
 from stactools.noaa_hrrr.commands import create_noaahrrr_command
 from stactools.noaa_hrrr.metadata import (
     CloudProvider,

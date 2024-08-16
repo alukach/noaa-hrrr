@@ -1,17 +1,11 @@
 import logging
 import multiprocessing as mp
 from datetime import datetime, timedelta
-from typing import Union
+from typing import Optional, Union
 
 import pandas as pd
 import pystac
-from pystac import (
-    Collection,
-    Extent,
-    Item,
-    SpatialExtent,
-    TemporalExtent,
-)
+from pystac import Collection, Extent, Item, SpatialExtent, TemporalExtent
 from pystac.catalog import CatalogType
 from pystac.extensions.datacube import (
     DatacubeExtension,
@@ -23,6 +17,7 @@ from pystac.extensions.datacube import (
 from pystac.extensions.item_assets import AssetDefinition, ItemAssetsExtension
 from pystac.item_collection import ItemCollection
 from pystac.provider import Provider, ProviderRole
+
 from stactools.noaa_hrrr.constants import (
     BYTE_SIZE,
     COLLECTION_ID_FORMAT,
@@ -438,6 +433,7 @@ def create_item(
     cloud_provider: CloudProvider,
     reference_datetime: datetime,
     forecast_hour: int,
+    collection: Optional[Collection] = None,
 ) -> Item:
     """Creates a STAC item for a region x product x cloud provider x reference_datetime
     (cycle run hour) combination.
@@ -487,6 +483,7 @@ def create_item(
         cloud_provider=cloud_provider,
         reference_datetime=reference_datetime,
         forecast_hour=forecast_hour,
+        collection=collection,
     )
 
 
@@ -497,6 +494,7 @@ def create_item_from_idx_df(
     cloud_provider: CloudProvider,
     reference_datetime: datetime,
     forecast_hour: int,
+    collection: Optional[Collection] = None,
 ) -> Item:
     """Creates a STAC item for a region x product x cloud provider x reference_datetime
     (cycle run hour) combination and a provided idx dataframe.
@@ -550,6 +548,7 @@ def create_item_from_idx_df(
         geometry=region_config.geometry_4326,
         bbox=region_config.bbox_4326,
         datetime=forecast_datetime,
+        collection=collection,
         properties={
             "forecast:reference_time": reference_datetime.strftime(
                 "%Y-%m-%dT%H:%M:%SZ"
@@ -613,11 +612,17 @@ def create_item_safe(
     cloud_provider: CloudProvider,
     reference_datetime: datetime,
     forecast_hour: int,
+    collection: Optional[Collection],
 ) -> Union[Item, None]:
     """Try to create an item and raise a warning if it fails"""
     try:
         return create_item(
-            region, product, cloud_provider, reference_datetime, forecast_hour
+            region,
+            product,
+            cloud_provider,
+            reference_datetime,
+            forecast_hour,
+            collection,
         )
     except NotFoundError as e:
         logging.warning(e)
@@ -630,6 +635,7 @@ def create_item_collection(
     cloud_provider: CloudProvider,
     start_date: datetime,
     end_date: datetime,
+    collection: Optional[Collection] = None,
 ) -> pystac.ItemCollection:
     """Create an item collection containing all items for a date range"""
 
@@ -644,7 +650,14 @@ def create_item_collection(
             forecast_cycle_type = ForecastCycleType.from_timestamp(reference_datetime)
             for forecast_hour in forecast_cycle_type.generate_forecast_hours():
                 tasks.append(
-                    (region, product, cloud_provider, reference_datetime, forecast_hour)
+                    (
+                        region,
+                        product,
+                        cloud_provider,
+                        reference_datetime,
+                        forecast_hour,
+                        collection,
+                    )
                 )
 
         reference_date += one_day

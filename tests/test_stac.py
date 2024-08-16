@@ -2,6 +2,7 @@ import json
 from datetime import datetime, timedelta
 
 import pytest
+
 from stactools.noaa_hrrr import stac
 from stactools.noaa_hrrr.constants import (
     COLLECTION_ID_FORMAT,
@@ -79,6 +80,29 @@ def test_create_item(
     )  # because hour=6
 
     _ = json.dumps(item.to_dict())
+
+
+def test_create_item_with_collection() -> None:
+    region = Region.conus
+    product = Product.sfc
+    cloud_provider = CloudProvider.aws
+    item = stac.create_item(
+        region=region,
+        product=product,
+        cloud_provider=cloud_provider,
+        reference_datetime=datetime(year=2024, month=1, day=1, hour=6),
+        forecast_hour=12,
+        collection=stac.create_collection(
+            region=region,
+            product=product,
+            cloud_provider=cloud_provider,
+        ),
+    )
+    assert item.collection_id == COLLECTION_ID_FORMAT.format(
+        region=region.value,
+        product=product.value,
+        cloud_provider=cloud_provider.value,
+    )
 
 
 def test_create_item_collection() -> None:
