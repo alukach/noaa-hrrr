@@ -9,9 +9,11 @@ number as needed.
 
 ## [Unreleased]
 
-- Add `collection_id` to items
+- Nothing
 
-[Unreleased]: <https://github.com/stactools-packages/noaa-hrrr/tree/main/>
+## [0.1.2] - 2024-08-16
+
+- Add `collection` to items
 
 ## [0.1.1] - 2024-07-15
 
@@ -24,5 +26,7 @@ number as needed.
 - Item creation
 - `grib:layers` asset property for describing individual layers within a GRIB2 file
 
+[0.1.2]: <https://github.com/developmentseed/noaa-hrrr/releases/tag/0.1.2>
 [0.1.1]: <https://github.com/developmentseed/noaa-hrrr/releases/tag/0.1.1>
 [0.1.0]: <https://github.com/developmentseed/noaa-hrrr/releases/tag/0.1.0>
+[Unreleased]: <https://github.com/stactools-packages/noaa-hrrr/tree/main/>
