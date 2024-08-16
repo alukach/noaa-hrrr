@@ -98,8 +98,11 @@ def test_create_item_with_collection() -> None:
             cloud_provider=cloud_provider,
         ),
     )
-    print(item.links)
-    item.validate()
+    assert item.collection_id == COLLECTION_ID_FORMAT.format(
+        region=region.value,
+        product=product.value,
+        cloud_provider=cloud_provider.value,
+    )
 
 
 def test_create_item_collection() -> None:
