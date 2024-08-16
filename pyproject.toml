@@ -60,7 +60,7 @@ strict = true
 mypy_path = "src"
 
 [tool.ruff]
-select = ["E", "F", "I"]
+lint.select = ["E", "F", "I"]
 
 [tool.setuptools.package-data]
 "stactools.noaa_hrrr.data" = ["*.csv.gz"]

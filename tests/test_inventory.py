@@ -1,5 +1,6 @@
 import pandas as pd
 import pytest
+
 from stactools.noaa_hrrr.inventory import (
     DESCRIPTION_COLS,
     INVENTORY_COLS,
