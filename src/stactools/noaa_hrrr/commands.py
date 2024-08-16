@@ -4,16 +4,13 @@ from datetime import datetime
 
 import click
 from click import Command, Group
+
 from stactools.noaa_hrrr import stac
 from stactools.noaa_hrrr.constants import (
     COLLECTION_ID_FORMAT,
     EXTENDED_FORECAST_MAX_HOUR,
 )
-from stactools.noaa_hrrr.metadata import (
-    CloudProvider,
-    Product,
-    Region,
-)
+from stactools.noaa_hrrr.metadata import CloudProvider, Product, Region
 
 logger = logging.getLogger(__name__)
 
