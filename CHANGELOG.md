@@ -9,7 +9,7 @@ number as needed.
 
 ## [Unreleased]
 
-- Nothing.
+- Add `collection_id` to items
 
 [Unreleased]: <https://github.com/stactools-packages/noaa-hrrr/tree/main/>
 

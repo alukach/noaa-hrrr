@@ -550,6 +550,10 @@ def create_item_from_idx_df(
         geometry=region_config.geometry_4326,
         bbox=region_config.bbox_4326,
         datetime=forecast_datetime,
+        collection=COLLECTION_ID_FORMAT.format(
+            product=product.value,
+            region=region.value,
+        ),
         properties={
             "forecast:reference_time": reference_datetime.strftime(
                 "%Y-%m-%dT%H:%M:%SZ"
